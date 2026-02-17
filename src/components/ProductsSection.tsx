@@ -2,6 +2,12 @@ import { Button } from "@/components/ui/button";
 import freshLeavesImg from "@/assets/fresh-betel-leaves.jpg";
 import powderTeaImg from "@/assets/betel-powder-tea.jpg";
 import teaBagsImg from "@/assets/betel-tea-bags.jpg";
+import infusedWaterImg from "@/assets/betel-infused-water.jpg";
+import oilImg from "@/assets/betel-oil.jpg";
+import extractImg from "@/assets/betel-extract.jpg";
+import facePackImg from "@/assets/betel-face-pack.jpg";
+import mouthFreshenerImg from "@/assets/betel-mouth-freshener.jpg";
+import balmImg from "@/assets/betel-balm.jpg";
 
 const products = [
   {
@@ -19,6 +25,36 @@ const products = [
     desc: "Convenient herbal tea bags crafted from premium betel leaf powder. A refreshing and healthy daily ritual — simply steep and enjoy.",
     image: teaBagsImg,
   },
+  {
+    title: "Betel Leaf Infused Water",
+    desc: "Refreshing detox water infused with fresh betel leaves. Rich in antioxidants and natural minerals for daily hydration and wellness.",
+    image: infusedWaterImg,
+  },
+  {
+    title: "Betel Leaf Essential Oil",
+    desc: "Cold-pressed essential oil extracted from premium betel leaves. Used in aromatherapy, massage, and traditional medicine for its antiseptic and healing properties.",
+    image: oilImg,
+  },
+  {
+    title: "Betel Leaf Extract",
+    desc: "Concentrated herbal tincture from betel leaves for dietary supplementation. Supports digestion, immunity, and overall vitality.",
+    image: extractImg,
+  },
+  {
+    title: "Betel Leaf Face Pack",
+    desc: "Natural skincare paste made from betel leaf for glowing, healthy skin. Anti-bacterial and anti-inflammatory — ideal for acne and blemish control.",
+    image: facePackImg,
+  },
+  {
+    title: "Betel Leaf Mouth Freshener",
+    desc: "Traditional paan-inspired mouth freshener with dried betel leaf and natural spices. A refreshing after-meal ritual with digestive benefits.",
+    image: mouthFreshenerImg,
+  },
+  {
+    title: "Betel Leaf Healing Balm",
+    desc: "Herbal balm infused with betel leaf extract for pain relief, wound healing, and skin care. A natural remedy rooted in ancient tradition.",
+    image: balmImg,
+  },
 ];
 
 const ProductsSection = () => (
@@ -28,7 +64,7 @@ const ProductsSection = () => (
         <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">What We Offer</p>
         <h2 className="text-3xl md:text-4xl font-bold text-primary">Our Products</h2>
       </div>
-      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {products.map((p) => (
           <div key={p.title} className="bg-card rounded-lg overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow">
             <div className="aspect-square overflow-hidden">

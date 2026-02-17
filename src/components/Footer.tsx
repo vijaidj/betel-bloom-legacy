@@ -10,13 +10,13 @@ const Footer = () => (
         </div>
         <div className="space-y-2">
           <h4 className="font-semibold text-sm uppercase tracking-wider mb-3 opacity-70">Contact</h4>
-          <a href="tel:+919999999999" className="flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity">
-            <Phone className="h-4 w-4" /> +91 99999 99999
+          <a href="tel:+916379144257" className="flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity">
+            <Phone className="h-4 w-4" /> +91 63791 44257
           </a>
           <a href="mailto:info@sholavandanvetrilai.com" className="flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity">
             <Mail className="h-4 w-4" /> info@sholavandanvetrilai.com
           </a>
-          <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity">
+          <a href="https://wa.me/916379144257" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity">
             <MessageCircle className="h-4 w-4" /> WhatsApp Order
           </a>
         </div>

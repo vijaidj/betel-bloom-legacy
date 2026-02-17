@@ -28,7 +28,7 @@ const ContactSection = () => {
 
   const onSubmit = (data: FormData) => {
     const text = `Hi, I'm ${data.name} from ${data.city}.%0APhone: ${data.phone}%0AQuantity: ${data.quantity}%0APurpose: ${data.purpose}%0A${data.message || ""}`;
-    window.open(`https://wa.me/919999999999?text=${text}`, "_blank");
+    window.open(`https://wa.me/916379144257?text=${text}`, "_blank");
     toast({ title: "Redirecting to WhatsApp", description: "Your enquiry is being sent via WhatsApp." });
     form.reset();
   };

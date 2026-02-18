@@ -5,7 +5,7 @@ import heroBetel from "@/assets/hero-betel.jpg";
 const WHATSAPP_URL = "https://wa.me/916379144257?text=Hello%2C%20I%20am%20interested%20in%20your%20betel%20leaves.";
 
 const HeroSection = () => (
-  <section id="home" className="relative min-h-[90vh] flex items-center pt-16 overflow-hidden">
+  <section id="home" className="relative min-h-[90vh] flex items-center pt-36 overflow-hidden">
     {/* Background image */}
     <div className="absolute inset-0">
       <img src={heroBetel} alt="Fresh betel leaves" className="w-full h-full object-cover" />

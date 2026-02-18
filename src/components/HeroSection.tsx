@@ -25,7 +25,7 @@ const HeroSection = () => (
           <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-base px-8" asChild>
             <a href="#contact">Enquire Now</a>
           </Button>
-          <Button size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 text-base px-8 gap-2" asChild>
+          <Button size="lg" variant="outline" className="border-accent bg-accent/20 text-primary-foreground hover:bg-accent/30 text-base px-8 gap-2" asChild>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5" /> WhatsApp Order
             </a>

@@ -10,7 +10,7 @@ const benefits = [
 ];
 
 const BenefitsSection = () => (
-  <section id="benefits" className="py-20">
+  <section id="benefits" className="py-20 bg-primary/5 betel-pattern">
     <div className="container mx-auto px-4">
       <div className="text-center mb-12">
         <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">Nature's Gift</p>

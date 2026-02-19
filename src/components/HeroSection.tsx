@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 import heroBetel from "@/assets/hero-betel.jpg";
+import GIBadge from "@/components/GIBadge";
 
 const WHATSAPP_URL = "https://wa.me/916379144257?text=Hello%2C%20I%20am%20interested%20in%20your%20betel%20leaves.";
 
@@ -21,7 +22,7 @@ const HeroSection = () => (
         <p className="text-lg md:text-xl text-primary-foreground/80 max-w-xl mb-10">
           Premium Bulk Supply for Weddings &amp; Puja — Harvested Fresh from Our Heritage Farms
         </p>
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-base px-8" asChild>
             <a href="#contact">Enquire Now</a>
           </Button>
@@ -30,6 +31,14 @@ const HeroSection = () => (
               <MessageCircle className="h-5 w-5" /> WhatsApp Order
             </a>
           </Button>
+        </div>
+        {/* GI Badge */}
+        <div className="flex items-center gap-4 bg-primary-foreground/10 backdrop-blur-sm rounded-2xl px-5 py-3 w-fit border border-primary-foreground/20">
+          <GIBadge size="sm" />
+          <div>
+            <p className="text-primary-foreground font-semibold text-sm">GI Certified Product</p>
+            <p className="text-primary-foreground/70 text-xs">Geographical Indication of India</p>
+          </div>
         </div>
       </div>
     </div>

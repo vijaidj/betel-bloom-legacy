@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Menu, X, MessageCircle, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
-import giLogo from "@/assets/gi-logo.jpg";
+import giLogo from "@/assets/gi-logo.png";
 
 const WHATSAPP_URL = "https://wa.me/916379144257?text=Hello%2C%20I%20am%20interested%20in%20your%20betel%20leaves.";
 
@@ -24,8 +24,8 @@ const Navbar = () => {
         <div className="container mx-auto flex items-center justify-between px-4 py-1.5 text-xs tracking-wide">
           <span className="hidden sm:inline opacity-80">🌿 Direct from Our Farm — No Middlemen, Pure Authenticity</span>
           <div className="flex items-center gap-3 mx-auto sm:mx-0">
-            <div className="flex items-center gap-1.5 bg-primary-foreground/10 rounded-full px-3 py-1">
-              <img src={giLogo} alt="GI Certified" className="h-5 w-5 rounded-sm object-contain mix-blend-multiply" />
+            <div className="flex items-center gap-1.5 rounded-full px-3 py-1">
+              <img src={giLogo} alt="GI Certified" className="h-6 w-6 object-contain drop-shadow-sm" style={{ filter: 'brightness(1.1)' }} />
               <span className="font-semibold text-accent">GI Certified Product</span>
             </div>
             <span className="hidden md:inline opacity-70">|</span>
@@ -45,8 +45,8 @@ const Navbar = () => {
             <img src={logo} alt="Sri Sholavandan Heritage Vetrilai" className="h-20 md:h-24 w-auto object-contain rounded-full shadow-md" />
           </a>
           <div className="hidden md:flex items-center gap-2">
-            <div className="flex items-center gap-2 border border-accent/30 rounded-full px-3 py-1.5 bg-accent/5">
-              <img src={giLogo} alt="GI Tag" className="h-10 w-10 rounded-sm object-contain mix-blend-multiply" />
+            <div className="flex items-center gap-2 border border-accent/30 rounded-full px-3 py-1.5 bg-background">
+              <img src={giLogo} alt="GI Tag" className="h-10 w-10 object-contain" style={{ filter: 'brightness(1.1)' }} />
               <div className="text-left">
                 <p className="text-[10px] font-bold text-accent leading-tight">GI TAGGED</p>
                 <p className="text-[9px] text-muted-foreground leading-tight">Govt. of India</p>
@@ -84,7 +84,7 @@ const Navbar = () => {
             </a>
           ))}
           <div className="flex items-center gap-2 py-2">
-            <img src={giLogo} alt="GI Tag" className="h-8 w-8 rounded-sm object-contain mix-blend-multiply" />
+            <img src={giLogo} alt="GI Tag" className="h-8 w-8 object-contain" style={{ filter: 'brightness(1.1)' }} />
             <span className="text-xs font-semibold text-accent">GI Certified Product — Govt. of India</span>
           </div>
           <Button size="sm" className="w-full bg-accent text-accent-foreground hover:bg-accent/90 gap-1.5" asChild>

@@ -100,7 +100,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="py-4 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-white/5">
+        {/* SEO keyword-rich Tamil section */}
+        <div className="py-4 border-t border-white/5">
+          <p className="text-[11px] text-white/20 text-center mb-3 leading-relaxed">
+            Sri Sholavandan Heritage Vetrilai | GI Certified Betel Leaf from Tamil Nadu | Supplier for Weddings, Thamboolam, Pooja, Housewarming & Bulk Functions | Madurai | Contact: +91 63791 44257
+          </p>
+          <p className="text-[11px] text-white/15 text-center mb-4" lang="ta">
+            சோழவந்தான் வெற்றிலை – திருமணம், பூஜை மற்றும் விழாக்களுக்கு ஏற்ற GI சான்றிதழ் பெற்ற வெற்றிலை
+          </p>
+        </div>
+        <div className="py-3 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-white/5">
           <p className="text-[11px] text-white/30">
             © {new Date().getFullYear()} Sri Sholavandan Heritage Vetrilai. All rights reserved.
           </p>

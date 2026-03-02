@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, MessageCircle, Award } from "lucide-react";
+import { Menu, X, MessageCircle, Award, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 import giLogo from "@/assets/gi-logo.png";
@@ -22,13 +22,21 @@ const Navbar = () => {
       {/* Premium top bar */}
       <div className="bg-primary text-primary-foreground">
         <div className="container mx-auto flex items-center justify-between px-4 py-1.5 text-xs tracking-wide">
-          <span className="hidden sm:inline opacity-80">🌿 Direct from Our Farm — No Middlemen, Pure Authenticity</span>
-          <div className="flex items-center gap-3 mx-auto sm:mx-0">
-            <div className="flex items-center gap-1.5 rounded-full px-3 py-1">
-              <img src={giLogo} alt="GI Certified" className="h-6 w-6 rounded-full object-contain bg-white p-0.5" />
-              <span className="font-semibold text-accent">GI Certified Product</span>
+          <div className="flex items-center gap-3">
+            <a href="tel:+916379144257" className="flex items-center gap-1 hover:text-accent transition-colors">
+              <Phone className="h-3 w-3" /> +91 63791 44257
+            </a>
+            <span className="opacity-50">|</span>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-accent transition-colors">
+              <MessageCircle className="h-3 w-3" /> WhatsApp
+            </a>
+          </div>
+          <div className="hidden sm:flex items-center gap-3">
+            <div className="flex items-center gap-1.5">
+              <img src={giLogo} alt="GI Certified" className="h-5 w-5 rounded-full object-contain bg-white p-0.5" />
+              <span className="font-semibold text-accent">GI Certified</span>
             </div>
-            <span className="hidden md:inline opacity-70">|</span>
+            <span className="hidden md:inline opacity-50">|</span>
             <span className="hidden md:inline opacity-80">3rd Gen Heritage Farmers</span>
           </div>
         </div>

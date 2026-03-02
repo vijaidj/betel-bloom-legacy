@@ -9,7 +9,7 @@ const HeroSection = () => (
   <section id="home" className="relative min-h-[90vh] flex items-center pt-36 overflow-hidden">
     {/* Background image */}
     <div className="absolute inset-0">
-      <img src={heroBetel} alt="Fresh betel leaves" className="w-full h-full object-cover" />
+      <img src={heroBetel} alt="Fresh Sholavandan GI betel leaf for Tamil wedding thamboolam" className="w-full h-full object-cover" loading="eager" />
       <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-primary/40" />
     </div>
 
@@ -17,10 +17,10 @@ const HeroSection = () => (
       <div className="max-w-2xl">
         <p className="text-accent font-medium tracking-widest uppercase text-sm mb-4">Since Generations</p>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight mb-6">
-          GI Certified<br />Sholavandan Betel Leaf
+          Sholavandan GI Certified Betel Leaf – <span className="block text-accent">வெற்றிலை</span>
         </h1>
         <p className="text-lg md:text-xl text-primary-foreground/80 max-w-xl mb-10">
-          Premium Bulk Supply for Weddings &amp; Puja — Harvested Fresh from Our Heritage Farms
+          Premium Bulk Supply for Weddings, Thamboolam &amp; Puja — Harvested Fresh from Our Heritage Farms
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-base px-8" asChild>

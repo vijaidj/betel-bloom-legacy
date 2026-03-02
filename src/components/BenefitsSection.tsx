@@ -14,7 +14,7 @@ const BenefitsSection = () => (
     <div className="container mx-auto px-4">
       <div className="text-center mb-12">
         <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">Nature's Gift</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-primary">Benefits of Betel Leaf</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary">Health Benefits of Sholavandan Vetrilai</h2>
         <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
           Revered in Ayurveda for centuries, the betel leaf offers a wealth of health benefits backed by tradition and modern research.
         </p>

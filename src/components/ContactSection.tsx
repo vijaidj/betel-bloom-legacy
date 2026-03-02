@@ -49,7 +49,7 @@ const ContactSection = () => {
             <p className="text-accent font-medium tracking-widest uppercase text-xs">Get in Touch</p>
             <div className="w-1.5 h-1.5 bg-accent rounded-full" />
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-3">Enquire Now</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-primary mb-3">Order Sholavandan Vetrilai Online</h2>
           <p className="text-muted-foreground max-w-md mx-auto">Fill in your details and we'll connect with you on WhatsApp for a personalised quote.</p>
         </div>
 

@@ -34,7 +34,7 @@ const AboutSection = () => (
         {/* Image side */}
         <div className="relative">
           <div className="rounded-3xl overflow-hidden shadow-2xl">
-            <img src={farmImg} alt="Betel leaf farm in Sholavandan" className="w-full h-[400px] lg:h-[500px] object-cover" />
+            <img src={farmImg} alt="GI certified Sholavandan vetrilai heritage farm in Tamil Nadu" className="w-full h-[400px] lg:h-[500px] object-cover" loading="lazy" />
           </div>
           {/* Floating stats card */}
           <div className="absolute -bottom-6 -right-4 lg:-right-8 bg-primary text-primary-foreground rounded-2xl p-5 shadow-xl">
@@ -56,7 +56,7 @@ const AboutSection = () => (
         <div>
           <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">Our Heritage</p>
           <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6 leading-tight">
-            Native Farmers of<br />Sholavandan
+            Why Choose GI Certified Vetrilai?
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
             For generations, our family has cultivated premium betel leaves in the fertile lands of Sholavandan, Tamil Nadu. 

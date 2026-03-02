@@ -77,7 +77,7 @@ const ProductsSection = () => (
           <Leaf className="h-4 w-4" />
           Direct from Our Farms
         </div>
-        <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Our Products</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Bulk Orders for Functions & Events</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
           Every product is crafted from betel leaves grown in our own heritage farms in Sholavandan, Tamil Nadu — 
           no middlemen, no compromise. From farm to you, with love and tradition.
@@ -113,7 +113,8 @@ const ProductsSection = () => (
             <div className="aspect-square overflow-hidden relative">
               <img
                 src={p.image}
-                alt={p.title}
+                alt={`${p.title} - Sholavandan GI certified betel leaf product`}
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               {/* Tagline badge */}

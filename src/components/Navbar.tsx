@@ -21,23 +21,26 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50">
       {/* Premium top bar */}
       <div className="bg-primary text-primary-foreground">
-        <div className="container mx-auto flex items-center justify-between px-4 py-1.5 text-xs tracking-wide">
-          <div className="flex items-center gap-3">
-            <a href="tel:+916379144257" className="flex items-center gap-1 hover:text-accent transition-colors">
-              <Phone className="h-3 w-3" /> +91 63791 44257
+        <div className="container mx-auto flex items-center justify-between px-4 py-2 text-xs tracking-wide">
+          <div className="flex items-center gap-2 sm:gap-4">
+            <a href="tel:+916379144257" className="flex items-center gap-1.5 font-semibold hover:text-accent transition-colors">
+              <Phone className="h-3.5 w-3.5" />
+              <span className="hidden sm:inline">📞 Order Now:</span> +91 63791 44257
             </a>
-            <span className="opacity-50">|</span>
+            <span className="opacity-40">|</span>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-accent transition-colors">
-              <MessageCircle className="h-3 w-3" /> WhatsApp
+              <MessageCircle className="h-3.5 w-3.5" /> <span className="hidden xs:inline">WhatsApp</span>
             </a>
           </div>
-          <div className="hidden sm:flex items-center gap-3">
-            <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2 sm:gap-4">
+            <span className="flex items-center gap-1 font-medium">
+              🚚 <span className="hidden sm:inline">Free delivery above</span> <span className="sm:hidden">Free &gt;</span> ₹500
+            </span>
+            <span className="hidden md:inline opacity-40">|</span>
+            <div className="hidden md:flex items-center gap-1.5">
               <img src={giLogo} alt="GI Certified" className="h-5 w-5 rounded-full object-contain bg-white p-0.5" />
               <span className="font-semibold text-accent">GI Certified</span>
             </div>
-            <span className="hidden md:inline opacity-50">|</span>
-            <span className="hidden md:inline opacity-80">3rd Gen Heritage Farmers</span>
           </div>
         </div>
       </div>

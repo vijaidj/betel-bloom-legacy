@@ -18,7 +18,7 @@ const HeroSection = () => (
         <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-5 animate-fade-in">Since Generations</p>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6">
           Sholavandan's Finest – <br />GI Certified Betel Leaf
-          <span className="block text-accent mt-2 text-3xl md:text-4xl">வெற்றிலை</span>
+          <span className="block text-accent mt-2 text-3xl md:text-4xl">சோழவந்தான் புவிசார் குறியீடு வெற்றிலை</span>
         </h1>
         <p className="text-lg md:text-xl text-primary-foreground/80 max-w-xl mb-4 font-medium">
           Fresh • Fragrant • Farm Direct • Wedding Ready

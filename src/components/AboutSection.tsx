@@ -30,7 +30,7 @@ const AboutSection = () => (
           {/* Tamil decorative divider */}
           <div className="border-t border-accent/30 pt-6">
             <p className="text-accent font-semibold text-center italic" lang="ta">
-              "வெற்றிலையில் சோளவந்தான் – தரத்தில் முதன்மை"
+              "வெற்றிலையில் சோழவந்தான் – தரத்தில் முதன்மை"
             </p>
             <p className="text-xs text-muted-foreground text-center mt-1">
               In betel leaf, Sholavandan is the finest

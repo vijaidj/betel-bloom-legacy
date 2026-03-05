@@ -6,10 +6,10 @@ const WHATSAPP_URL = "https://wa.me/916379144257?text=Hi%2C%20I%20want%20to%20or
 const TamilSection = () => (
   <section className="py-16 bg-primary text-primary-foreground">
     <div className="container mx-auto px-4 text-center max-w-3xl">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6" lang="ta">சோளவந்தான் வெற்றிலை</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-6" lang="ta">சோழவந்தான் வெற்றிலை</h2>
       <div className="space-y-4 text-primary-foreground/80 leading-relaxed mb-8" lang="ta">
         <p>
-          சோளவந்தான் வெற்றிலை – திருமணம், தாம்பூலம், பூஜை மற்றும்
+          சோழவந்தான் வெற்றிலை – திருமணம், தாம்பூலம், பூஜை மற்றும்
           விழாக்களுக்கு ஏற்றது.
         </p>
         <p>

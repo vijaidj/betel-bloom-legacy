@@ -1,15 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Heart, Flower2, Home, Sparkles, HandHeart, Gift } from "lucide-react";
 
 const WHATSAPP_URL = "https://wa.me/916379144257?text=Hi%2C%20I%20want%20to%20book%20betel%20leaves%20for%20my%20function";
 
 const occasions = [
-  { emoji: "🎊", label: "Wedding" },
-  { emoji: "🌸", label: "Thamboolam" },
-  { emoji: "🏠", label: "Housewarming" },
-  { emoji: "🌺", label: "Puberty Ceremony" },
-  { emoji: "🙏", label: "Temple Pooja" },
-  { emoji: "🎁", label: "Corporate Gifting" },
+  { icon: Heart, label: "Wedding" },
+  { icon: Flower2, label: "Thamboolam" },
+  { icon: Home, label: "Housewarming" },
+  { icon: Sparkles, label: "Puberty Ceremony" },
+  { icon: HandHeart, label: "Temple Pooja" },
+  { icon: Gift, label: "Corporate Gifting" },
 ];
 
 const OccasionsSection = () => (
@@ -25,8 +25,10 @@ const OccasionsSection = () => (
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto mb-10">
         {occasions.map((o) => (
-          <div key={o.label} className="flex items-center gap-3 p-5 rounded-xl border border-border bg-card hover:border-accent/40 hover:shadow-md transition-all text-center justify-center">
-            <span className="text-2xl">{o.emoji}</span>
+          <div key={o.label} className="flex items-center gap-3 p-5 rounded-xl border border-border bg-card hover:border-accent/40 hover:shadow-md transition-all justify-center">
+            <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+              <o.icon className="h-5 w-5 text-accent" />
+            </div>
             <span className="font-semibold text-primary">{o.label}</span>
           </div>
         ))}

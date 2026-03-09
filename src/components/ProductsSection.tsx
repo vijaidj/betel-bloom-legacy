@@ -9,61 +9,82 @@ import extractImg from "@/assets/betel-extract.jpg";
 import facePackImg from "@/assets/betel-face-pack.jpg";
 import mouthFreshenerImg from "@/assets/betel-mouth-freshener.jpg";
 import balmImg from "@/assets/betel-balm.jpg";
+import paanChocolateImg from "@/assets/paan-chocolate.jpg";
+import driedLeavesImg from "@/assets/dried-betel-leaves.jpg";
+import garlandImg from "@/assets/betel-garland.jpg";
 
 const products = [
   {
     title: "Fresh Betel Leaves",
     tagline: "Farm to Door",
-    desc: "Hand-picked at dawn from our heritage farms in Sholavandan. Premium quality vetrilai — ideal for weddings, puja ceremonies, and daily rituals. Available in bulk with same-day harvest freshness guaranteed.",
+    desc: "Hand-picked at dawn from our heritage farms along the Vaigai river basin. Premium GI-certified Sholavandan vetrilai — the gold standard for weddings, thamboolam, puja & daily rituals. Same-day harvest freshness, delivered in bulk.",
     image: freshLeavesImg,
     featured: true,
   },
   {
+    title: "Paan Roche – Betel Leaf Chocolate",
+    tagline: "The Healthy Indian Dessert",
+    desc: "A luxurious fusion of tradition and indulgence — rich chocolate truffles wrapped in fresh betel leaves. The perfect after-meal treat that redefines paan as a premium healthy dessert. Ideal for gifting, weddings & corporate events.",
+    image: paanChocolateImg,
+  },
+  {
+    title: "Dried Betel Leaves",
+    tagline: "Long Shelf Life",
+    desc: "Sun-dried and carefully preserved Sholavandan betel leaves that retain their natural aroma and medicinal properties. Perfect for Ayurvedic preparations, herbal remedies, and export. Available in bulk quantities year-round.",
+    image: driedLeavesImg,
+  },
+  {
+    title: "Betel Leaf Garland (Vetrilai Maalai)",
+    tagline: "Wedding Special",
+    desc: "Handcrafted fresh betel leaf garlands for traditional Tamil weddings and temple ceremonies. Each garland is made with carefully selected, glossy Sholavandan leaves — a mark of auspiciousness and cultural heritage.",
+    image: garlandImg,
+  },
+  {
     title: "Betel Leaf Powder",
     tagline: "100% Natural",
-    desc: "Sun-dried and stone-ground betel leaf powder retaining all traditional health benefits. Perfect for herbal tea, smoothies, and Ayurvedic preparations.",
+    desc: "Stone-ground from sun-dried Sholavandan betel leaves, retaining all traditional health benefits. Rich in antioxidants — perfect for herbal tea, smoothies, Ayurvedic formulations & natural supplements.",
     image: powderTeaImg,
   },
   {
     title: "Betel Leaf Tea Bags",
     tagline: "Ready to Brew",
-    desc: "Convenient herbal tea bags crafted from our premium betel leaf powder. A refreshing, caffeine-free daily ritual — simply steep for 3 minutes and enjoy the natural goodness.",
+    desc: "Convenient herbal tea bags crafted from our premium betel leaf powder. A refreshing, caffeine-free daily wellness ritual — simply steep for 3 minutes. Known to aid digestion, boost immunity & promote oral health.",
     image: teaBagsImg,
   },
   {
     title: "Betel Leaf Infused Water",
     tagline: "Daily Detox",
-    desc: "Refreshing detox water infused with fresh betel leaves. Rich in antioxidants and natural minerals — your perfect companion for daily hydration and wellness.",
+    desc: "Refreshing detox water infused with fresh Sholavandan betel leaves. Packed with natural antioxidants, minerals & vitamins — your perfect daily companion for hydration, digestion and natural wellness.",
     image: infusedWaterImg,
   },
   {
     title: "Betel Leaf Essential Oil",
     tagline: "Cold Pressed",
-    desc: "Pure essential oil extracted from premium betel leaves using traditional cold-press methods. Used in aromatherapy, massage, and natural medicine for its antiseptic and healing properties.",
+    desc: "Pure essential oil extracted from premium betel leaves using traditional cold-press methods. Prized in aromatherapy and natural medicine for its powerful antiseptic, anti-inflammatory and healing properties.",
     image: oilImg,
   },
   {
     title: "Betel Leaf Extract",
     tagline: "Concentrated Wellness",
-    desc: "Potent herbal tincture from hand-selected betel leaves for dietary supplementation. Supports digestion, boosts immunity, and promotes overall vitality.",
+    desc: "Potent herbal tincture from hand-selected Sholavandan betel leaves. A concentrated dose of nature's goodness — supports digestion, strengthens immunity, and promotes overall vitality. Perfect for daily supplementation.",
     image: extractImg,
   },
   {
     title: "Betel Leaf Face Pack",
     tagline: "Natural Skincare",
-    desc: "Artisanal skincare paste made from betel leaf for radiant, healthy skin. Anti-bacterial and anti-inflammatory — a time-tested remedy for acne and blemish control.",
+    desc: "Artisanal skincare paste crafted from betel leaf with turmeric and natural herbs. Anti-bacterial and anti-inflammatory — a time-tested Ayurvedic remedy for radiant skin, acne control and natural glow.",
     image: facePackImg,
   },
   {
     title: "Betel Leaf Mouth Freshener",
     tagline: "Traditional Paan",
-    desc: "Authentic paan-inspired mouth freshener with dried betel leaf, cardamom, and natural spices. A delightful after-meal ritual rooted in Indian tradition with digestive benefits.",
+    desc: "Authentic paan-inspired mouth freshener with dried betel leaf, cardamom, fennel seeds & natural spices. A delightful after-meal ritual rooted in Indian tradition — aids digestion and freshens breath naturally.",
     image: mouthFreshenerImg,
   },
   {
     title: "Betel Leaf Healing Balm",
     tagline: "Ancient Remedy",
-    desc: "Handcrafted herbal balm infused with betel leaf extract for pain relief, wound healing, and skin nourishment. A natural remedy passed down through generations.",
+    desc: "Handcrafted herbal balm infused with Sholavandan betel leaf extract. An all-natural remedy for pain relief, wound healing and skin nourishment — a family recipe passed down through three generations of farmers.",
     image: balmImg,
   },
 ];
@@ -77,10 +98,10 @@ const ProductsSection = () => (
           <Leaf className="h-4 w-4" />
           Direct from Our Farms
         </div>
-        <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Bulk Orders for Functions & Events</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Our Products</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
-          Every product is crafted from betel leaves grown in our own heritage farms in Sholavandan, Tamil Nadu — 
-          no middlemen, no compromise. From farm to you, with love and tradition.
+          From fresh betel leaves to premium paan chocolates — every product is crafted from leaves grown in our own 
+          heritage farms in Sholavandan, Tamil Nadu. No middlemen. No compromise. Farm to you, with love.
         </p>
       </div>
 
@@ -94,9 +115,10 @@ const ProductsSection = () => (
             We Grow. We Harvest. We Deliver.
           </h3>
           <p className="text-primary-foreground/80 text-sm leading-relaxed">
-            As native farmers of Sholavandan, we cultivate every betel leaf ourselves using centuries-old methods. 
-            When you buy from us, you get the freshest produce — harvested that morning and shipped the same day. 
-            No warehouses, no chemicals, just pure heritage quality.
+            As 3rd-generation native farmers of Sholavandan, we cultivate every betel leaf ourselves using centuries-old methods 
+            along the fertile Vaigai river basin. When you buy from us, you get the freshest produce — harvested that morning 
+            and shipped the same day. No warehouses, no chemicals, no artificial preservatives. Just pure heritage quality, 
+            delivered at your doorstep.
           </p>
         </div>
       </div>
@@ -148,7 +170,7 @@ const ProductsSection = () => (
       {/* Bottom CTA */}
       <div className="text-center mt-14">
         <p className="text-muted-foreground mb-4 text-sm">
-          Looking for custom quantities or white-label packaging? We've got you covered.
+          Looking for custom quantities, white-label packaging, or bulk export orders? We've got you covered.
         </p>
         <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 gap-2" asChild>
           <a href="#contact">

@@ -1,17 +1,17 @@
-import freshLeaves from "@/assets/fresh-betel-leaves.jpg";
-import farmImg from "@/assets/farm-heritage.jpg";
-import heroBetel from "@/assets/hero-betel.jpg";
-import powderTea from "@/assets/betel-powder-tea.jpg";
-import teaBags from "@/assets/betel-tea-bags.jpg";
-import giScreenshot from "@/assets/gi-screenshot.png";
+import realLeaf1 from "@/assets/real-betel-leaf-1.jpg";
+import realPlant from "@/assets/real-betel-plant.jpg";
+import realLeaf2 from "@/assets/real-betel-leaf-2.jpg";
+import realNutsLime from "@/assets/real-betel-nuts-lime.jpg";
+import realLeaf3 from "@/assets/real-betel-leaf-3.jpg";
+import realPaan from "@/assets/real-paan-making.jpg";
 
 const images = [
-  { src: freshLeaves, alt: "Fresh Sholavandan betel leaves ready for wedding thamboolam", label: "Fresh Betel Leaves" },
-  { src: heroBetel, alt: "Wedding thamboolam arrangement with Sholavandan vetrilai", label: "Wedding Thamboolam" },
-  { src: powderTea, alt: "Betel leaf packaging for bulk delivery", label: "Leaf Packaging" },
-  { src: farmImg, alt: "Sholavandan betel leaf farm harvest", label: "Farm Harvest" },
-  { src: teaBags, alt: "Bulk order packing of GI certified betel leaves", label: "Bulk Order Packing" },
-  { src: giScreenshot, alt: "GI certified Sholavandan betel leaf product", label: "GI Certified Product" },
+  { src: realLeaf1, alt: "Fresh betel leaves from Sholavandan farm", label: "Fresh Betel Leaves" },
+  { src: realPlant, alt: "Betel vine plant growing in Sholavandan", label: "Betel Vine Plant" },
+  { src: realLeaf2, alt: "Close-up of premium betel leaf", label: "Premium Leaf" },
+  { src: realNutsLime, alt: "Traditional betel leaf with nuts and lime", label: "Traditional Setup" },
+  { src: realLeaf3, alt: "Sholavandan betel leaf detail", label: "Leaf Detail" },
+  { src: realPaan, alt: "Traditional paan making with betel leaves", label: "Paan Making" },
 ];
 
 const GallerySection = () => (

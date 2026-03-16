@@ -47,8 +47,8 @@ const Navbar = () => {
       </div>
 
       {/* Main nav */}
-      <div className="bg-background/95 backdrop-blur border-b border-border">
-        <div className="container mx-auto flex items-center justify-between py-2 px-4">
+      <div className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+        <div className="container mx-auto flex items-center justify-between py-1.5 px-4">
           <a href="#home" className="flex items-center">
             <img src={logo} alt="Sri Sholavandan Heritage Vetrilai" className="h-16 md:h-20 w-auto object-contain rounded-full shadow-md" />
           </a>

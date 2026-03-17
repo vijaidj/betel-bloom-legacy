@@ -35,11 +35,10 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
+    <section id="contact" className="py-20 relative overflow-hidden bg-gradient-to-b from-secondary/60 to-secondary/30">
       {/* Decorative background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-primary/10" />
-      <div className="absolute top-0 left-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
+      <div className="absolute top-0 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
       
       <div className="container mx-auto px-4 max-w-2xl relative z-10">
         {/* Header */}

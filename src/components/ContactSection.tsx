@@ -126,11 +126,11 @@ const ContactSection = () => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="wedding">💒 Wedding</SelectItem>
-                      <SelectItem value="puja">🙏 Puja / Religious</SelectItem>
-                      <SelectItem value="retail">🛒 Retail</SelectItem>
-                      <SelectItem value="wholesale">📦 Wholesale / B2B</SelectItem>
-                      <SelectItem value="other">✨ Other</SelectItem>
+                      <SelectItem value="wedding">Wedding</SelectItem>
+                      <SelectItem value="puja">Puja / Religious</SelectItem>
+                      <SelectItem value="retail">Retail</SelectItem>
+                      <SelectItem value="wholesale">Wholesale / B2B</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />

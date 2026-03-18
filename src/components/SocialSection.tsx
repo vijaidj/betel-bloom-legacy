@@ -1,7 +1,9 @@
+import { Instagram, Facebook, Youtube } from "lucide-react";
+
 const socials = [
-  { emoji: "📸", label: "Instagram", href: "#", handle: "@sholavandanvetrilai" },
-  { emoji: "👍", label: "Facebook", href: "#", handle: "Sri Sholavandan Heritage" },
-  { emoji: "▶️", label: "YouTube", href: "#", handle: "Sholavandan Vetrilai" },
+  { icon: Instagram, label: "Instagram", href: "#", handle: "@sholavandanvetrilai" },
+  { icon: Facebook, label: "Facebook", href: "#", handle: "Sri Sholavandan Heritage" },
+  { icon: Youtube, label: "YouTube", href: "#", handle: "Sholavandan Vetrilai" },
 ];
 
 const SocialSection = () => (
@@ -20,7 +22,9 @@ const SocialSection = () => (
             rel="noopener noreferrer"
             className="flex items-center gap-3 px-6 py-4 rounded-xl border border-border bg-card hover:border-accent/40 hover:shadow-md transition-all"
           >
-            <span className="text-2xl">{s.emoji}</span>
+            <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+              <s.icon className="h-5 w-5 text-accent" />
+            </div>
             <div className="text-left">
               <p className="font-semibold text-primary text-sm">{s.label}</p>
               <p className="text-xs text-muted-foreground">{s.handle}</p>

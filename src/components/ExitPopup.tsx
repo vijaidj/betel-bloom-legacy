@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, MessageCircle } from "lucide-react";
+import { X, MessageCircle, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_URL = "https://wa.me/916379144257?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";

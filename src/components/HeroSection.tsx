@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle, Phone, Star } from "lucide-react";
 import heroBetel from "@/assets/hero-betel.jpg";
 import GIBadge from "@/components/GIBadge";
 

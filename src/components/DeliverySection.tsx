@@ -1,4 +1,4 @@
-import { MapPin, Building2, Plane, Package } from "lucide-react";
+import { MapPin, Building2, Plane, Package, CreditCard } from "lucide-react";
 
 const deliveryInfo = [
   { icon: MapPin, title: "Madurai & Surroundings", desc: "Same Day Delivery", color: "bg-accent/15" },

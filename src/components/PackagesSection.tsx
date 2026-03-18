@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Star } from "lucide-react";
+import { MessageCircle, Star, Clock } from "lucide-react";
 
 const packages = [
   {

@@ -1,4 +1,4 @@
-import { MessageCircle, Phone, Mail, MapPin, ArrowUp } from "lucide-react";
+import { MessageCircle, Phone, Mail, MapPin, ArrowUp, Instagram, Facebook, Youtube } from "lucide-react";
 import giLogo from "@/assets/gi-logo.png";
 
 const WHATSAPP_URL = "https://wa.me/916379144257";

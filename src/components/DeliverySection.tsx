@@ -1,4 +1,4 @@
-import { MapPin, Building2, Plane, Package } from "lucide-react";
+import { MapPin, Building2, Plane, Package, CreditCard } from "lucide-react";
 
 const deliveryInfo = [
   { icon: MapPin, title: "Madurai & Surroundings", desc: "Same Day Delivery", color: "bg-accent/15" },
@@ -28,8 +28,8 @@ const DeliverySection = () => (
       </div>
 
       <div className="text-center space-y-3 max-w-xl mx-auto">
-        <p className="text-sm text-muted-foreground">
-          💳 Pay via UPI | Bank Transfer | Cash on Delivery available locally
+        <p className="text-sm text-muted-foreground flex items-center justify-center gap-1.5">
+          <CreditCard className="h-4 w-4 text-accent" /> Pay via UPI | Bank Transfer | Cash on Delivery available locally
         </p>
         <p className="text-xs text-muted-foreground/70">
           All leaves are freshly harvested and packed with care to maintain freshness during transit.

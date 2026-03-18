@@ -1,4 +1,4 @@
-import { MessageCircle, Phone, Mail, MapPin, ArrowUp } from "lucide-react";
+import { MessageCircle, Phone, Mail, MapPin, ArrowUp, Instagram, Facebook, Youtube } from "lucide-react";
 import giLogo from "@/assets/gi-logo.png";
 
 const WHATSAPP_URL = "https://wa.me/916379144257";
@@ -70,10 +70,10 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h4 className="text-[11px] uppercase tracking-[0.25em] mb-4 font-semibold text-accent">Social</h4>
             <div className="space-y-2 text-sm text-white/45">
-              <a href="#" className="block hover:text-accent transition-colors">📸 Instagram</a>
-              <a href="#" className="block hover:text-accent transition-colors">👍 Facebook</a>
-              <a href="#" className="block hover:text-accent transition-colors">▶️ YouTube</a>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block hover:text-accent transition-colors">💬 WhatsApp</a>
+              <a href="#" className="flex items-center gap-2 hover:text-accent transition-colors"><Instagram className="h-4 w-4" /> Instagram</a>
+              <a href="#" className="flex items-center gap-2 hover:text-accent transition-colors"><Facebook className="h-4 w-4" /> Facebook</a>
+              <a href="#" className="flex items-center gap-2 hover:text-accent transition-colors"><Youtube className="h-4 w-4" /> YouTube</a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors"><MessageCircle className="h-4 w-4" /> WhatsApp</a>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle, Phone, Star } from "lucide-react";
 import heroBetel from "@/assets/hero-betel.jpg";
 import GIBadge from "@/components/GIBadge";
 
@@ -48,8 +48,8 @@ const HeroSection = () => (
         </div>
 
         {/* Trust text */}
-        <p className="text-primary-foreground/70 text-sm">
-          ⭐ Trusted by 500+ Weddings Every Year Across Tamil Nadu
+        <p className="text-primary-foreground/70 text-sm flex items-center gap-1.5">
+          <Star className="h-4 w-4 fill-accent text-accent" /> Trusted by 500+ Weddings Every Year Across Tamil Nadu
         </p>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, MessageCircle } from "lucide-react";
+import { X, MessageCircle, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_URL = "https://wa.me/916379144257?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
@@ -27,7 +27,7 @@ const ExitPopup = () => {
         <button onClick={dismiss} className="absolute top-3 right-3 text-primary-foreground/50 hover:text-primary-foreground" aria-label="Close">
           <X className="h-5 w-5" />
         </button>
-        <p className="text-3xl mb-3">🌿</p>
+        <div className="flex justify-center mb-3"><Leaf className="h-8 w-8 text-accent" /></div>
         <h3 className="text-xl font-bold text-primary-foreground mb-2">Special Offer!</h3>
         <p className="text-primary-foreground/80 mb-1">Order Today &amp; Get FREE Delivery!</p>
         <p className="text-primary-foreground/60 text-sm mb-6">WhatsApp us now →</p>

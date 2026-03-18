@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Star } from "lucide-react";
+import { MessageCircle, Star, Clock } from "lucide-react";
 
 const packages = [
   {
@@ -80,8 +80,8 @@ const PackagesSection = () => (
         ))}
       </div>
 
-      <p className="text-center text-sm text-muted-foreground">
-        🕐 Order 48 hours before your function for guaranteed freshness &amp; timely delivery.
+      <p className="text-center text-sm text-muted-foreground flex items-center justify-center gap-1.5">
+        <Clock className="h-4 w-4 text-accent" /> Order 48 hours before your function for guaranteed freshness &amp; timely delivery.
       </p>
     </div>
   </section>

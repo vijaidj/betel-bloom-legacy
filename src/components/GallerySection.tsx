@@ -1,17 +1,13 @@
 import realLeaf1 from "@/assets/real-betel-leaf-1.jpg";
 import realPlant from "@/assets/real-betel-plant.jpg";
 import realLeaf2 from "@/assets/real-betel-leaf-2.jpg";
-import realNutsLime from "@/assets/real-betel-nuts-lime.jpg";
 import realLeaf3 from "@/assets/real-betel-leaf-3.jpg";
-import realPaan from "@/assets/real-paan-making.jpg";
 
 const images = [
   { src: realLeaf1, alt: "Fresh betel leaves from Sholavandan farm", label: "Fresh Betel Leaves" },
   { src: realPlant, alt: "Betel vine plant growing in Sholavandan", label: "Betel Vine Plant" },
   { src: realLeaf2, alt: "Close-up of premium betel leaf", label: "Premium Leaf" },
-  { src: realNutsLime, alt: "Traditional betel leaf with nuts and lime", label: "Traditional Setup" },
   { src: realLeaf3, alt: "Sholavandan betel leaf detail", label: "Leaf Detail" },
-  { src: realPaan, alt: "Traditional paan making with betel leaves", label: "Paan Making" },
 ];
 
 const GallerySection = () => (

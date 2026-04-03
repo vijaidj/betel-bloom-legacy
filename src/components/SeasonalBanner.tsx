@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, PartyPopper } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/916379144257?text=Hi%2C%20I%20want%20to%20claim%20the%20WEDDING10%20offer%20for%20Sholavandan%20Betel%20Leaf";
+const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20claim%20the%20WEDDING10%20offer%20for%20Sholavandan%20Betel%20Leaf";
 
 const SeasonalBanner = () => (
   <section className="py-10">

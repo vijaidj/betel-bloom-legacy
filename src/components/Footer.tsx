@@ -1,7 +1,7 @@
 import { MessageCircle, Phone, Mail, MapPin, ArrowUp, Instagram, Facebook, Youtube } from "lucide-react";
 import giLogo from "@/assets/gi-logo.png";
 
-const WHATSAPP_URL = "https://wa.me/916379144257";
+const WHATSAPP_URL = "https://wa.me/919600441284";
 
 const quickLinks = [
   { label: "Home", href: "#home" },
@@ -51,8 +51,8 @@ const Footer = () => {
           <div className="md:col-span-3">
             <h4 className="text-[11px] uppercase tracking-[0.25em] mb-4 font-semibold text-accent">Contact</h4>
             <div className="space-y-3">
-              <a href="tel:+916379144257" className="flex items-center gap-2 text-sm text-white/45 hover:text-accent transition-colors">
-                <Phone className="h-4 w-4" /> +91 63791 44257
+              <a href="tel:+919600441284" className="flex items-center gap-2 text-sm text-white/45 hover:text-accent transition-colors">
+                <Phone className="h-4 w-4" /> +91 96004 41284
               </a>
               <a href="mailto:info@sholavandanvetrilai.com" className="flex items-center gap-2 text-sm text-white/45 hover:text-accent transition-colors">
                 <Mail className="h-4 w-4" /> info@sholavandanvetrilai.com

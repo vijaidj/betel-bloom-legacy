@@ -3,7 +3,7 @@ import { MessageCircle, Phone, Star } from "lucide-react";
 import heroBetel from "@/assets/hero-betel.jpg";
 import GIBadge from "@/components/GIBadge";
 
-const WHATSAPP_URL = "https://wa.me/916379144257?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
+const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
 
 const HeroSection = () => (
   <section id="home" className="relative flex items-center pt-28 pb-12 overflow-hidden">
@@ -41,8 +41,8 @@ const HeroSection = () => (
             </a>
           </Button>
           <Button size="lg" variant="outline" className="border-accent bg-accent/10 text-primary-foreground hover:bg-accent/20 text-base px-8 h-14 text-lg gap-2" asChild>
-            <a href="tel:+916379144257">
-              <Phone className="h-5 w-5" /> Call Now: +91 63791 44257
+            <a href="tel:+919600441284">
+              <Phone className="h-5 w-5" /> Call Now: +91 96004 41284
             </a>
           </Button>
         </div>

@@ -8,7 +8,7 @@ const packages = [
     quantity: "100 Fresh Betel Leaves",
     price: "Contact for Price",
     popular: false,
-    whatsapp: "https://wa.me/916379144257?text=Hi%2C%20I%20want%20to%20order%20the%20Small%20Pack%20(100%20leaves)%20of%20Sholavandan%20Betel%20Leaf",
+    whatsapp: "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20the%20Small%20Pack%20(100%20leaves)%20of%20Sholavandan%20Betel%20Leaf",
     cta: "Order Now",
   },
   {
@@ -17,7 +17,7 @@ const packages = [
     quantity: "500 Fresh Betel Leaves",
     price: "Contact for Price",
     popular: true,
-    whatsapp: "https://wa.me/916379144257?text=Hi%2C%20I%20want%20to%20order%20the%20Function%20Pack%20(500%20leaves)%20of%20Sholavandan%20Betel%20Leaf",
+    whatsapp: "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20the%20Function%20Pack%20(500%20leaves)%20of%20Sholavandan%20Betel%20Leaf",
     cta: "Order Now",
   },
   {
@@ -26,7 +26,7 @@ const packages = [
     quantity: "1000+ Fresh Betel Leaves",
     price: "Call for Best Price",
     popular: false,
-    whatsapp: "https://wa.me/916379144257?text=Hi%2C%20I%20need%20a%20bulk%20quote%20for%20Wedding%20order%20of%20Sholavandan%20Betel%20Leaf",
+    whatsapp: "https://wa.me/919600441284?text=Hi%2C%20I%20need%20a%20bulk%20quote%20for%20Wedding%20order%20of%20Sholavandan%20Betel%20Leaf",
     cta: "Get Quote",
   },
 ];

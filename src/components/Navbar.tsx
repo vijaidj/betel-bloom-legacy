@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 import giLogo from "@/assets/gi-logo.png";
 
-const WHATSAPP_URL = "https://wa.me/916379144257?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
+const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -24,9 +24,9 @@ const Navbar = () => {
       <div className="bg-primary text-primary-foreground border-b border-primary-foreground/10">
         <div className="container mx-auto flex items-center justify-between px-4 py-1.5 text-xs tracking-wide">
           <div className="flex items-center gap-2 sm:gap-4">
-            <a href="tel:+916379144257" className="flex items-center gap-1.5 font-semibold hover:text-accent transition-colors">
+            <a href="tel:+919600441284" className="flex items-center gap-1.5 font-semibold hover:text-accent transition-colors">
               <Phone className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">📞 Order Now:</span> +91 63791 44257
+              <span className="hidden sm:inline">📞 Order Now:</span> +91 96004 41284
             </a>
             <span className="opacity-40">|</span>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-accent transition-colors">

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Heart, Flower2, Home, Sparkles, HandHeart, Gift } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/916379144257?text=Hi%2C%20I%20want%20to%20book%20betel%20leaves%20for%20my%20function";
+const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20book%20betel%20leaves%20for%20my%20function";
 
 const occasions = [
   { icon: Heart, label: "Wedding" },

@@ -28,7 +28,7 @@ const MapContactSection = () => (
           <h3 className="text-lg font-bold text-primary">Contact Details</h3>
           {[
             { icon: MapPin, label: "Sholavandan, Madurai District, Tamil Nadu, India" },
-            { icon: Phone, label: "+91 63791 44257", href: "tel:+916379144257" },
+            { icon: Phone, label: "+91 96004 41284", href: "tel:+919600441284" },
             { icon: Mail, label: "info@sholavandanvetrilai.com", href: "mailto:info@sholavandanvetrilai.com" },
             { icon: Clock, label: "Monday to Sunday, 6 AM – 8 PM" },
           ].map(({ icon: Icon, label, href }) => (

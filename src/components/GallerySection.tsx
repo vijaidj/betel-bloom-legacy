@@ -9,9 +9,7 @@ const images = [
   { src: realLeaf1, alt: "Fresh betel leaves from Sholavandan farm", label: "Fresh Betel Leaves" },
   { src: realPlant, alt: "Betel vine plant growing in Sholavandan", label: "Betel Vine Plant" },
   { src: realLeaf2, alt: "Close-up of premium betel leaf", label: "Premium Leaf" },
-  { src: realNutsLime, alt: "Traditional betel leaf with nuts and lime", label: "Traditional Setup" },
   { src: realLeaf3, alt: "Sholavandan betel leaf detail", label: "Leaf Detail" },
-  { src: realPaan, alt: "Traditional paan making with betel leaves", label: "Paan Making" },
 ];
 
 const GallerySection = () => (

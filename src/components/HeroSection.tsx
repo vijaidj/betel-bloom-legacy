@@ -13,8 +13,8 @@ const HeroSection = () => (
       <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/50" />
     </div>
 
-    {/* GI Badge - Top Right */}
-    <div className="absolute top-32 right-6 md:right-12 z-20 flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-2xl px-4 py-2.5 border border-primary-foreground/20">
+    {/* GI Badge - Top Right (hidden on mobile, shown inline below on mobile) */}
+    <div className="hidden md:flex absolute top-32 right-12 z-20 items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-2xl px-4 py-2.5 border border-primary-foreground/20">
       <GIBadge size="sm" />
       <div>
         <p className="text-primary-foreground font-semibold text-sm">GI Certified Product</p>
@@ -51,6 +51,15 @@ const HeroSection = () => (
         <p className="text-primary-foreground/70 text-sm flex items-center gap-1.5">
           <Star className="h-4 w-4 fill-accent text-accent" /> Trusted by 500+ Weddings Every Year Across Tamil Nadu
         </p>
+
+        {/* GI Badge - Mobile only */}
+        <div className="flex md:hidden items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-2xl px-4 py-2.5 border border-primary-foreground/20 w-fit mt-4">
+          <GIBadge size="sm" />
+          <div>
+            <p className="text-primary-foreground font-semibold text-sm">GI Certified Product</p>
+            <p className="text-primary-foreground/70 text-xs">Geographical Indication of India</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

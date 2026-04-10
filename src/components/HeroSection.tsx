@@ -51,6 +51,15 @@ const HeroSection = () => (
         <p className="text-primary-foreground/70 text-sm flex items-center gap-1.5">
           <Star className="h-4 w-4 fill-accent text-accent" /> Trusted by 500+ Weddings Every Year Across Tamil Nadu
         </p>
+
+        {/* GI Badge - Mobile only */}
+        <div className="flex md:hidden items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-2xl px-4 py-2.5 border border-primary-foreground/20 w-fit mt-4">
+          <GIBadge size="sm" />
+          <div>
+            <p className="text-primary-foreground font-semibold text-sm">GI Certified Product</p>
+            <p className="text-primary-foreground/70 text-xs">Geographical Indication of India</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -35,12 +35,12 @@ const highlights = [
   {
     id: "wedding",
     icon: Heart,
-    label: "500+ Weddings Served",
+    label: "5000+ Weddings Served",
     image: weddingImg,
-    stat: "500+",
+    stat: "5000+",
     statLabel: "Happy Weddings",
     description:
-      "Trusted by over 500 families for their most important celebrations. Our premium betel leaves have graced weddings, pooja ceremonies, and cultural events across India. We offer bulk wedding packages with dedicated support to ensure your special day is perfect.",
+      "Trusted by over 5000 families worldwide for their most important celebrations. Our premium betel leaves have graced weddings, pooja ceremonies, and cultural events across the globe. We offer bulk wedding packages with dedicated support to ensure your special day is perfect.",
     bullets: [
       "Bulk orders from 1,000 to 50,000+ leaves",
       "Dedicated wedding coordinator",

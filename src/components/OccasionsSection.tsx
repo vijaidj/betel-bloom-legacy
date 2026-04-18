@@ -36,7 +36,7 @@ const OccasionsSection = () => (
 
       <div className="text-center max-w-xl mx-auto">
         <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-          We supply fresh betel leaves for 500+ weddings every year.
+          We supply fresh betel leaves for 5000+ weddings every year worldwide.
           Order 2 days before your function for the freshest leaves delivered to your door.
         </p>
         <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 h-14 px-8 text-base gap-2" asChild>

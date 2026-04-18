@@ -28,7 +28,7 @@ const TestimonialsSection = () => (
         <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">Testimonials</p>
         <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">What Our Customers Say</h2>
         <p className="text-muted-foreground max-w-lg mx-auto">
-          Trusted by families across Tamil Nadu for their most special moments
+          Trusted by families worldwide for their most special moments
         </p>
       </div>
 
@@ -50,7 +50,7 @@ const TestimonialsSection = () => (
       </div>
 
       <div className="text-center">
-        <p className="text-muted-foreground mb-4 font-medium">Join 500+ Happy Families – Order Today</p>
+        <p className="text-muted-foreground mb-4 font-medium">Join 5000+ Happy Families Worldwide – Order Today</p>
         <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 h-14 px-8 text-base gap-2" asChild>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
             <MessageCircle className="h-5 w-5" /> Order on WhatsApp

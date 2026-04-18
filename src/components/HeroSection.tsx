@@ -23,12 +23,12 @@ const HeroSection = () => (
     </div>
 
     <div className="container mx-auto px-4 relative z-10 py-10 md:py-16">
-      <div className="max-w-2xl">
+      <div className="max-w-3xl">
         <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4 animate-fade-in">Since Generations</p>
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-accent leading-tight mb-5 tamil-text whitespace-nowrap" lang="ta">
-          சோழவந்தான் புவிசார் குறியீடு வெற்றிலை
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-accent leading-none mb-5 font-heading animate-fade-in">
+          VetriLeaf
         </h1>
-        <p className="text-lg md:text-xl text-primary-foreground/80 max-w-xl mb-3 font-medium">
+        <p className="text-lg md:text-xl text-primary-foreground/90 max-w-xl mb-3 font-medium">
           Fresh • Fragrant • Farm Direct • Wedding Ready
         </p>
         <p className="text-base text-primary-foreground/70 max-w-xl mb-8">
@@ -49,7 +49,7 @@ const HeroSection = () => (
 
         {/* Trust text */}
         <p className="text-primary-foreground/70 text-sm flex items-center gap-1.5">
-          <Star className="h-4 w-4 fill-accent text-accent" /> Trusted by 500+ Weddings Every Year Across Tamil Nadu
+          <Star className="h-4 w-4 fill-accent text-accent" /> Trusted by 5000+ Weddings Every Year Worldwide
         </p>
 
         {/* GI Badge - Mobile only */}
@@ -59,6 +59,13 @@ const HeroSection = () => (
             <p className="text-primary-foreground font-semibold text-sm">GI Certified Product</p>
             <p className="text-primary-foreground/70 text-xs">Geographical Indication of India</p>
           </div>
+        </div>
+
+        {/* Tamil tagline at bottom */}
+        <div className="mt-10 pt-6 border-t border-accent/30">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-accent leading-tight tamil-text" lang="ta">
+            சோழவந்தான் புவிசார் குறியீடு வெற்றிலை
+          </h2>
         </div>
       </div>
     </div>

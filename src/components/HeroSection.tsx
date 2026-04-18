@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone, Star } from "lucide-react";
 import heroBetel from "@/assets/hero-betel.jpg";
-import logo from "@/assets/logo.png";
+import leafIcon from "@/assets/leaf-icon.png";
 import GIBadge from "@/components/GIBadge";
 
 const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";

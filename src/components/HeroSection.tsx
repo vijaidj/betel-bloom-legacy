@@ -26,16 +26,19 @@ const HeroSection = () => (
     <div className="container mx-auto px-4 relative z-10 py-8 md:py-10">
       <div className="max-w-3xl">
         <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4 animate-fade-in">Since Generations</p>
-        <div className="mb-5 animate-fade-in">
+        <div className="flex items-center gap-4 md:gap-5 mb-4 animate-fade-in">
           <img
-            src={logo}
-            alt="Vetri Leaf — Sholavandan GI Certified Betel Leaf"
-            className="h-32 md:h-44 lg:h-52 w-auto object-contain drop-shadow-2xl"
+            src={leafIcon}
+            alt="Vetri Leaf logo"
+            className="h-20 md:h-28 lg:h-32 w-auto object-contain drop-shadow-2xl"
           />
-          <p className="mt-3 text-accent text-base md:text-lg font-semibold tracking-wide font-heading italic">
-            Sholavandan GI Certified Betel Leaf
-          </p>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-accent leading-none font-heading">
+            Vetri Leaf
+          </h1>
         </div>
+        <p className="mb-5 text-accent text-base md:text-lg font-semibold tracking-wide font-heading italic">
+          Sholavandan GI Certified Betel Leaf
+        </p>
         <p className="text-lg md:text-xl text-primary-foreground/90 max-w-xl mb-3 font-medium">
           Fresh • Fragrant • Farm Direct • Wedding Ready
         </p>

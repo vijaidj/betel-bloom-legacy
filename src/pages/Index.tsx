@@ -17,7 +17,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
-import ExitPopup from "@/components/ExitPopup";
+
 
 const Index = () => {
   return (
@@ -41,7 +41,6 @@ const Index = () => {
       <Footer />
       <WhatsAppButton />
       <ScrollToTop />
-      <ExitPopup />
     </main>
   );
 };

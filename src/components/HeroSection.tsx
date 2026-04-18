@@ -6,7 +6,7 @@ import GIBadge from "@/components/GIBadge";
 const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
 
 const HeroSection = () => (
-  <section id="home" className="relative flex items-center pt-28 pb-12 overflow-hidden">
+  <section id="home" className="relative flex items-center pt-28 pb-6 overflow-hidden">
     {/* Background image */}
     <div className="absolute inset-0">
       <img src={heroBetel} alt="Fresh Sholavandan GI betel leaf for Tamil wedding thamboolam" className="w-full h-full object-cover" loading="eager" />
@@ -22,11 +22,11 @@ const HeroSection = () => (
       </div>
     </div>
 
-    <div className="container mx-auto px-4 relative z-10 py-10 md:py-16">
+    <div className="container mx-auto px-4 relative z-10 py-8 md:py-10">
       <div className="max-w-3xl">
         <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4 animate-fade-in">Since Generations</p>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-accent leading-none mb-5 font-heading animate-fade-in">
-          VetriLeaf
+          Vetri Leaf
         </h1>
         <p className="text-lg md:text-xl text-primary-foreground/90 max-w-xl mb-3 font-medium">
           Fresh • Fragrant • Farm Direct • Wedding Ready
@@ -62,7 +62,7 @@ const HeroSection = () => (
         </div>
 
         {/* Tamil tagline at bottom */}
-        <div className="mt-10 pt-6 border-t border-accent/30">
+        <div className="mt-8 pt-5 border-t border-accent/30">
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-accent leading-tight tamil-text" lang="ta">
             சோழவந்தான் புவிசார் குறியீடு வெற்றிலை
           </h2>

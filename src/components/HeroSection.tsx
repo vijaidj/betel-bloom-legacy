@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone, Star } from "lucide-react";
 import heroBetel from "@/assets/hero-betel.jpg";
+import logo from "@/assets/logo.png";
 import GIBadge from "@/components/GIBadge";
 
 const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
@@ -25,9 +26,16 @@ const HeroSection = () => (
     <div className="container mx-auto px-4 relative z-10 py-8 md:py-10">
       <div className="max-w-3xl">
         <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4 animate-fade-in">Since Generations</p>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-accent leading-none mb-5 font-heading animate-fade-in">
-          Vetri Leaf
-        </h1>
+        <div className="mb-5 animate-fade-in">
+          <img
+            src={logo}
+            alt="Vetri Leaf — Sholavandan GI Certified Betel Leaf"
+            className="h-32 md:h-44 lg:h-52 w-auto object-contain drop-shadow-2xl"
+          />
+          <p className="mt-3 text-accent text-base md:text-lg font-semibold tracking-wide font-heading italic">
+            Sholavandan GI Certified Betel Leaf
+          </p>
+        </div>
         <p className="text-lg md:text-xl text-primary-foreground/90 max-w-xl mb-3 font-medium">
           Fresh • Fragrant • Farm Direct • Wedding Ready
         </p>

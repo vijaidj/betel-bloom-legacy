@@ -10,7 +10,7 @@ const HeroSection = () => (
     {/* Background image */}
     <div className="absolute inset-0">
       <img src={heroBetel} alt="Fresh Sholavandan GI betel leaf for Tamil wedding thamboolam" className="w-full h-full object-cover" loading="eager" />
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/75 to-primary/30" />
     </div>
 
     {/* GI Badge - Top Right (hidden on mobile, shown inline below on mobile) */}

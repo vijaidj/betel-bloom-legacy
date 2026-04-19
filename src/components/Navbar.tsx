@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import leafIcon from "@/assets/leaf-icon.png";
 import giLogo from "@/assets/gi-logo.png";
 
 const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
@@ -49,8 +49,11 @@ const Navbar = () => {
       {/* Main nav */}
       <div className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
         <div className="container mx-auto flex items-center justify-between py-1.5 px-4">
-          <a href="#home" className="flex items-center">
-            <img src={logo} alt="Sri Sholavandan Heritage Vetrilai" className="h-14 md:h-16 w-auto object-contain" />
+          <a href="#home" className="flex items-center gap-2.5">
+            <img src={leafIcon} alt="Vetri Leaf logo" className="h-12 md:h-14 w-auto object-contain" />
+            <span className="text-2xl md:text-3xl font-bold text-primary leading-none font-heading">
+              Vetri Leaf
+            </span>
           </a>
 
           {/* Desktop nav */}

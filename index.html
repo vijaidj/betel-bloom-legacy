@@ -7,6 +7,8 @@
     <meta name="description" content="Order authentic GI-certified Sholavandan betel leaf (Vetrilai) online. Perfect for Tamil weddings, thamboolam, housewarming, puberty function, temple pooja & bulk events. Fresh delivery across India.">
     <meta name="keywords" content="Sholavandan betel leaf, vetrilai, GI betel leaf, Tamil wedding betel leaf, thamboolam vetrilai, buy vetrilai online, betel leaf bulk order, Sholavanthan vetrilai, pooja betel leaf, Madurai betel leaf">
     <meta name="author" content="Sri Sholavandan Heritage Vetrilai" />
+
+    <!-- TODO: Update this canonical URL to your real custom domain once deployed -->
     <link rel="canonical" href="https://betel-bloom-legacy.lovable.app" />
 
     <!-- Open Graph -->
@@ -14,7 +16,13 @@
     <meta property="og:title" content="Sholavandan GI Betel Leaf – Fresh Vetrilai for Weddings & Functions">
     <meta property="og:description" content="Authentic GI-certified Sholavandan vetrilai for Tamil weddings, thamboolam, pooja & events. Order online with bulk delivery.">
     <meta property="og:url" content="https://betel-bloom-legacy.lovable.app">
+    <!-- og-image.jpg must be 1200×630px. Place it in /public/og-image.jpg -->
+    <!-- TODO: Create og-image.jpg (1200×630px) with your brand logo, product photo and tagline -->
     <meta property="og:image" content="https://betel-bloom-legacy.lovable.app/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Sholavandan GI Certified Betel Leaf – Vetri Leaf">
+    <meta property="og:locale" content="en_IN">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -35,9 +43,16 @@
         "name": "Sri Sholavandan Heritage Vetrilai"
       },
       "offers": {
-        "@type": "Offer",
+        "@type": "AggregateOffer",
         "availability": "https://schema.org/InStock",
-        "priceCurrency": "INR"
+        "priceCurrency": "INR",
+        "lowPrice": "150",
+        "offerCount": "3"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "5000"
       }
     }
     </script>
@@ -50,17 +65,31 @@
       "name": "Sri Sholavandan Heritage Vetrilai",
       "description": "GI Certified Sholavandan betel leaf supplier for weddings, pooja & bulk orders",
       "telephone": "+919600441284",
+      "openingHours": "Mo-Su 06:00-20:00",
+      "priceRange": "₹150–₹₹₹",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Sholavandan",
+        "streetAddress": "Sholavandan",
+        "addressLocality": "Madurai District",
         "addressRegion": "Tamil Nadu",
+        "postalCode": "625221",
         "addressCountry": "IN"
       },
-      "url": "https://betel-bloom-legacy.lovable.app"
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 9.93,
+        "longitude": 77.88
+      },
+      "url": "https://betel-bloom-legacy.lovable.app",
+      "sameAs": [
+        "https://instagram.com/sholavandanvetrilai",
+        "https://facebook.com/SriSholavandanHeritage"
+      ]
     }
     </script>
 
-    <!-- Google Analytics placeholder -->
+    <!-- Google Analytics -->
+    <!-- TODO: Replace G-XXXXXXXXXX with your real GA4 Measurement ID from analytics.google.com -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];

@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import HighlightsSection from "@/components/HighlightsSection";
 import PackagesSection from "@/components/PackagesSection";
+import ProductsSection from "@/components/ProductsSection";
+import WeddingSection from "@/components/WeddingSection";
 import OccasionsSection from "@/components/OccasionsSection";
 import SeasonalBanner from "@/components/SeasonalBanner";
 import GallerySection from "@/components/GallerySection";
@@ -26,6 +28,8 @@ const Index = () => {
       <HeroSection />
       <HighlightsSection />
       <PackagesSection />
+      <ProductsSection />
+      <WeddingSection />
       <OccasionsSection />
       <SeasonalBanner />
       <GallerySection />

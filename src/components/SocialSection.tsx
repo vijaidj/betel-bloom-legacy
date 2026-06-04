@@ -1,9 +1,12 @@
 import { Instagram, Facebook, Youtube } from "lucide-react";
 
 const socials = [
-  { icon: Instagram, label: "Instagram", href: "#", handle: "@sholavandanvetrilai" },
-  { icon: Facebook, label: "Facebook", href: "#", handle: "Sri Sholavandan Heritage" },
-  { icon: Youtube, label: "YouTube", href: "#", handle: "Sholavandan Vetrilai" },
+  // TODO: Replace with your real Instagram URL
+  { icon: Instagram, label: "Instagram", href: "https://instagram.com/sholavandanvetrilai", handle: "@sholavandanvetrilai" },
+  // TODO: Replace with your real Facebook URL
+  { icon: Facebook, label: "Facebook", href: "https://facebook.com/SriSholavandanHeritage", handle: "Sri Sholavandan Heritage" },
+  // TODO: Replace with your real YouTube channel URL
+  { icon: Youtube, label: "YouTube", href: "https://youtube.com/@sholavandanvetrilai", handle: "Sholavandan Vetrilai" },
 ];
 
 const SocialSection = () => (

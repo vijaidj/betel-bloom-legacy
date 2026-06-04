@@ -5,7 +5,8 @@ const WHATSAPP_URL = "https://wa.me/919600441284";
 
 const quickLinks = [
   { label: "Home", href: "#home" },
-  { label: "Products", href: "#products" },
+  { label: "Packages", href: "#products" },
+  { label: "All Products", href: "#all-products" },
   { label: "Occasions", href: "#occasions" },
   { label: "About Us", href: "#about" },
   { label: "FAQ", href: "#faq" },
@@ -55,6 +56,7 @@ const Footer = () => {
                 <Phone className="h-4 w-4" /> +91 96004 41284
               </a>
               <a href="mailto:info@sholavandanvetrilai.com" className="flex items-center gap-2 text-sm text-white/45 hover:text-accent transition-colors">
+                {/* TODO: Replace with your real business email */}
                 <Mail className="h-4 w-4" /> info@sholavandanvetrilai.com
               </a>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-white/45 hover:text-accent transition-colors">
@@ -70,9 +72,12 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h4 className="text-[11px] uppercase tracking-[0.25em] mb-4 font-semibold text-accent">Social</h4>
             <div className="space-y-2 text-sm text-white/45">
-              <a href="#" className="flex items-center gap-2 hover:text-accent transition-colors"><Instagram className="h-4 w-4" /> Instagram</a>
-              <a href="#" className="flex items-center gap-2 hover:text-accent transition-colors"><Facebook className="h-4 w-4" /> Facebook</a>
-              <a href="#" className="flex items-center gap-2 hover:text-accent transition-colors"><Youtube className="h-4 w-4" /> YouTube</a>
+              {/* TODO: Replace # with your real Instagram URL e.g. https://instagram.com/sholavandanvetrilai */}
+              <a href="https://instagram.com/sholavandanvetrilai" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors"><Instagram className="h-4 w-4" /> Instagram</a>
+              {/* TODO: Replace # with your real Facebook URL e.g. https://facebook.com/SriSholavandanHeritage */}
+              <a href="https://facebook.com/SriSholavandanHeritage" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors"><Facebook className="h-4 w-4" /> Facebook</a>
+              {/* TODO: Replace # with your real YouTube channel URL */}
+              <a href="https://youtube.com/@sholavandanvetrilai" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors"><Youtube className="h-4 w-4" /> YouTube</a>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors"><MessageCircle className="h-4 w-4" /> WhatsApp</a>
             </div>
           </div>

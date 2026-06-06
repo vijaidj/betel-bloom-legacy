@@ -43,17 +43,19 @@ const HeroSection = () => (
           Since Generations · Sholavandan, Tamil Nadu
         </p>
 
-        {/* Logo + Brand stacked */}
+        {/* Logo + Brand — same row, vertically centered */}
         <div className="flex flex-col items-start mb-6">
-          <img
-            src={leafIcon}
-            alt="Vetri Leaf logo"
-            className="h-20 md:h-24 w-auto object-contain drop-shadow-2xl mb-3"
-          />
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-none font-heading tracking-tight" style={{ color: "#c9a84c" }}>
-            Vetri Leaf
-          </h1>
-          <p className="text-base md:text-lg font-semibold tracking-widest mt-2 font-heading italic" style={{ color: "rgba(201,168,76,0.85)" }}>
+          <div className="flex items-center gap-4 mb-2">
+            <img
+              src={leafIcon}
+              alt="Vetri Leaf logo"
+              className="h-16 md:h-20 w-auto object-contain drop-shadow-2xl flex-shrink-0"
+            />
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-none font-heading tracking-tight" style={{ color: "#c9a84c" }}>
+              Vetri Leaf
+            </h1>
+          </div>
+          <p className="text-base md:text-lg font-semibold tracking-widest mt-1 font-heading italic" style={{ color: "rgba(201,168,76,0.85)" }}>
             Sholavandan GI Certified Betel Leaf
           </p>
         </div>

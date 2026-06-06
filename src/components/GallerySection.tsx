@@ -1,13 +1,11 @@
 import realLeaf1 from "@/assets/real-betel-leaf-1.jpg";
 import realPlant from "@/assets/real-betel-plant.jpg";
-import realLeaf2 from "@/assets/real-betel-leaf-2.jpg";
-import realLeaf3 from "@/assets/real-betel-leaf-3.jpg";
+import realPaanMaking from "@/assets/real-paan-making.jpg";
 
 const images = [
   { src: realLeaf1, alt: "Fresh betel leaves from Sholavandan farm", label: "Fresh Betel Leaves" },
   { src: realPlant, alt: "Betel vine plant growing in Sholavandan", label: "Betel Vine Plant" },
-  { src: realLeaf2, alt: "Close-up of premium betel leaf", label: "Premium Leaf" },
-  { src: realLeaf3, alt: "Sholavandan betel leaf detail", label: "Leaf Detail" },
+  { src: realPaanMaking, alt: "Traditional paan making with Sholavandan vetrilai", label: "Traditional Paan" },
 ];
 
 const GallerySection = () => (
@@ -19,7 +17,7 @@ const GallerySection = () => (
         <p className="text-muted-foreground">Fresh from the Vaigai river basin farms of Sholavandan</p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {images.map((img) => (
           <div key={img.label} className="group relative rounded-xl overflow-hidden aspect-square border border-border shadow-sm hover:shadow-xl transition-all">
             <img

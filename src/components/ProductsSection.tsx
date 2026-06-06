@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Leaf, ArrowRight } from "lucide-react";
-import freshLeavesImg from "@/assets/fresh-betel-leaves.jpg";
-import powderTeaImg from "@/assets/betel-powder-tea.jpg";
-import teaBagsImg from "@/assets/betel-tea-bags.jpg";
-import oilImg from "@/assets/betel-oil.jpg";
-import infusedWaterImg from "@/assets/betel-infused-water.jpg";
-import extractImg from "@/assets/betel-extract.jpg";
-import driedLeavesImg from "@/assets/dried-betel-leaves.jpg";
+
+// Correctly matched images for each product
+import freshLeavesImg from "@/assets/fresh-betel-leaves.jpg";       // Fresh Betel Leaf
+import powderImg from "@/assets/betel-powder-tea.jpg";               // Betel Leaf Powder
+import teaImg from "@/assets/betel-tea-bags.jpg";                    // Betel Leaf Tea
+import oilImg from "@/assets/betel-oil.jpg";                         // Betel Leaf Oil
+import juiceMixImg from "@/assets/real-betel-nuts-lime.jpg";         // Betel Juice Mix — betel nuts & lime mix, closest match
+import waterImg from "@/assets/betel-infused-water.jpg";             // Betel Leaf Water
 
 const products = [
   {
@@ -21,15 +22,15 @@ const products = [
     title: "Betel Leaf Powder",
     tagline: "100% Natural",
     desc: "Stone-ground from sun-dried Sholavandan betel leaves, retaining all traditional health benefits. Rich in antioxidants — ideal for herbal preparations, Ayurvedic formulations, natural supplements and daily wellness routines.",
-    image: powderTeaImg,
+    image: powderImg,
     featured: false,
     whatsapp: "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Betel%20Leaf%20Powder",
   },
   {
     title: "Betel Leaf Tea",
     tagline: "Ready to Brew",
-    desc: "Convenient herbal tea made from our premium betel leaf powder. A refreshing, caffeine-free daily wellness ritual — simply steep for 3 minutes. Known to aid digestion, boost immunity & promote oral health naturally.",
-    image: teaBagsImg,
+    desc: "Convenient herbal tea made from our premium betel leaf. A refreshing, caffeine-free daily wellness ritual — simply steep for 3 minutes. Known to aid digestion, boost immunity & promote oral health naturally.",
+    image: teaImg,
     featured: false,
     whatsapp: "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Betel%20Leaf%20Tea",
   },
@@ -45,7 +46,7 @@ const products = [
     title: "Betel Juice Mix",
     tagline: "Concentrated Wellness",
     desc: "A potent herbal juice concentrate made from fresh Sholavandan betel leaves. Easy to mix with water or coconut water — packed with natural antioxidants, supports digestion, immunity and daily vitality.",
-    image: extractImg,
+    image: juiceMixImg,
     featured: false,
     whatsapp: "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Betel%20Juice%20Mix",
   },
@@ -53,17 +54,9 @@ const products = [
     title: "Betel Leaf Water",
     tagline: "Daily Detox",
     desc: "Refreshing detox water infused with fresh Sholavandan betel leaves. Packed with natural antioxidants, minerals & vitamins — your perfect daily companion for hydration, digestion and natural wellness.",
-    image: infusedWaterImg,
+    image: waterImg,
     featured: false,
     whatsapp: "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Betel%20Leaf%20Water",
-  },
-  {
-    title: "Herbal Powder",
-    tagline: "Ancient Blend",
-    desc: "A traditional multi-herb blend anchored by Sholavandan betel leaf, combined with carefully selected Ayurvedic herbs. Used for generations as a natural remedy for oral hygiene, digestion and overall wellbeing.",
-    image: driedLeavesImg,
-    featured: false,
-    whatsapp: "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Herbal%20Powder",
   },
 ];
 
@@ -99,7 +92,7 @@ const ProductsSection = () => (
         </div>
       </div>
 
-      {/* Product Grid */}
+      {/* Product Grid — 6 products in 3-col grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {products.map((p) => (
           <div
@@ -127,10 +120,7 @@ const ProductsSection = () => (
             <div className="p-6">
               <h3 className="text-xl font-semibold text-primary mb-2">{p.title}</h3>
               <p className="text-sm text-muted-foreground mb-5 leading-relaxed line-clamp-3">{p.desc}</p>
-              <Button
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 gap-2 group/btn"
-                asChild
-              >
+              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 gap-2 group/btn" asChild>
                 <a href={p.whatsapp} target="_blank" rel="noopener noreferrer">
                   Enquire on WhatsApp
                   <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />

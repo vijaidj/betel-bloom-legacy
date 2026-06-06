@@ -26,7 +26,7 @@ const MapContactSection = () => (
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto relative">
         {/* Map */}
         <div className="rounded-3xl overflow-hidden border border-border shadow-2xl shadow-primary/10 w-full h-64 sm:h-80 md:h-[480px] lg:h-[520px]">
           <iframe
@@ -40,7 +40,7 @@ const MapContactSection = () => (
         {/* Contact card — overlay on desktop, stacked below on mobile */}
         <div className="
           lg:absolute lg:bottom-8 lg:right-8
-          relative lg:w-[340px]
+          lg:w-[340px]
           mt-4 lg:mt-0
           bg-card/95 backdrop-blur-md border border-border/60
           rounded-2xl shadow-2xl shadow-primary/10 p-6 md:p-7

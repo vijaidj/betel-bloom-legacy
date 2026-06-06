@@ -1,11 +1,11 @@
 import realLeaf1 from "@/assets/real-betel-leaf-1.jpg";
 import realPlant from "@/assets/real-betel-plant.jpg";
-import realPaanMaking from "@/assets/real-paan-making.jpg";
+import betelBundles from "@/assets/betel-bundles-fresh.webp";
 
 const images = [
   { src: realLeaf1, alt: "Fresh betel leaves from Sholavandan farm", label: "Fresh Betel Leaves" },
   { src: realPlant, alt: "Betel vine plant growing in Sholavandan", label: "Betel Vine Plant" },
-  { src: realPaanMaking, alt: "Traditional paan making with Sholavandan vetrilai", label: "Traditional Paan" },
+  { src: betelBundles, alt: "Fresh betel leaf bundles ready for delivery", label: "Farm Fresh Bundles" },
 ];
 
 const GallerySection = () => (

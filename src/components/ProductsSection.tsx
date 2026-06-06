@@ -6,7 +6,7 @@ import freshLeavesImg from "@/assets/fresh-betel-leaves.jpg";       // Fresh Bet
 import powderImg from "@/assets/betel-powder-tea.jpg";               // Betel Leaf Powder
 import teaImg from "@/assets/betel-tea-bags.jpg";                    // Betel Leaf Tea
 import oilImg from "@/assets/betel-oil.jpg";                         // Betel Leaf Oil
-import juiceMixImg from "@/assets/real-betel-nuts-lime.jpg";         // Betel Juice Mix — betel nuts & lime mix, closest match
+import juiceMixImg from "@/assets/betel-extract.jpg";         // Betel Juice Mix — liquid extract         // Betel Juice Mix — betel nuts & lime mix, closest match
 import waterImg from "@/assets/betel-infused-water.jpg";             // Betel Leaf Water
 
 const products = [

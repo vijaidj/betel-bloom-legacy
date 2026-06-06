@@ -212,23 +212,13 @@
     }
     </script>
 
-    <!-- ═══════════════════════════════════════════════
-         GOOGLE ANALYTICS 4
-         SETUP STEPS:
-         1. Go to https://analytics.google.com
-         2. Click Admin → Create Property → Web
-         3. Enter your site URL → Get Measurement ID (G-XXXXXXXXXX)
-         4. Replace G-XXXXXXXXXX below with your real ID
-         5. Remove the comment tags around the scripts
-    ═══════════════════════════════════════════════ -->
-    <!-- GA4 START — uncomment after adding your Measurement ID -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google Analytics GA4 — G-04W3YSGFTP -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-04W3YSGFTP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX', {
+      gtag('config', 'G-04W3YSGFTP', {
         page_title: 'Vetri Leaf – Sholavandan GI Betel Leaf',
         page_location: window.location.href,
         send_page_view: true
@@ -245,7 +235,7 @@
         }
       });
 
-      // Track phone calls
+      // Track phone call clicks
       document.addEventListener('click', function(e) {
         var el = e.target.closest('a[href^="tel:"]');
         if (el) {
@@ -256,8 +246,6 @@
         }
       });
     </script>
-    -->
-    <!-- GA4 END -->
 
   </head>
 

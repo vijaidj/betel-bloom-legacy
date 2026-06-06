@@ -17,7 +17,7 @@ const GallerySection = () => (
         <p className="text-muted-foreground">Fresh from the Vaigai river basin farms of Sholavandan</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {images.map((img) => (
           <div key={img.label} className="group relative rounded-xl overflow-hidden aspect-square border border-border shadow-sm hover:shadow-xl transition-all">
             <img

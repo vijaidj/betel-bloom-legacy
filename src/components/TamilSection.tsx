@@ -20,7 +20,7 @@ const TamilSection = () => (
         <p>தமிழ்நாடு முழுவதும் டெலிவரி வசதி உள்ளது.</p>
         <p className="font-semibold text-accent text-lg">இப்போதே ஆர்டர் செய்யுங்கள்!</p>
       </div>
-      <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 h-14 px-8 text-base gap-2" asChild>
+      <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 h-12 px-5 md:px-8 text-sm md:text-base gap-2 w-full sm:w-auto" asChild>
         <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
           <MessageCircle className="h-5 w-5" /> வாட்ஸ்அப்பில் ஆர்டர் செய்யுங்கள்
         </a>

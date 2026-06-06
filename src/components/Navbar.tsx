@@ -21,24 +21,22 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
-      {/* Top bar */}
+      {/* Top bar — hidden on very small screens to save space */}
       <div className="bg-primary text-primary-foreground border-b border-primary-foreground/10">
-        <div className="container mx-auto flex items-center justify-between px-4 py-1.5 text-xs tracking-wide">
-          {/* Left: single phone */}
-          <a href="tel:+919600441284" className="flex items-center gap-1.5 font-semibold hover:text-accent transition-colors">
-            <Phone className="h-3.5 w-3.5" />
-            Order Now: +91 96004 41284
+        <div className="container mx-auto flex items-center justify-between px-3 py-1.5 text-xs tracking-wide">
+          <a href="tel:+919600441284" className="flex items-center gap-1.5 font-semibold hover:text-accent transition-colors min-w-0">
+            <Phone className="h-3 w-3 shrink-0" />
+            <span className="hidden sm:inline">Order Now:&nbsp;</span>
+            <span>+91 96004 41284</span>
           </a>
-
-          {/* Right: free delivery + GI badge */}
-          <div className="flex items-center gap-2 sm:gap-4">
-            <span className="flex items-center gap-1 font-medium">
-              🚚 <span className="hidden sm:inline">Free delivery above</span><span className="sm:hidden">Free &gt;</span> ₹2500
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="flex items-center gap-1 font-medium text-xs">
+              🚚 <span className="hidden sm:inline">Free delivery above&nbsp;</span>₹2500
             </span>
             <span className="hidden md:inline opacity-40">|</span>
             <div className="hidden md:flex items-center gap-1.5">
-              <img src={giLogo} alt="GI Certified" className="h-5 w-5 rounded-full object-contain bg-white p-0.5" />
-              <span className="font-semibold text-accent">GI Certified</span>
+              <img src={giLogo} alt="GI Certified" className="h-4 w-4 rounded-full object-contain bg-white p-0.5" />
+              <span className="font-semibold text-accent text-xs">GI Certified</span>
             </div>
           </div>
         </div>
@@ -46,48 +44,62 @@ const Navbar = () => {
 
       {/* Main nav */}
       <div className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
-        <div className="container mx-auto flex items-center justify-between py-1.5 px-4">
-          <a href="#home" className="flex items-center gap-2.5">
-            <img src={leafIcon} alt="Vetri Leaf logo" className="h-12 md:h-14 w-auto object-contain" />
-            <span className="text-2xl md:text-3xl font-bold text-primary leading-none font-heading">
-              Vetri Leaf
-            </span>
+        <div className="container mx-auto flex items-center justify-between py-1 px-3 md:px-4">
+          <a href="#home" className="flex items-center gap-2">
+            <img src={leafIcon} alt="Vetri Leaf logo" className="h-10 md:h-12 w-auto object-contain" />
+            <span className="text-xl md:text-2xl font-bold text-primary leading-none font-heading">Vetri Leaf</span>
           </a>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-5 lg:gap-6">
             {navLinks.map((l) => (
-              <a key={l.href} href={l.href} className="text-sm font-medium tracking-wide uppercase text-muted-foreground hover:text-primary transition-colors">
+              <a key={l.href} href={l.href} className="text-xs lg:text-sm font-medium tracking-wide uppercase text-muted-foreground hover:text-primary transition-colors whitespace-nowrap">
                 {l.label}
               </a>
             ))}
-            <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-1.5" asChild>
+            <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-1.5 shrink-0" asChild>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-4 w-4" /> WhatsApp
               </a>
             </Button>
           </div>
 
-          {/* Mobile toggle */}
-          <button className="md:hidden text-primary" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          {/* Mobile: WhatsApp icon + hamburger */}
+          <div className="flex md:hidden items-center gap-2">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center w-9 h-9 rounded-full bg-accent text-accent-foreground"
+              aria-label="WhatsApp Order">
+              <MessageCircle className="h-4 w-4" />
+            </a>
+            <button className="text-primary p-1" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+              {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — full screen dropdown */}
       {open && (
-        <div className="md:hidden bg-background border-t border-border px-4 pb-4 pt-2 space-y-3">
-          {navLinks.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-sm font-medium text-muted-foreground hover:text-primary py-1">
-              {l.label}
+        <div className="md:hidden bg-background border-t border-border shadow-lg">
+          <div className="px-4 py-3 space-y-1">
+            {navLinks.map((l) => (
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)}
+                className="flex items-center py-3 text-sm font-medium text-muted-foreground hover:text-primary border-b border-border/40 last:border-0 transition-colors">
+                {l.label}
+              </a>
+            ))}
+          </div>
+          <div className="px-4 pb-4 pt-2 flex flex-col gap-2">
+            <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 gap-2 h-12" asChild>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-4 w-4" /> Order on WhatsApp
+              </a>
+            </Button>
+            <a href="tel:+919600441284"
+              className="flex items-center justify-center gap-2 text-sm font-medium text-primary py-2.5 border border-border rounded-lg">
+              <Phone className="h-4 w-4" /> +91 96004 41284
             </a>
-          ))}
-          <Button size="sm" className="w-full bg-accent text-accent-foreground hover:bg-accent/90 gap-1.5" asChild>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4" /> WhatsApp Order
-            </a>
-          </Button>
+          </div>
         </div>
       )}
     </nav>

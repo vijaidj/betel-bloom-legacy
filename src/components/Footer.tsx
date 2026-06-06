@@ -21,7 +21,7 @@ const Footer = () => {
       <div className="h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="py-10 grid md:grid-cols-12 gap-8 md:gap-4">
+        <div className="py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 md:gap-4">
           {/* Brand */}
           <div className="md:col-span-4 space-y-3">
             <h3 className="font-serif text-xl font-bold">

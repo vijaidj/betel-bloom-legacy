@@ -21,8 +21,8 @@ const contactItems = [
   {
     icon: Mail,
     label: "Email",
-    value: "info@sholavandanvetrilai.com",
-    href: "mailto:info@sholavandanvetrilai.com",
+    value: "vetrileaf@gmail.com",
+    href: "mailto:vetrileaf@gmail.com",
   },
   {
     icon: Clock,

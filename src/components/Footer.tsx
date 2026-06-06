@@ -55,9 +55,9 @@ const Footer = () => {
               <a href="tel:+919600441284" className="flex items-center gap-2 text-sm text-white/45 hover:text-accent transition-colors">
                 <Phone className="h-4 w-4" /> +91 96004 41284
               </a>
-              <a href="mailto:info@sholavandanvetrilai.com" className="flex items-center gap-2 text-sm text-white/45 hover:text-accent transition-colors">
+              <a href="mailto:vetrileaf@gmail.com" className="flex items-center gap-2 text-sm text-white/45 hover:text-accent transition-colors">
                 {/* TODO: Replace with your real business email */}
-                <Mail className="h-4 w-4" /> info@sholavandanvetrilai.com
+                <Mail className="h-4 w-4" /> vetrileaf@gmail.com
               </a>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-white/45 hover:text-accent transition-colors">
                 <MessageCircle className="h-4 w-4" /> WhatsApp Order

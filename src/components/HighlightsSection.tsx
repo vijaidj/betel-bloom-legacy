@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { Award, Leaf, Heart, Truck, X } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Award, Leaf, Heart, Truck } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import GICertificateModal from "./GICertificateModal";
-import farmFreshImg from "@/assets/highlight-farm-fresh.jpg";
-import weddingImg from "@/assets/highlight-wedding.jpg";
-import deliveryImg from "@/assets/highlight-delivery.jpg";
+
+// Using the real GI certificate screenshot for the GI card
+import giScreenshot from "@/assets/gi-screenshot.png";
+import farmHeritage from "@/assets/farm-heritage.jpg";
+import realBetelPlant from "@/assets/real-betel-plant.jpg";
+import highlightWedding from "@/assets/highlight-wedding.jpg";
+import highlightDelivery from "@/assets/highlight-delivery.jpg";
 
 const highlights = [
   {
@@ -13,21 +17,25 @@ const highlights = [
     label: "GI Certified",
     highlight: true,
     isGiCert: true,
-    image: farmFreshImg,
+    // Real GI certificate screenshot — clearly shows the official document
+    image: giScreenshot,
+    stat: null,
+    statLabel: null,
     description: "",
+    bullets: [],
   },
   {
     id: "farm",
     icon: Leaf,
     label: "Farm Fresh",
-    image: farmFreshImg,
-    stat: "100%",
-    statLabel: "Organic",
+    image: farmHeritage,
+    stat: "60+",
+    statLabel: "Years Legacy",
     description:
-      "Every leaf is hand-picked from our 3rd-generation betel farms in Sholavandan, Tamil Nadu. We harvest fresh daily and ship within hours -- no cold storage, no chemicals, no middlemen. You receive the same quality our family has been proud of for over 60 years.",
+      "Every leaf is hand-picked from our 3rd-generation betel farms in Sholavandan, Tamil Nadu. We harvest fresh daily and ship within hours — no cold storage, no chemicals, no middlemen. You receive the same quality our family has been proud of for over 60 years.",
     bullets: [
       "Hand-picked at dawn for peak freshness",
-      "Zero pesticides -- naturally grown",
+      "Zero pesticides — naturally grown",
       "Direct from farm to your doorstep",
       "Harvested and shipped the same day",
     ],
@@ -36,15 +44,15 @@ const highlights = [
     id: "wedding",
     icon: Heart,
     label: "5000+ Weddings Served",
-    image: weddingImg,
+    image: highlightWedding,
     stat: "5000+",
-    statLabel: "Happy Weddings",
+    statLabel: "Happy Families",
     description:
       "Trusted by over 5000 families worldwide for their most important celebrations. Our premium betel leaves have graced weddings, pooja ceremonies, and cultural events across the globe. We offer bulk wedding packages with dedicated support to ensure your special day is perfect.",
     bullets: [
       "Bulk orders from 1,000 to 50,000+ leaves",
       "Dedicated wedding coordinator",
-      "Custom packaging for ceremonies",
+      "Custom thamboolam packaging",
       "On-time delivery guarantee",
     ],
   },
@@ -52,15 +60,15 @@ const highlights = [
     id: "delivery",
     icon: Truck,
     label: "Pan India Delivery",
-    image: deliveryImg,
+    image: highlightDelivery,
     stat: "24hr",
     statLabel: "Express Shipping",
     description:
-      "We deliver fresh Sholavandan betel leaves across all major cities in India. Our specially designed moisture-lock packaging keeps leaves farm-fresh for up to 5 days. Free delivery on orders above Rs.500.",
+      "We deliver fresh Sholavandan betel leaves across all major cities in India. Our specially designed moisture-lock packaging keeps leaves farm-fresh for up to 5 days. Free delivery on orders above ₹2500.",
     bullets: [
       "All major Indian cities covered",
       "Moisture-lock packaging technology",
-      "Free delivery above Rs.500",
+      "Free delivery above ₹2500",
       "Track your order in real-time",
     ],
   },
@@ -90,16 +98,23 @@ const HighlightsSection = () => {
                 className="group cursor-pointer rounded-2xl overflow-hidden border border-border bg-card shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Image */}
-                <div className="relative h-32 md:h-40 overflow-hidden">
+                <div className="relative h-32 md:h-40 overflow-hidden bg-white">
                   <img
                     src={h.image}
                     alt={h.label}
                     loading="lazy"
-                    width={800}
-                    height={600}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className={`w-full h-full group-hover:scale-105 transition-transform duration-500 ${
+                      h.isGiCert
+                        ? "object-contain p-2"   // show full certificate document
+                        : "object-cover"
+                    }`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  {/* Overlay only for non-cert cards */}
+                  {!h.isGiCert && (
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  )}
+
+                  {/* Stat badge */}
                   {h.stat && (
                     <div className="absolute bottom-3 left-3">
                       <span className="text-2xl md:text-3xl font-bold text-white font-heading leading-none">
@@ -110,10 +125,12 @@ const HighlightsSection = () => {
                       </span>
                     </div>
                   )}
+
+                  {/* GI cert tap hint */}
                   {h.isGiCert && (
-                    <div className="absolute bottom-3 left-3">
-                      <span className="text-xs font-semibold text-accent bg-black/50 px-2 py-1 rounded">
-                        View Certificate
+                    <div className="absolute bottom-2 left-0 right-0 flex justify-center">
+                      <span className="text-xs font-semibold text-white bg-primary/80 px-3 py-1 rounded-full backdrop-blur-sm">
+                        Tap to View Certificate
                       </span>
                     </div>
                   )}
@@ -143,7 +160,7 @@ const HighlightsSection = () => {
       {/* GI Certificate Modal */}
       <GICertificateModal open={certOpen} onOpenChange={setCertOpen} />
 
-      {/* Detail Popup for other highlights */}
+      {/* Detail Popup for Farm / Wedding / Delivery */}
       <Dialog
         open={!!activePopup && !activeHighlight?.isGiCert}
         onOpenChange={(open) => !open && setActivePopup(null)}
@@ -181,9 +198,7 @@ const HighlightsSection = () => {
                   {activeHighlight.bullets.map((bullet, i) => (
                     <li key={i} className="flex items-start gap-2.5">
                       <Leaf className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-foreground font-medium">
-                        {bullet}
-                      </span>
+                      <span className="text-sm text-foreground font-medium">{bullet}</span>
                     </li>
                   ))}
                 </ul>

@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://betel-bloom-legacy.lovable.app/sitemap.xml
+Sitemap: https://www.vetrileaf.com/sitemap.xml

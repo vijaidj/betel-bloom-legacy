@@ -6,7 +6,6 @@ const packages = [
     title: "Small Pack",
     subtitle: "Ideal for small poojas & personal use",
     quantity: "100 Fresh Betel Leaves",
-    price: "Starting from ₹150",
     popular: false,
     whatsapp: "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20the%20Small%20Pack%20(100%20leaves)%20of%20Sholavandan%20Betel%20Leaf",
     cta: "Order Now",
@@ -15,7 +14,6 @@ const packages = [
     title: "Function Pack",
     subtitle: "Perfect for housewarming, puberty & small functions",
     quantity: "500 Fresh Betel Leaves",
-    price: "Starting from ₹650",
     popular: true,
     whatsapp: "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20the%20Function%20Pack%20(500%20leaves)%20of%20Sholavandan%20Betel%20Leaf",
     cta: "Order Now",
@@ -24,7 +22,6 @@ const packages = [
     title: "Wedding Bulk Order",
     subtitle: "Best for weddings, thamboolam & large events",
     quantity: "1000+ Fresh Betel Leaves",
-    price: "Call for Best Price",
     popular: false,
     whatsapp: "https://wa.me/919600441284?text=Hi%2C%20I%20need%20a%20bulk%20quote%20for%20Wedding%20order%20of%20Sholavandan%20Betel%20Leaf",
     cta: "Get Quote",
@@ -61,7 +58,6 @@ const PackagesSection = () => (
             <p className="text-sm text-muted-foreground mb-4">{pkg.subtitle}</p>
             <div className="py-4 border-y border-border/50 mb-6">
               <p className="text-2xl font-bold text-accent mb-1">{pkg.quantity}</p>
-              <p className="text-sm text-muted-foreground">{pkg.price}</p>
             </div>
             <Button
               size="lg"

@@ -69,7 +69,7 @@ const WeddingSection = () => (
           <Button
             size="lg"
             variant="outline"
-            className="h-14 px-8 border-white/30 text-primary-foreground hover:bg-white/10 text-base gap-2"
+            className="h-14 px-8 border-accent text-accent hover:bg-accent hover:text-accent-foreground text-base gap-2 font-semibold"
             asChild
           >
             <a href="#contact">Request a Quote</a>

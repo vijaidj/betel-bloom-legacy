@@ -72,8 +72,8 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h4 className="text-[11px] uppercase tracking-[0.25em] mb-4 font-semibold text-accent">Social</h4>
             <div className="space-y-2 text-sm text-white/45">
-              {/* TODO: Replace # with your real Instagram URL e.g. https://instagram.com/sholavandanvetrilai */}
-              <a href="https://instagram.com/sholavandanvetrilai" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors"><Instagram className="h-4 w-4" /> Instagram</a>
+              {/* TODO: Replace # with your real Instagram URL e.g. https://www.instagram.com/vetrileaf/ */}
+              <a href="https://www.instagram.com/vetrileaf/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors"><Instagram className="h-4 w-4" /> Instagram</a>
               {/* TODO: Replace # with your real Facebook URL e.g. https://facebook.com/SriSholavandanHeritage */}
               <a href="https://facebook.com/SriSholavandanHeritage" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors"><Facebook className="h-4 w-4" /> Facebook</a>
               {/* TODO: Replace # with your real YouTube channel URL */}

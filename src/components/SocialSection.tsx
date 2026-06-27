@@ -2,7 +2,7 @@ import { Instagram, Facebook, Youtube } from "lucide-react";
 
 const socials = [
   // TODO: Replace with your real Instagram URL
-  { icon: Instagram, label: "Instagram", href: "https://instagram.com/sholavandanvetrilai", handle: "@sholavandanvetrilai" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/vetrileaf/", handle: "@sholavandanvetrilai" },
   // TODO: Replace with your real Facebook URL
   { icon: Facebook, label: "Facebook", href: "https://facebook.com/SriSholavandanHeritage", handle: "Sri Sholavandan Heritage" },
   // TODO: Replace with your real YouTube channel URL

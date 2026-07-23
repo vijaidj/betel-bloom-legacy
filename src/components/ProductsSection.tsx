@@ -2,12 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Leaf, ArrowRight } from "lucide-react";
 
 // Correctly matched images for each product
-import freshLeavesImg from "@/assets/fresh-betel-leaves.jpg";       // Fresh Betel Leaf
-import powderImg from "@/assets/betel-powder-tea.jpg";               // Betel Leaf Powder
-import teaImg from "@/assets/betel-tea-bags.jpg";                    // Betel Leaf Tea
-import oilImg from "@/assets/betel-oil.jpg";                         // Betel Leaf Oil
-import juiceMixImg from "@/assets/betel-extract.jpg";         // Betel Juice Mix — liquid extract         // Betel Juice Mix — betel nuts & lime mix, closest match
-import waterImg from "@/assets/betel-infused-water.jpg";             // Betel Leaf Water
+import freshLeavesImg from "@/assets/product-fresh-leaf.png";
+import powderImg from "@/assets/product-powder.png";
+import teaImg from "@/assets/product-tea.png";
+import oilImg from "@/assets/product-oil.png";
+import juiceMixImg from "@/assets/product-juice-mix.png";
+import waterImg from "@/assets/product-water.png";
 
 const products = [
   {

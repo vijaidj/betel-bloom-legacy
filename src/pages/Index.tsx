@@ -1,24 +1,30 @@
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import HighlightsSection from "@/components/HighlightsSection";
-import PackagesSection from "@/components/PackagesSection";
-import ProductsSection from "@/components/ProductsSection";
-import WeddingSection from "@/components/WeddingSection";
-import OccasionsSection from "@/components/OccasionsSection";
-import GallerySection from "@/components/GallerySection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import DeliverySection from "@/components/DeliverySection";
-import AboutSection from "@/components/AboutSection";
-import BenefitsSection from "@/components/BenefitsSection";
-import TamilSection from "@/components/TamilSection";
-import FAQSection from "@/components/FAQSection";
-import SocialSection from "@/components/SocialSection";
-import MapContactSection from "@/components/MapContactSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import ScrollToTop from "@/components/ScrollToTop";
 
+// Above the fold — loaded eagerly above.
+// Everything below is deferred so it does not block first paint or LCP.
+const PackagesSection    = lazy(() => import("@/components/PackagesSection"));
+const ProductsSection    = lazy(() => import("@/components/ProductsSection"));
+const WeddingSection     = lazy(() => import("@/components/WeddingSection"));
+const OccasionsSection   = lazy(() => import("@/components/OccasionsSection"));
+const GallerySection     = lazy(() => import("@/components/GallerySection"));
+const TestimonialsSection= lazy(() => import("@/components/TestimonialsSection"));
+const DeliverySection    = lazy(() => import("@/components/DeliverySection"));
+const AboutSection       = lazy(() => import("@/components/AboutSection"));
+const BenefitsSection    = lazy(() => import("@/components/BenefitsSection"));
+const TamilSection       = lazy(() => import("@/components/TamilSection"));
+const FAQSection         = lazy(() => import("@/components/FAQSection"));
+const SocialSection      = lazy(() => import("@/components/SocialSection"));
+const MapContactSection  = lazy(() => import("@/components/MapContactSection"));
+const ContactSection     = lazy(() => import("@/components/ContactSection"));
+const Footer             = lazy(() => import("@/components/Footer"));
+const WhatsAppButton     = lazy(() => import("@/components/WhatsAppButton"));
+const ScrollToTop        = lazy(() => import("@/components/ScrollToTop"));
+
+// Reserves vertical space while a section loads so nothing shifts.
+const SectionFallback = () => <div className="min-h-[400px]" aria-hidden="true" />;
 
 const Index = () => {
   return (
@@ -26,23 +32,26 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <HighlightsSection />
-      <PackagesSection />
-      <ProductsSection />
-      <WeddingSection />
-      <OccasionsSection />
-      <GallerySection />
-      <TestimonialsSection />
-      <DeliverySection />
-      <AboutSection />
-      <BenefitsSection />
-      <TamilSection />
-      <FAQSection />
-      <SocialSection />
-      <MapContactSection />
-      <ContactSection />
-      <Footer />
-      <WhatsAppButton />
-      <ScrollToTop />
+
+      <Suspense fallback={<SectionFallback />}>
+        <PackagesSection />
+        <ProductsSection />
+        <WeddingSection />
+        <OccasionsSection />
+        <GallerySection />
+        <TestimonialsSection />
+        <DeliverySection />
+        <AboutSection />
+        <BenefitsSection />
+        <TamilSection />
+        <FAQSection />
+        <SocialSection />
+        <MapContactSection />
+        <ContactSection />
+        <Footer />
+        <WhatsAppButton />
+        <ScrollToTop />
+      </Suspense>
     </main>
   );
 };

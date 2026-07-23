@@ -1,5 +1,5 @@
-import realLeaf1 from "@/assets/real-betel-leaf-1.jpg";
-import realPlant from "@/assets/real-betel-plant.jpg";
+import realLeaf1 from "@/assets/real-betel-leaf-1.webp";
+import realPlant from "@/assets/real-betel-plant.webp";
 import betelBundles from "@/assets/betel-bundles-fresh.webp";
 
 const images = [

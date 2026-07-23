@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, Lock } from "lucide-react";
-import giCertPage1 from "@/assets/gi-cert-page1.jpg";
-import giCertPage2 from "@/assets/gi-cert-page2.jpg";
+import giCertPage1 from "@/assets/gi-cert-page1.webp";
+import giCertPage2 from "@/assets/gi-cert-page2.webp";
 
 const pages = [giCertPage1, giCertPage2];
 
@@ -41,6 +41,7 @@ const GICertificateModal = ({ open, onOpenChange }: { open: boolean; onOpenChang
         >
           <img
             src={pages[page]}
+              loading="lazy"
             alt={`GI Certificate Page ${page + 1}`}
             className="w-full h-auto max-h-[60vh] object-contain pointer-events-none select-none"
             draggable={false}

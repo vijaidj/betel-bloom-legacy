@@ -1,5 +1,5 @@
 import { Award, Leaf } from "lucide-react";
-import farmImg from "@/assets/farm-heritage.jpg";
+import farmImg from "@/assets/farm-heritage.webp";
 
 const milestones = [
   { year: "1960s", label: "Farm Founded", desc: "3rd generation betel farmers in Sholavandan" },
@@ -15,7 +15,7 @@ const AboutSection = () => (
         {/* Image with floating stat badges — safe margins on mobile */}
         <div className="relative mx-6 md:mx-0">
           <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
-            <img src={farmImg} alt="Sholavandan heritage betel leaf farm" className="w-full h-72 md:h-[420px] object-cover" loading="lazy" />
+            <img src={farmImg} alt="Sholavandan heritage betel leaf farm" width={900} height={420} className="w-full h-72 md:h-[420px] object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent rounded-2xl" />
           </div>
 

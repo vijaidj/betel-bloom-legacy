@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone, Star, ChevronDown } from "lucide-react";
-import heroBetel from "@/assets/hero-betel.jpg";
-import leafIcon from "@/assets/leaf-icon.png";
+import heroBetel from "@/assets/hero-betel.webp";
+import leafIcon from "@/assets/leaf-icon.webp";
 import GIBadge from "@/components/GIBadge";
 
 const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
@@ -18,7 +18,9 @@ const HeroSection = () => (
         src={heroBetel}
         alt="Fresh Sholavandan GI betel leaf for Tamil wedding thamboolam"
         className="w-full h-full object-cover"
+        width={1376} height={768}
         loading="eager"
+        fetchPriority="high"
       />
       {/* Strong dark overlay so ALL text is legible regardless of image */}
       <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(10,40,20,0.96) 0%, rgba(10,40,20,0.85) 55%, rgba(10,40,20,0.50) 100%)" }} />
@@ -49,6 +51,7 @@ const HeroSection = () => (
             <img
               src={leafIcon}
               alt="Vetri Leaf logo"
+              width={240} height={224}
               className="h-16 md:h-20 w-auto object-contain drop-shadow-2xl flex-shrink-0"
             />
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-none font-heading tracking-tight" style={{ color: "#c9a84c" }}>

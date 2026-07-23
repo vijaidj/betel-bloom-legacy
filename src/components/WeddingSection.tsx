@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Heart } from "lucide-react";
-import weddingImg from "@/assets/highlight-wedding.jpg";
+import weddingImg from "@/assets/highlight-wedding.webp";
 
 const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20book%20betel%20leaves%20for%20my%20wedding%20or%20function";
 

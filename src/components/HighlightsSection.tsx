@@ -3,10 +3,10 @@ import { Award, Leaf, Heart, Truck } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import GICertificateModal from "./GICertificateModal";
 
-import giIndiaBadge from "@/assets/gi-india-badge.png";
-import farmHeritage from "@/assets/farm-heritage.jpg";
-import highlightWedding from "@/assets/highlight-wedding.jpg";
-import highlightDelivery from "@/assets/highlight-delivery.jpg";
+import giIndiaBadge from "@/assets/gi-india-badge.webp";
+import farmHeritage from "@/assets/farm-heritage.webp";
+import highlightWedding from "@/assets/highlight-wedding.webp";
+import highlightDelivery from "@/assets/highlight-delivery.webp";
 
 const highlights = [
   {
@@ -136,7 +136,7 @@ const HighlightsSection = () => {
         {activeHighlight && (
           <DialogContent className="max-w-lg md:max-w-2xl p-0 overflow-hidden rounded-2xl">
             <div className="relative h-48 md:h-64">
-              <img src={activeHighlight.image} alt={activeHighlight.label} className="w-full h-full object-cover" />
+              <img src={activeHighlight.image} alt={activeHighlight.label} width={700} height={400} loading="lazy" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               <div className="absolute bottom-4 left-5">
                 {activeHighlight.stat && <span className="text-4xl md:text-5xl font-bold text-white font-heading">{activeHighlight.stat}</span>}

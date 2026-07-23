@@ -2,12 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Leaf, ArrowRight } from "lucide-react";
 
 // Correctly matched images for each product
-import freshLeavesImg from "@/assets/product-fresh-leaf.png";
-import powderImg from "@/assets/product-powder.png";
-import teaImg from "@/assets/product-tea.png";
-import oilImg from "@/assets/product-oil.png";
-import juiceMixImg from "@/assets/product-juice-mix.png";
-import waterImg from "@/assets/product-water.png";
+import freshLeavesImg from "@/assets/product-fresh-leaf.webp";
+import powderImg from "@/assets/product-powder.webp";
+import teaImg from "@/assets/product-tea.webp";
+import oilImg from "@/assets/product-oil.webp";
+import juiceMixImg from "@/assets/product-juice-mix.webp";
+import waterImg from "@/assets/product-water.webp";
 
 const products = [
   {

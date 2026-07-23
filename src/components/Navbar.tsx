@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Menu, X, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import leafIcon from "@/assets/leaf-icon.png";
-import giLogo from "@/assets/gi-logo.png";
+import leafIcon from "@/assets/leaf-icon.webp";
+import giLogo from "@/assets/gi-logo.webp";
 
 const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
 
@@ -35,7 +35,7 @@ const Navbar = () => {
             </span>
             <span className="hidden md:inline opacity-40">|</span>
             <div className="hidden md:flex items-center gap-1.5">
-              <img src={giLogo} alt="GI Certified" className="h-4 w-4 rounded-full object-contain bg-white p-0.5" />
+              <img src={giLogo} alt="GI Certified" width={16} height={16} loading="lazy" className="h-4 w-4 rounded-full object-contain bg-white p-0.5" />
               <span className="font-semibold text-accent text-xs">GI Certified</span>
             </div>
           </div>
@@ -46,7 +46,7 @@ const Navbar = () => {
       <div className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
         <div className="container mx-auto flex items-center justify-between py-1 px-3 md:px-4">
           <a href="#home" className="flex items-center gap-2">
-            <img src={leafIcon} alt="Vetri Leaf logo" className="h-10 md:h-12 w-auto object-contain" />
+            <img src={leafIcon} alt="Vetri Leaf logo" width={48} height={45} className="h-10 md:h-12 w-auto object-contain" />
             <span className="text-xl md:text-2xl font-bold text-primary leading-none font-heading">Vetri Leaf</span>
           </a>
 

@@ -1,5 +1,5 @@
 import { MessageCircle, Phone, Mail, MapPin, ArrowUp, Instagram, Facebook, Youtube } from "lucide-react";
-import giLogo from "@/assets/gi-logo.png";
+import giLogo from "@/assets/gi-logo.webp";
 
 const WHATSAPP_URL = "https://wa.me/919600441284";
 
@@ -31,7 +31,7 @@ const Footer = () => {
               Three generations of farming heritage, delivering GI-certified betel leaves with unmatched freshness.
             </p>
             <div className="flex items-center gap-2">
-              <img src={giLogo} alt="GI Certified" className="h-6 w-6 rounded-full object-contain bg-white p-0.5" />
+              <img src={giLogo} alt="GI Certified" width={24} height={24} loading="lazy" className="h-6 w-6 rounded-full object-contain bg-white p-0.5" />
               <span className="text-[11px] font-semibold text-accent">GI Certified — Govt. of India</span>
             </div>
           </div>

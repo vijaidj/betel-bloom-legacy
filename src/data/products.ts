@@ -70,7 +70,7 @@ export const products: Product[] = [
     },
     trustBadges: ["GI certified", "Harvested today", "Farm direct"],
     journey: defaultJourney,
-    compareRows: ["Leaf size", "Colour", "Thickness", "Best use", "Shelf life", "Occasion"],
+    compareRows: ["Price", "Leaf size", "Colour", "Thickness", "Best use", "Shelf life", "Occasion"],
     variants: [
       {
         id: "nadu",
@@ -82,6 +82,8 @@ export const products: Product[] = [
         recommended: true,
         badge: "Most ordered",
         giCovered: true,
+        price: 5,
+        priceUnit: "per leaf",
         summary:
           "The premium Sholavandan grade — larger, hand-selected leaves reserved for ceremony.",
         whyThis: [
@@ -90,6 +92,7 @@ export const products: Product[] = [
           "The grade traditionally used for thamboolam and temple offerings",
         ],
         compare: {
+          Price: "₹5 per leaf",
           "Leaf size": "Large, 12–15 cm",
           Colour: "Deep even green",
           Thickness: "Medium, pliable",
@@ -98,37 +101,37 @@ export const products: Product[] = [
           Occasion: "Weddings, festivals, puja",
         },
       },
-      // ── Sirugamani Vetrilai — NOT YET SHIPPED ────────────────────────────
-      // Blocked pending confirmation of growing location. Sirugamani is in
-      // Tiruchirappalli district; the GI registration covers the Sholavandan
-      // production area in Madurai district. If this variety is grown on our
-      // own Sholavandan land, set giCovered: true and uncomment. If it is
-      // sourced from Trichy, it must set giCovered: false, which suppresses
-      // GI badging, provenance copy and the origin schema fields.
-      //
-      // {
-      //   id: "sirugamani",
-      //   label: "Sirugamani Vetrilai",
-      //   sublabel: "Traditional variety",
-      //   note: "Everyday use, smaller leaf",
-      //   sku: "VL-FRESH-SIRU",
-      //   availability: "InStock",
-      //   giCovered: false,   // ← confirm before shipping
-      //   summary: "The smaller traditional leaf, suited to daily use.",
-      //   whyThis: [
-      //     "Smaller leaf, easier to fold for everyday paan",
-      //     "The variety most Tamil households grew up with",
-      //     "More economical for regular use",
-      //   ],
-      //   compare: {
-      //     "Leaf size": "Small, 7–9 cm",
-      //     Colour: "Lighter green",
-      //     Thickness: "Thinner",
-      //     "Best use": "Daily paan, home use",
-      //     "Shelf life": "4–6 days refrigerated",
-      //     Occasion: "Everyday",
-      //   },
-      // },
+      {
+        id: "sirugamani",
+        label: "Sirugamani Vetrilai",
+        sublabel: "Traditional variety",
+        note: "Everyday use, smaller leaf",
+        sku: "VL-FRESH-SIRU",
+        availability: "InStock",
+        // ⚠ Set to true ONLY if this variety is grown on our own Sholavandan
+        // land. Sirugamani is in Tiruchirappalli district; the GI registration
+        // covers the Sholavandan production area in Madurai district. While
+        // false, the GI badge and origin schema are suppressed for this variant.
+        giCovered: false,
+        price: 4,
+        priceUnit: "per leaf",
+        summary:
+          "The smaller traditional leaf — the one most Tamil households grew up with.",
+        whyThis: [
+          "Smaller leaf, easier to fold for everyday paan",
+          "The variety most Tamil households grew up with",
+          "More economical for regular and repeat use",
+        ],
+        compare: {
+          Price: "₹4 per leaf",
+          "Leaf size": "Small, 7–9 cm",
+          Colour: "Lighter green",
+          Thickness: "Thinner",
+          "Best use": "Daily paan, home use",
+          "Shelf life": "4–6 days refrigerated",
+          Occasion: "Everyday",
+        },
+      },
     ],
     boughtWith: ["betel-leaf-powder", "betel-leaf-tea"],
     seo: {

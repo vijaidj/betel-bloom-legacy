@@ -107,6 +107,14 @@ const VariantSelector = ({ label, variants, selectedId, onSelect, onPreload }: P
                   <span className="block text-xs text-muted-foreground mt-1.5 leading-relaxed">
                     {v.note}
                   </span>
+                  {v.price !== undefined && (
+                    <span className="block mt-2.5 text-primary">
+                      <span className="font-heading text-xl">₹{v.price}</span>
+                      {v.priceUnit && (
+                        <span className="text-xs text-muted-foreground ml-1.5">{v.priceUnit}</span>
+                      )}
+                    </span>
+                  )}
                 </span>
               </span>
             </button>

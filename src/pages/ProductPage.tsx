@@ -65,6 +65,8 @@ const ProductPage = () => {
     sku: variant?.sku ?? `VL-${product.slug.toUpperCase()}`,
     availability: variant?.availability ?? "InStock",
     giCovered: variant ? variant.giCovered : true,
+    price: variant?.price,
+    priceUnit: variant?.priceUnit,
     displayName: variant ? `${product.name} — ${variant.label}` : product.name,
   };
 
@@ -127,7 +129,21 @@ const ProductPage = () => {
             priceCurrency: "INR",
             url: `${SITE_URL}${path}?variant=${v.id}`,
             seller: { "@id": `${SITE_URL}/#organization` },
-            ...(v.price ? { price: String(v.price) } : {}),
+            ...(v.price !== undefined
+              ? {
+                  price: String(v.price),
+                  // Per-unit pricing needs a UnitPriceSpecification so Google
+                  // reads "₹5 per leaf" rather than "₹5 for the product"
+                  priceSpecification: {
+                    "@type": "UnitPriceSpecification",
+                    price: String(v.price),
+                    priceCurrency: "INR",
+                    ...(v.priceUnit
+                      ? { unitText: v.priceUnit.replace(/^per\s+/i, "") }
+                      : {}),
+                  },
+                }
+              : {}),
           },
         })),
       }
@@ -254,6 +270,18 @@ const ProductPage = () => {
                 {product.name}
               </h1>
               <p className="text-muted-foreground leading-relaxed mb-6">{view.summary}</p>
+
+              {view.price !== undefined && (
+                <p className="flex items-baseline gap-2 mb-6">
+                  <span className="font-heading text-4xl text-primary">₹{view.price}</span>
+                  {view.priceUnit && (
+                    <span className="text-sm text-muted-foreground">{view.priceUnit}</span>
+                  )}
+                  <span className="text-xs text-muted-foreground/70 ml-1">
+                    · minimum {view.minimumOrder}
+                  </span>
+                </p>
+              )}
 
               <div className="flex flex-wrap gap-2 mb-8">
                 {product.trustBadges

@@ -94,8 +94,10 @@ export interface Variant {
   minimumOrder?: string;
   benefits?: Benefit[];
   freshness?: Freshness;
-  /** Pending the pricing decision. Undefined renders as "Quote on request". */
+  /** Unit price in INR. Undefined renders as "Quote on request". */
   price?: number;
+  /** What the price is per, e.g. "per leaf", "per jar". Shown beside the price. */
+  priceUnit?: string;
 
   /** Rows for the variant comparison table (brief §10) */
   compare: Record<string, string>;

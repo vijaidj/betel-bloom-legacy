@@ -131,17 +131,42 @@ const ProductPage = () => {
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 mb-8">
-                <Button size="lg" className="h-13 bg-accent text-accent-foreground hover:bg-accent/90 gap-2 font-semibold" asChild>
-                  <a href={order} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-5 w-5" /> Order on WhatsApp
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" className="h-13 border-accent/40 text-primary hover:bg-accent/5 gap-2" asChild>
-                  <a href={whatsappLink(`Hi, I need a bulk quote for ${product.name}.`)} target="_blank" rel="noopener noreferrer">
-                    Bulk enquiry
-                  </a>
-                </Button>
+              <div className="mb-9">
+                {/* Primary action */}
+                <a
+                  href={order}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-center gap-3 w-full h-[58px] rounded-xl bg-accent text-accent-foreground font-semibold tracking-wide shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] hover:shadow-[0_12px_32px_-8px_hsl(var(--accent)/0.85)] hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                >
+                  <MessageCircle className="h-5 w-5" aria-hidden="true" />
+                  Order on WhatsApp
+                  <ArrowRight className="h-4 w-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" aria-hidden="true" />
+                </a>
+                <p className="text-center text-xs text-muted-foreground mt-2.5">
+                  We usually reply within 30 minutes · 6 AM – 8 PM
+                </p>
+
+                {/* Divider */}
+                <div className="flex items-center gap-4 my-5" aria-hidden="true">
+                  <span className="h-px flex-1 bg-border" />
+                  <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground/70">or</span>
+                  <span className="h-px flex-1 bg-border" />
+                </div>
+
+                {/* Secondary action */}
+                <a
+                  href={whatsappLink(`Hi, I need a bulk quote for ${product.name}.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between w-full h-[54px] px-5 rounded-xl border border-primary/20 text-primary hover:border-accent hover:bg-accent/[0.04] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                >
+                  <span className="text-left">
+                    <span className="block text-sm font-semibold leading-tight">Request a bulk quote</span>
+                    <span className="block text-xs text-muted-foreground mt-0.5">Weddings, temples, wholesale &amp; export</span>
+                  </span>
+                  <ArrowRight className="h-4 w-4 text-accent shrink-0 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
+                </a>
               </div>
 
               {/* Spec table */}
@@ -158,34 +183,82 @@ const ProductPage = () => {
           </div>
         </section>
 
-        {/* Description */}
-        <section className="container mx-auto px-4 mb-16">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-5">About {product.name}</h2>
-            <div className="space-y-4">
-              {product.description.map((p, i) => (
-                <p key={i} className="text-muted-foreground leading-relaxed">{p}</p>
-              ))}
+        {/* Description — editorial layout */}
+        <section className="py-20 md:py-24 border-y border-border/60 bg-gradient-to-b from-secondary/20 to-transparent mb-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto grid md:grid-cols-[190px_1fr] gap-10 md:gap-16">
+
+              {/* Sticky label column */}
+              <div className="md:sticky md:top-32 md:self-start">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+                  The Product
+                </p>
+                <h2 className="font-heading text-2xl md:text-[28px] leading-[1.15] text-primary">
+                  {product.name}
+                </h2>
+                <span className="block w-12 h-px bg-accent mt-5" aria-hidden="true" />
+              </div>
+
+              {/* Prose column */}
+              <div className="max-w-[62ch]">
+                {product.description.map((para, i) =>
+                  i === 0 ? (
+                    <p
+                      key={i}
+                      className="text-lg md:text-[21px] leading-[1.65] text-primary/85 font-light mb-7"
+                    >
+                      {para}
+                    </p>
+                  ) : (
+                    <p key={i} className="text-[15px] leading-[1.8] text-muted-foreground mb-5 last:mb-0">
+                      {para}
+                    </p>
+                  )
+                )}
+
+                {/* Provenance mark */}
+                <div className="flex items-center gap-3 mt-10 pt-7 border-t border-border/70">
+                  <Leaf className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
+                  <p className="text-xs text-muted-foreground italic">
+                    Grown, harvested and packed by our own family in Sholavandan, Madurai district.
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
 
         {/* Benefits */}
-        <section className="bg-secondary/30 py-16 mb-16">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">Why it's different</h2>
-            <div className="grid sm:grid-cols-2 gap-5">
+        <section className="mb-20">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="text-center mb-12 md:mb-14">
+              <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+                What sets it apart
+              </p>
+              <h2 className="font-heading text-3xl md:text-[42px] leading-tight text-primary">
+                Why it&rsquo;s different
+              </h2>
+              <span className="block w-14 h-px bg-accent mx-auto mt-6" aria-hidden="true" />
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-x-12 gap-y-10 md:gap-x-16 md:gap-y-12">
               {product.benefits.map((b) => (
-                <div key={b.title} className="bg-card border border-border rounded-xl p-5">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-                      <Leaf className="h-4 w-4 text-accent" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-primary text-sm mb-1">{b.title}</h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{b.detail}</p>
-                    </div>
+                <div key={b.title} className="group">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span
+                      className="w-11 h-11 rounded-full border border-accent/30 bg-accent/[0.07] flex items-center justify-center shrink-0 group-hover:bg-accent/15 transition-colors duration-300"
+                      aria-hidden="true"
+                    >
+                      <Leaf className="h-5 w-5 text-accent" />
+                    </span>
+                    <h3 className="font-heading text-xl md:text-[22px] leading-snug text-primary">
+                      {b.title}
+                    </h3>
                   </div>
+                  <p className="text-[15px] md:text-base leading-[1.75] text-muted-foreground pl-[56px]">
+                    {b.detail}
+                  </p>
                 </div>
               ))}
             </div>

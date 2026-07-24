@@ -66,6 +66,7 @@ const ProductPage = () => {
     availability: variant?.availability ?? "InStock",
     giCovered: variant ? variant.giCovered : true,
     price: variant?.price,
+    mrp: variant?.mrp,
     priceUnit: variant?.priceUnit,
     displayName: variant ? `${product.name} — ${variant.label}` : product.name,
   };
@@ -134,14 +135,28 @@ const ProductPage = () => {
                   price: String(v.price),
                   // Per-unit pricing needs a UnitPriceSpecification so Google
                   // reads "₹5 per leaf" rather than "₹5 for the product"
-                  priceSpecification: {
-                    "@type": "UnitPriceSpecification",
-                    price: String(v.price),
-                    priceCurrency: "INR",
-                    ...(v.priceUnit
-                      ? { unitText: v.priceUnit.replace(/^per\s+/i, "") }
-                      : {}),
-                  },
+                  priceSpecification: [
+                    {
+                      "@type": "UnitPriceSpecification",
+                      price: String(v.price),
+                      priceCurrency: "INR",
+                      ...(v.priceUnit
+                        ? { unitText: v.priceUnit.replace(/^per\s+/i, "") }
+                        : {}),
+                    },
+                    // MRP as ListPrice — the pattern Google reads for
+                    // strikethrough pricing in rich results
+                    ...(v.mrp !== undefined && v.mrp > v.price
+                      ? [
+                          {
+                            "@type": "UnitPriceSpecification",
+                            priceType: "https://schema.org/ListPrice",
+                            price: String(v.mrp),
+                            priceCurrency: "INR",
+                          },
+                        ]
+                      : []),
+                  ],
                 }
               : {}),
           },
@@ -272,15 +287,24 @@ const ProductPage = () => {
               <p className="text-muted-foreground leading-relaxed mb-6">{view.summary}</p>
 
               {view.price !== undefined && (
-                <p className="flex items-baseline gap-2 mb-6">
-                  <span className="font-heading text-4xl text-primary">₹{view.price}</span>
-                  {view.priceUnit && (
-                    <span className="text-sm text-muted-foreground">{view.priceUnit}</span>
-                  )}
-                  <span className="text-xs text-muted-foreground/70 ml-1">
-                    · minimum {view.minimumOrder}
-                  </span>
-                </p>
+                <div className="mb-6">
+                  <p className="flex items-baseline flex-wrap gap-x-3 gap-y-1">
+                    <span className="font-heading text-4xl text-primary">₹{view.price}</span>
+                    {view.mrp !== undefined && view.mrp > view.price && (
+                      <>
+                        <span className="text-lg text-muted-foreground/70 line-through">
+                          ₹{view.mrp}
+                        </span>
+                        <span className="text-xs font-semibold text-accent-foreground bg-accent px-2 py-1 rounded">
+                          {Math.round((1 - view.price / view.mrp) * 100)}% off
+                        </span>
+                      </>
+                    )}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-1.5">
+                    {view.priceUnit} · minimum {view.minimumOrder}
+                  </p>
+                </div>
               )}
 
               <div className="flex flex-wrap gap-2 mb-8">

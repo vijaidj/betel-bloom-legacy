@@ -108,10 +108,22 @@ const VariantSelector = ({ label, variants, selectedId, onSelect, onPreload }: P
                     {v.note}
                   </span>
                   {v.price !== undefined && (
-                    <span className="block mt-2.5 text-primary">
-                      <span className="font-heading text-xl">₹{v.price}</span>
+                    <span className="flex items-baseline flex-wrap gap-x-2 mt-2.5">
+                      <span className="font-heading text-xl text-primary">₹{v.price}</span>
+                      {v.mrp !== undefined && v.mrp > v.price && (
+                        <>
+                          <span className="text-sm text-muted-foreground/70 line-through">
+                            ₹{v.mrp}
+                          </span>
+                          <span className="text-[11px] font-semibold text-accent">
+                            {Math.round((1 - v.price / v.mrp) * 100)}% off
+                          </span>
+                        </>
+                      )}
                       {v.priceUnit && (
-                        <span className="text-xs text-muted-foreground ml-1.5">{v.priceUnit}</span>
+                        <span className="w-full text-xs text-muted-foreground mt-0.5">
+                          {v.priceUnit}
+                        </span>
                       )}
                     </span>
                   )}

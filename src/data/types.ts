@@ -94,8 +94,10 @@ export interface Variant {
   minimumOrder?: string;
   benefits?: Benefit[];
   freshness?: Freshness;
-  /** Unit price in INR. Undefined renders as "Quote on request". */
+  /** Selling price in INR. Undefined renders as "Quote on request". */
   price?: number;
+  /** List price / MRP. Struck through when higher than `price`. */
+  mrp?: number;
   /** What the price is per, e.g. "per leaf", "per jar". Shown beside the price. */
   priceUnit?: string;
 

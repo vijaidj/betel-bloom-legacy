@@ -14,6 +14,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Seo from "@/components/Seo";
 import NotFound from "@/pages/NotFound";
 import { getProduct, products, whatsappLink, SITE_URL, FSSAI_LICENCE } from "@/data/products";
+import giBadge from "@/assets/gi-india-badge.webp";
 
 const ProductPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -102,16 +103,39 @@ const ProductPage = () => {
         {/* Hero */}
         <section className="container mx-auto px-4 mb-16">
           <div className="grid lg:grid-cols-2 gap-10 items-start max-w-6xl mx-auto">
-            <div className="rounded-2xl overflow-hidden border border-border shadow-lg bg-card">
-              <img
-                src={product.image}
-                alt={product.imageAlt}
-                width={800}
-                height={800}
-                loading="eager"
-                {...{ fetchpriority: "high" }}
-                className="w-full h-auto object-cover"
-              />
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <div className="rounded-2xl overflow-hidden border border-border shadow-lg bg-card">
+                <img
+                  src={product.image}
+                  alt={product.imageAlt}
+                  width={800}
+                  height={800}
+                  loading="eager"
+                  {...{ fetchpriority: "high" }}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+
+              {/* Provenance strip */}
+              <div className="mt-4 rounded-2xl border border-border bg-secondary/40 px-5 py-4 flex items-center gap-4">
+                <img
+                  src={giBadge}
+                  alt=""
+                  width={48}
+                  height={48}
+                  loading="lazy"
+                  className="w-12 h-12 object-contain shrink-0"
+                  aria-hidden="true"
+                />
+                <div>
+                  <p className="text-sm font-semibold text-primary leading-snug">
+                    Geographical Indication protected
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+                    Grown on our own farms in Sholavandan, Madurai district.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div>
@@ -266,29 +290,61 @@ const ProductPage = () => {
         </section>
 
         {/* How to use + storage */}
-        <section className="container mx-auto px-4 mb-16">
-          <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-            <div>
-              <h2 className="text-xl md:text-2xl font-bold text-primary mb-4">How to use</h2>
-              <ul className="space-y-3">
-                {product.howToUse.map((s, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                    <span className="w-5 h-5 rounded-full bg-accent/10 text-accent text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
-                      {i + 1}
-                    </span>
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h2 className="text-xl md:text-2xl font-bold text-primary mb-4">Storage</h2>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{product.storage}</p>
-              <div className="bg-accent/5 border border-accent/20 rounded-xl p-4">
-                <p className="text-xs text-muted-foreground">
-                  <strong className="text-primary">Shelf life:</strong> {product.shelfLife}
+        <section className="py-20 md:py-24 bg-secondary/25 border-y border-border/60 mb-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto grid md:grid-cols-[1.15fr_1fr] gap-14 md:gap-20">
+
+              {/* Steps */}
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+                  Preparation
                 </p>
+                <h2 className="font-heading text-3xl md:text-[38px] leading-tight text-primary mb-9">
+                  How to use
+                </h2>
+
+                <ol className="space-y-7">
+                  {product.howToUse.map((s, i) => (
+                    <li key={i} className="flex gap-5">
+                      <span
+                        className="font-heading text-2xl leading-none text-accent/45 shrink-0 w-8 pt-0.5 tabular-nums"
+                        aria-hidden="true"
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-[15px] md:text-base leading-[1.75] text-muted-foreground">{s}</p>
+                    </li>
+                  ))}
+                </ol>
               </div>
+
+              {/* Storage */}
+              <div className="md:pt-[4.6rem]">
+                <div className="rounded-2xl border border-border bg-card p-7 md:p-8 h-full">
+                  <div className="flex items-center gap-3 mb-5">
+                    <span className="w-10 h-10 rounded-full bg-accent/10 border border-accent/25 flex items-center justify-center shrink-0" aria-hidden="true">
+                      <Package className="h-5 w-5 text-accent" />
+                    </span>
+                    <h2 className="font-heading text-2xl leading-none text-primary">Storage</h2>
+                  </div>
+
+                  <p className="text-[15px] leading-[1.8] text-muted-foreground mb-7">
+                    {product.storage}
+                  </p>
+
+                  <dl className="border-t border-border pt-5 space-y-3">
+                    <div className="flex justify-between gap-4">
+                      <dt className="text-xs uppercase tracking-wider text-muted-foreground/80">Shelf life</dt>
+                      <dd className="text-sm font-medium text-primary text-right">{product.shelfLife}</dd>
+                    </div>
+                    <div className="flex justify-between gap-4">
+                      <dt className="text-xs uppercase tracking-wider text-muted-foreground/80">Ingredients</dt>
+                      <dd className="text-sm font-medium text-primary text-right max-w-[60%]">{product.ingredients}</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
@@ -319,27 +375,44 @@ const ProductPage = () => {
         {/* FAQ */}
         <section className="container mx-auto px-4 mb-16">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">Questions about {product.name}</h2>
-            <Accordion type="single" collapsible className="w-full">
+            <div className="mb-10">
+              <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+                Common questions
+              </p>
+              <h2 className="font-heading text-3xl md:text-[38px] leading-tight text-primary">
+                Questions about {product.name}
+              </h2>
+              <span className="block w-14 h-px bg-accent mt-6" aria-hidden="true" />
+            </div>
+
+            <Accordion type="single" collapsible className="w-full border-t border-border">
               {product.faqs.map((f, i) => (
-                <AccordionItem key={i} value={`faq-${i}`}>
-                  <AccordionTrigger className="text-left text-sm font-semibold text-primary hover:text-accent">
+                <AccordionItem key={i} value={`faq-${i}`} className="border-b border-border">
+                  <AccordionTrigger className="text-left py-6 gap-6 font-heading text-lg md:text-xl leading-snug text-primary hover:text-accent hover:no-underline [&[data-state=open]]:text-accent">
                     {f.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
+                  <AccordionContent className="pb-7 pr-8 text-[15px] md:text-base leading-[1.8] text-muted-foreground">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
 
-            <div className="mt-8 text-center bg-secondary/40 rounded-xl p-6">
-              <p className="text-sm text-muted-foreground mb-4">Still have a question? We usually reply within 30 minutes.</p>
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2" asChild>
-                <a href={whatsappLink(`Hi, I have a question about ${product.name}.`)} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-4 w-4" /> Ask on WhatsApp
-                </a>
-              </Button>
+            <div className="mt-12 rounded-2xl border border-accent/25 bg-accent/[0.05] px-7 py-8 text-center">
+              <h3 className="font-heading text-xl md:text-2xl text-primary mb-2">
+                Still deciding?
+              </h3>
+              <p className="text-sm text-muted-foreground mb-6 max-w-sm mx-auto leading-relaxed">
+                Send us a message and we&rsquo;ll answer honestly — including if this isn&rsquo;t the right product for you.
+              </p>
+              <a
+                href={whatsappLink(`Hi, I have a question about ${product.name}.`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 h-12 px-7 rounded-xl bg-accent text-accent-foreground font-semibold text-sm tracking-wide hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              >
+                <MessageCircle className="h-4 w-4" aria-hidden="true" /> Ask on WhatsApp
+              </a>
             </div>
           </div>
         </section>
@@ -348,7 +421,14 @@ const ProductPage = () => {
         {related.length > 0 && (
           <section className="bg-secondary/30 py-16">
             <div className="container mx-auto px-4">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">You might also like</h2>
+              <div className="text-center mb-10">
+                <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+                  From the same harvest
+                </p>
+                <h2 className="font-heading text-3xl md:text-[38px] leading-tight text-primary">
+                  You might also like
+                </h2>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
                 {related.map((r) => (
                   <Link
@@ -366,9 +446,9 @@ const ProductPage = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
-                    <div className="p-4">
-                      <h3 className="font-semibold text-primary text-sm mb-1">{r.name}</h3>
-                      <p className="text-xs text-muted-foreground line-clamp-2">{r.summary}</p>
+                    <div className="p-5">
+                      <h3 className="font-heading text-lg text-primary mb-1.5 leading-snug">{r.name}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">{r.summary}</p>
                     </div>
                   </Link>
                 ))}

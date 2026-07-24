@@ -4,6 +4,11 @@ import teaImg from "@/assets/product-tea.webp";
 import oilImg from "@/assets/product-oil.webp";
 import juiceMixImg from "@/assets/product-juice-mix.webp";
 import waterImg from "@/assets/product-water.webp";
+import type { Product } from "./types";
+import { defaultJourney, baseSpecs } from "./journey";
+
+export type { Product, Variant, Benefit, Faq, Freshness, JourneyStep, Specs } from "./types";
+export { defaultJourney } from "./journey";
 
 export const SITE_URL = "https://www.vetrileaf.com";
 export const WHATSAPP_NUMBER = "919600441284";
@@ -11,31 +16,6 @@ export const FSSAI_LICENCE = "22424000000455";
 
 export function whatsappLink(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-}
-
-export interface Product {
-  slug: string;
-  name: string;
-  tagline: string;
-  /** Short line used on cards and in meta descriptions */
-  summary: string;
-  /** Card blurb — 2 to 3 sentences */
-  cardDescription: string;
-  /** Long-form intro on the product page */
-  description: string[];
-  image: string;
-  imageAlt: string;
-  benefits: { title: string; detail: string }[];
-  howToUse: string[];
-  storage: string;
-  shelfLife: string;
-  ingredients: string;
-  netWeight: string;
-  minimumOrder: string;
-  leadTime: string;
-  seo: { title: string; description: string; keywords: string };
-  faqs: { q: string; a: string }[];
-  related: string[];
 }
 
 export const products: Product[] = [
@@ -72,6 +52,83 @@ export const products: Product[] = [
     netWeight: "Sold by leaf count — 100, 500, 1000 or bulk",
     minimumOrder: "100 leaves",
     leadTime: "Same-day dispatch for orders confirmed before 10 AM",
+    specs: {
+      ...baseSpecs,
+      harvestMethod: "Hand-picked at dawn",
+      processingMethod: "None — sold fresh, unwashed and ungraded by machine",
+      packageMaterial: "Moisture-locked food-grade wrap, banana fibre tie",
+      suitableFor: "Weddings, thamboolam, temple puja, paan, daily use",
+    },
+    freshness: {
+      kind: "fresh",
+      harvest: "Harvested the morning your order is packed",
+      dispatch: "Dispatched same day for orders confirmed before 10 AM",
+      guarantee: "Arrives fresh or we replace it — send a photo within 24 hours",
+      peakMonths: "Quality peaks October to March",
+    },
+    trustBadges: ["GI certified", "Harvested today", "Farm direct"],
+    journey: defaultJourney,
+    compareRows: ["Leaf size", "Colour", "Thickness", "Best use", "Shelf life", "Occasion"],
+    variants: [
+      {
+        id: "nadu",
+        label: "Nadu Vetrilai",
+        sublabel: "Premium grade",
+        note: "Best for weddings and temple offerings",
+        sku: "VL-FRESH-NADU",
+        availability: "InStock",
+        recommended: true,
+        badge: "Most ordered",
+        giCovered: true,
+        summary:
+          "The premium Sholavandan grade — larger, hand-selected leaves reserved for ceremony.",
+        whyThis: [
+          "Larger leaves hold their shape through a full day of ceremony",
+          "Hand-selected, so every leaf in the bundle is presentation quality",
+          "The grade traditionally used for thamboolam and temple offerings",
+        ],
+        compare: {
+          "Leaf size": "Large, 12–15 cm",
+          Colour: "Deep even green",
+          Thickness: "Medium, pliable",
+          "Best use": "Thamboolam, temple, gifting",
+          "Shelf life": "5–7 days refrigerated",
+          Occasion: "Weddings, festivals, puja",
+        },
+      },
+      // ── Sirugamani Vetrilai — NOT YET SHIPPED ────────────────────────────
+      // Blocked pending confirmation of growing location. Sirugamani is in
+      // Tiruchirappalli district; the GI registration covers the Sholavandan
+      // production area in Madurai district. If this variety is grown on our
+      // own Sholavandan land, set giCovered: true and uncomment. If it is
+      // sourced from Trichy, it must set giCovered: false, which suppresses
+      // GI badging, provenance copy and the origin schema fields.
+      //
+      // {
+      //   id: "sirugamani",
+      //   label: "Sirugamani Vetrilai",
+      //   sublabel: "Traditional variety",
+      //   note: "Everyday use, smaller leaf",
+      //   sku: "VL-FRESH-SIRU",
+      //   availability: "InStock",
+      //   giCovered: false,   // ← confirm before shipping
+      //   summary: "The smaller traditional leaf, suited to daily use.",
+      //   whyThis: [
+      //     "Smaller leaf, easier to fold for everyday paan",
+      //     "The variety most Tamil households grew up with",
+      //     "More economical for regular use",
+      //   ],
+      //   compare: {
+      //     "Leaf size": "Small, 7–9 cm",
+      //     Colour: "Lighter green",
+      //     Thickness: "Thinner",
+      //     "Best use": "Daily paan, home use",
+      //     "Shelf life": "4–6 days refrigerated",
+      //     Occasion: "Everyday",
+      //   },
+      // },
+    ],
+    boughtWith: ["betel-leaf-powder", "betel-leaf-tea"],
     seo: {
       title: "Buy Fresh Sholavandan Betel Leaf Online | GI Certified Vetrilai",
       description:
@@ -120,6 +177,74 @@ export const products: Product[] = [
     netWeight: "100 g",
     minimumOrder: "1 jar retail; 50 jars wholesale",
     leadTime: "1–2 working days",
+    specs: {
+      ...baseSpecs,
+      harvestMethod: "Hand-picked at dawn",
+      processingMethod: "Shade dried, then stone ground at low temperature",
+      packageMaterial: "Food-grade PET jar, tamper-evident seal",
+      suitableFor: "Herbal preparations, Ayurvedic formulations, daily wellness",
+    },
+    freshness: {
+      kind: "packaged",
+      packedNote: "Packing date printed on every jar",
+      bestBefore: "Best within 12 months of packing",
+      naturalNote: "Single ingredient — betel leaf only",
+      preservativeNote: "No preservatives, fillers or anti-caking agents",
+    },
+    trustBadges: ["GI certified", "Single ingredient", "No preservatives"],
+    journey: defaultJourney,
+    compareRows: ["Net weight", "Servings", "Best for", "Value", "Shelf life"],
+    variants: [
+      {
+        id: "50g",
+        label: "50 g",
+        sublabel: "Trial jar",
+        note: "Ideal for first-time buyers",
+        sku: "VL-POWDER-50",
+        availability: "InStock",
+        giCovered: true,
+        netWeight: "50 g",
+        minimumOrder: "1 jar retail; 100 jars wholesale",
+        whyThis: [
+          "Enough for about a month of daily use",
+          "The sensible way to try it before committing",
+          "Same leaf, same grind, smaller jar",
+        ],
+        compare: {
+          "Net weight": "50 g",
+          Servings: "~100 at ½ tsp",
+          "Best for": "Trying it first",
+          Value: "Standard",
+          "Shelf life": "12 months unopened",
+        },
+      },
+      {
+        id: "100g",
+        label: "100 g",
+        sublabel: "Family jar",
+        note: "Better value for regular use",
+        sku: "VL-POWDER-100",
+        availability: "InStock",
+        recommended: true,
+        badge: "Best value",
+        giCovered: true,
+        netWeight: "100 g",
+        minimumOrder: "1 jar retail; 50 jars wholesale",
+        whyThis: [
+          "Roughly two months of daily use for one household",
+          "Lower cost per gram than the trial jar",
+          "The size most repeat customers settle on",
+        ],
+        compare: {
+          "Net weight": "100 g",
+          Servings: "~200 at ½ tsp",
+          "Best for": "Regular use",
+          Value: "Better per gram",
+          "Shelf life": "12 months unopened",
+        },
+      },
+    ],
+    boughtWith: ["betel-leaf-tea", "fresh-betel-leaf"],
     seo: {
       title: "Betel Leaf Powder 100g | Pure Sholavandan Vetrilai Powder Online",
       description:
@@ -168,6 +293,23 @@ export const products: Product[] = [
     netWeight: "40 g — 20 tea bags",
     minimumOrder: "1 box retail; 50 boxes wholesale",
     leadTime: "1–2 working days",
+    specs: {
+      ...baseSpecs,
+      harvestMethod: "Hand-picked at dawn",
+      processingMethod: "Shade dried, cut and filled into unbleached filter bags",
+      packageMaterial: "Printed carton, inner foil wrapper. No plastic mesh or staples",
+      suitableFor: "Daily infusion, evening drink, after meals",
+    },
+    freshness: {
+      kind: "packaged",
+      packedNote: "Packing date printed on every box",
+      bestBefore: "Best within 12 months of packing",
+      naturalNote: "100% betel leaf — no blending agents",
+      preservativeNote: "No artificial flavours, colours or preservatives",
+    },
+    trustBadges: ["GI certified", "Caffeine free", "No artificial flavours"],
+    journey: defaultJourney,
+    boughtWith: ["betel-leaf-powder", "betel-leaf-water"],
     seo: {
       title: "Betel Leaf Tea Bags | Caffeine Free Herbal Vetrilai Tea, 20 Bags",
       description:
@@ -216,6 +358,23 @@ export const products: Product[] = [
     netWeight: "30 ml",
     minimumOrder: "1 bottle retail; 25 bottles wholesale",
     leadTime: "1–2 working days",
+    specs: {
+      ...baseSpecs,
+      harvestMethod: "Hand-picked at dawn",
+      processingMethod: "Steam distilled. No solvents, no chemical extraction",
+      packageMaterial: "Amber glass bottle with glass dropper",
+      suitableFor: "Aromatherapy and traditional external use, always diluted",
+    },
+    freshness: {
+      kind: "packaged",
+      packedNote: "Distillation batch printed on every bottle",
+      bestBefore: "Best within 24 months, stored away from light and heat",
+      naturalNote: "Single ingredient — betel leaf oil only",
+      preservativeNote: "No carrier oils, diluents or synthetic additives",
+    },
+    trustBadges: ["GI certified", "Steam distilled", "External use only"],
+    journey: defaultJourney,
+    boughtWith: ["betel-leaf-powder", "fresh-betel-leaf"],
     seo: {
       title: "Betel Leaf Oil 30ml | Steam Distilled Pure Vetrilai Oil Online",
       description:
@@ -264,6 +423,23 @@ export const products: Product[] = [
     netWeight: "500 ml",
     minimumOrder: "1 bottle retail; 24 bottles wholesale",
     leadTime: "1–2 working days",
+    specs: {
+      ...baseSpecs,
+      harvestMethod: "Hand-picked at dawn",
+      processingMethod: "Cold processed within hours of harvest",
+      packageMaterial: "Glass bottle, metal cap",
+      suitableFor: "Daily drink, mixed with water or coconut water",
+    },
+    freshness: {
+      kind: "packaged",
+      packedNote: "Bottling date printed on every bottle",
+      bestBefore: "6 months sealed; 7 days refrigerated once opened",
+      naturalNote: "Made from fresh leaves, not concentrate powder",
+      preservativeNote: "No artificial colours, flavours or synthetic preservatives",
+    },
+    trustBadges: ["GI certified", "No added sugar", "No artificial colour"],
+    journey: defaultJourney,
+    boughtWith: ["betel-leaf-water", "betel-leaf-tea"],
     seo: {
       title: "Betel Leaf Juice Mix 500ml | Natural Vetrilai Juice Concentrate",
       description:
@@ -312,6 +488,23 @@ export const products: Product[] = [
     netWeight: "500 ml",
     minimumOrder: "1 bottle retail; 24 bottles wholesale",
     leadTime: "1–2 working days",
+    specs: {
+      ...baseSpecs,
+      harvestMethod: "Hand-picked at dawn",
+      processingMethod: "Whole leaves steeped in purified water, bottled with leaves in",
+      packageMaterial: "Glass bottle, metal cap",
+      suitableFor: "Ready to drink, daily hydration",
+    },
+    freshness: {
+      kind: "packaged",
+      packedNote: "Bottling date printed on every bottle",
+      bestBefore: "6 months sealed; 3 days refrigerated once opened",
+      naturalNote: "Whole leaves visible in the bottle — a genuine infusion",
+      preservativeNote: "No sugar, no preservatives, no artificial flavouring",
+    },
+    trustBadges: ["GI certified", "Ready to drink", "No sugar added"],
+    journey: defaultJourney,
+    boughtWith: ["betel-juice-mix", "betel-leaf-tea"],
     seo: {
       title: "Betel Leaf Water 500ml | Natural Infused Vetrilai Water Online",
       description:

@@ -1,7 +1,8 @@
-import { useParams, Link } from "react-router-dom";
+import { useState, useCallback } from "react";
+import { useParams, Link, useSearchParams } from "react-router-dom";
 import {
   MessageCircle, ChevronRight, Leaf, Package, Clock, ShieldCheck,
-  Info, Sparkles, ArrowRight,
+  Info, Sparkles, ArrowRight, Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,37 +16,115 @@ import Seo from "@/components/Seo";
 import NotFound from "@/pages/NotFound";
 import { getProduct, products, whatsappLink, SITE_URL, FSSAI_LICENCE } from "@/data/products";
 import giBadge from "@/assets/gi-india-badge.webp";
+import VariantSelector from "@/components/product/VariantSelector";
+import FreshnessIndicator from "@/components/product/FreshnessIndicator";
+import SmartWhatsAppForm from "@/components/product/SmartWhatsAppForm";
+import { ProductJourney, WhyThisVariant, VariantComparison } from "@/components/product/ProductJourney";
+import { FrequentlyBoughtTogether, PeopleAlsoSearched } from "@/components/product/RelatedContent";
 
 const ProductPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const product = slug ? getProduct(slug) : undefined;
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [formOpen, setFormOpen] = useState(false);
+
+  const variants = product?.variants ?? [];
+  const defaultId =
+    variants.find((v) => v.recommended)?.id ?? variants[0]?.id ?? "";
+  const requested = searchParams.get("variant");
+  const activeId =
+    variants.some((v) => v.id === requested) ? (requested as string) : defaultId;
+  const variant = variants.find((v) => v.id === activeId);
+
+  const selectVariant = useCallback(
+    (id: string) => {
+      // replace: variant choice should not add history entries
+      setSearchParams(id === defaultId ? {} : { variant: id }, { replace: true });
+    },
+    [defaultId, setSearchParams]
+  );
+
+  const preload = useCallback((v: { image?: string }) => {
+    if (!v.image) return;
+    const img = new Image();
+    img.src = v.image;
+  }, []);
 
   if (!product) return <NotFound />;
 
+  // Variant overrides product-level defaults
+  const view = {
+    image: variant?.image ?? product.image,
+    summary: variant?.summary ?? product.summary,
+    netWeight: variant?.netWeight ?? product.netWeight,
+    shelfLife: variant?.shelfLife ?? product.shelfLife,
+    minimumOrder: variant?.minimumOrder ?? product.minimumOrder,
+    benefits: variant?.benefits ?? product.benefits,
+    freshness: variant?.freshness ?? product.freshness,
+    sku: variant?.sku ?? `VL-${product.slug.toUpperCase()}`,
+    availability: variant?.availability ?? "InStock",
+    giCovered: variant ? variant.giCovered : true,
+    displayName: variant ? `${product.name} — ${variant.label}` : product.name,
+  };
+
   const path = `/products/${product.slug}`;
-  const order = whatsappLink(`Hi, I would like to order ${product.name} from VetriLeaf.`);
+  const order = whatsappLink(`Hi, I would like to order ${view.displayName} from VetriLeaf.`);
   const related = product.related
     .map((s) => products.find((p) => p.slug === s))
     .filter(Boolean) as typeof products;
 
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: `${product.name} — Sholavandan GI Certified`,
-    description: product.summary,
-    image: `${SITE_URL}${product.image}`,
-    sku: `VL-${product.slug.toUpperCase()}`,
-    brand: { "@type": "Brand", name: "VetriLeaf" },
-    manufacturer: { "@id": `${SITE_URL}/#organization` },
-    countryOfOrigin: { "@type": "Country", name: "India" },
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      priceCurrency: "INR",
-      url: `${SITE_URL}${path}`,
-      seller: { "@id": `${SITE_URL}/#organization` },
-    },
-  };
+  // ProductGroup when variants exist so all variants share one canonical URL.
+  // Price is omitted until the pricing decision is made; adding `price` to a
+  // variant automatically populates its offer here.
+  const productSchema = variants.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "ProductGroup",
+        name: `${product.name} — Sholavandan GI Certified`,
+        description: product.summary,
+        image: `${SITE_URL}${product.image}`,
+        brand: { "@type": "Brand", name: "VetriLeaf" },
+        productGroupID: `VL-${product.slug.toUpperCase()}`,
+        variesBy: ["https://schema.org/size"],
+        url: `${SITE_URL}${path}`,
+        hasVariant: variants.map((v) => ({
+          "@type": "Product",
+          name: `${product.name} — ${v.label}`,
+          description: v.summary ?? product.summary,
+          sku: v.sku,
+          image: `${SITE_URL}${v.image ?? product.image}`,
+          ...(v.netWeight ? { weight: v.netWeight } : {}),
+          ...(v.giCovered
+            ? { countryOfOrigin: { "@type": "Country", name: "India" } }
+            : {}),
+          offers: {
+            "@type": "Offer",
+            availability: `https://schema.org/${v.availability}`,
+            priceCurrency: "INR",
+            url: `${SITE_URL}${path}?variant=${v.id}`,
+            seller: { "@id": `${SITE_URL}/#organization` },
+            ...(v.price ? { price: String(v.price) } : {}),
+          },
+        })),
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: `${product.name} — Sholavandan GI Certified`,
+        description: product.summary,
+        image: `${SITE_URL}${product.image}`,
+        sku: view.sku,
+        brand: { "@type": "Brand", name: "VetriLeaf" },
+        manufacturer: { "@id": `${SITE_URL}/#organization` },
+        countryOfOrigin: { "@type": "Country", name: "India" },
+        offers: {
+          "@type": "Offer",
+          availability: "https://schema.org/InStock",
+          priceCurrency: "INR",
+          url: `${SITE_URL}${path}`,
+          seller: { "@id": `${SITE_URL}/#organization` },
+        },
+      };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -68,12 +147,23 @@ const ProductPage = () => {
   };
 
   const specs = [
-    { icon: Package, label: "Net quantity", value: product.netWeight },
-    { icon: Clock, label: "Shelf life", value: product.shelfLife },
+    { icon: Package, label: "Net quantity", value: view.netWeight },
+    { icon: Clock, label: "Shelf life", value: view.shelfLife },
     { icon: Leaf, label: "Ingredients", value: product.ingredients },
-    { icon: ShieldCheck, label: "FSSAI licence", value: FSSAI_LICENCE },
-    { icon: Info, label: "Minimum order", value: product.minimumOrder },
+    { icon: Info, label: "Minimum order", value: view.minimumOrder },
     { icon: Sparkles, label: "Dispatch", value: product.leadTime },
+    { icon: ShieldCheck, label: "FSSAI licence", value: FSSAI_LICENCE },
+  ];
+
+  // Extended specifications — brief §9
+  const extendedSpecs = [
+    { label: "Origin", value: product.specs.origin },
+    { label: "Harvest method", value: product.specs.harvestMethod },
+    { label: "Processing", value: product.specs.processingMethod },
+    { label: "Packaging", value: product.specs.packageMaterial },
+    { label: "Suitable for", value: product.specs.suitableFor },
+    { label: "Country of origin", value: product.specs.countryOfOrigin },
+    { label: "SKU", value: view.sku },
   ];
 
   return (
@@ -106,7 +196,7 @@ const ProductPage = () => {
             <div className="lg:sticky lg:top-28 lg:self-start">
               <div className="rounded-2xl overflow-hidden border border-border shadow-lg bg-card">
                 <img
-                  src={product.image}
+                  src={view.image}
                   alt={product.imageAlt}
                   width={800}
                   height={800}
@@ -145,28 +235,44 @@ const ProductPage = () => {
               <h1 className="text-3xl md:text-5xl font-bold text-primary mb-4 leading-tight">
                 {product.name}
               </h1>
-              <p className="text-muted-foreground leading-relaxed mb-6">{product.summary}</p>
+              <p className="text-muted-foreground leading-relaxed mb-6">{view.summary}</p>
 
               <div className="flex flex-wrap gap-2 mb-8">
-                {["GI Certified", "Farm Direct", "No Preservatives"].map((b) => (
-                  <span key={b} className="text-xs font-medium bg-primary/5 border border-border rounded-full px-3 py-1.5 text-primary">
-                    {b}
-                  </span>
-                ))}
+                {product.trustBadges
+                  .filter((b) => view.giCovered || !/GI/i.test(b))
+                  .map((b) => (
+                    <span
+                      key={b}
+                      className="inline-flex items-center gap-1.5 text-xs font-medium bg-accent/[0.07] border border-accent/25 rounded-full px-3 py-1.5 text-primary"
+                    >
+                      <Check className="h-3 w-3 text-accent" aria-hidden="true" />
+                      {b}
+                    </span>
+                  ))}
               </div>
+
+              {/* Variant selector */}
+              {variants.length > 1 && (
+                <VariantSelector
+                  label={product.slug === "betel-leaf-powder" ? "Choose pack size" : "Choose variety"}
+                  variants={variants}
+                  selectedId={activeId}
+                  onSelect={selectVariant}
+                  onPreload={preload}
+                />
+              )}
 
               <div className="mb-9">
                 {/* Primary action */}
-                <a
-                  href={order}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={() => setFormOpen(true)}
                   className="group flex items-center justify-center gap-3 w-full h-[58px] rounded-xl bg-accent text-accent-foreground font-semibold tracking-wide shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] hover:shadow-[0_12px_32px_-8px_hsl(var(--accent)/0.85)] hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                 >
                   <MessageCircle className="h-5 w-5" aria-hidden="true" />
                   Order on WhatsApp
                   <ArrowRight className="h-4 w-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" aria-hidden="true" />
-                </a>
+                </button>
                 <p className="text-center text-xs text-muted-foreground mt-2.5">
                   We usually reply within 30 minutes · 6 AM – 8 PM
                 </p>
@@ -203,6 +309,11 @@ const ProductPage = () => {
                   </div>
                 ))}
               </dl>
+
+              <div className="mt-5 space-y-5">
+                <FreshnessIndicator freshness={view.freshness} />
+                {variant && <WhyThisVariant variant={variant} />}
+              </div>
             </div>
           </div>
         </section>
@@ -267,7 +378,7 @@ const ProductPage = () => {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-x-12 gap-y-10 md:gap-x-16 md:gap-y-12">
-              {product.benefits.map((b) => (
+              {view.benefits.map((b) => (
                 <div key={b.title} className="group">
                   <div className="flex items-center gap-3 mb-3">
                     <span
@@ -348,6 +459,48 @@ const ProductPage = () => {
             </div>
           </div>
         </section>
+
+        {/* Extended specifications */}
+        <section className="mb-20">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="mb-10">
+              <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+                Full detail
+              </p>
+              <h2 className="font-heading text-3xl md:text-[38px] leading-tight text-primary">
+                Specifications
+              </h2>
+              <span className="block w-14 h-px bg-accent mt-6" aria-hidden="true" />
+            </div>
+
+            <dl className="border-t border-border">
+              {extendedSpecs.map(({ label, value }) => (
+                <div
+                  key={label}
+                  className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 py-4 border-b border-border"
+                >
+                  <dt className="text-xs uppercase tracking-wider text-muted-foreground/80 sm:w-52 shrink-0">
+                    {label}
+                  </dt>
+                  <dd className="text-[15px] text-primary leading-relaxed">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+
+        {/* Journey */}
+        {product.journey && <div className="mb-20"><ProductJourney steps={product.journey} /></div>}
+
+        {/* Variant comparison */}
+        {variants.length > 1 && product.compareRows && (
+          <VariantComparison
+            variants={variants}
+            rows={product.compareRows}
+            selectedId={activeId}
+            onSelect={selectVariant}
+          />
+        )}
 
         {/* Origin */}
         <section className="container mx-auto px-4 mb-16">
@@ -456,7 +609,16 @@ const ProductPage = () => {
             </div>
           </section>
         )}
+        <FrequentlyBoughtTogether product={product} />
+        <PeopleAlsoSearched currentSlug={product.slug} />
       </main>
+
+      <SmartWhatsAppForm
+        open={formOpen}
+        onOpenChange={setFormOpen}
+        product={product}
+        variant={variant}
+      />
 
       <Footer />
       <WhatsAppButton />

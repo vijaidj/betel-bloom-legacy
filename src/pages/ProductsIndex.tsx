@@ -50,19 +50,26 @@ const ProductsIndex = () => {
           </ol>
         </nav>
 
-        <section className="container mx-auto px-4 mb-14">
-          <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-1.5 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
-              <Leaf className="h-3 w-3" /> Our Range
+        <section className="container mx-auto px-4 mb-16">
+          <div className="max-w-6xl mx-auto">
+            <span className="inline-flex items-center gap-1.5 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-5">
+              <Leaf className="h-3 w-3" aria-hidden="true" /> Our Range
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold text-primary mb-4 leading-tight">
-              Betel Leaf Products, Farm Direct
-            </h1>
-            <p className="text-muted-foreground leading-relaxed">
-              Every product here begins with GI-certified betel leaves grown on our own farms in
-              Sholavandan, Madurai district. Fresh leaves for ceremony and tradition, and a small
-              range of natural products made from the same harvest.
-            </p>
+
+            {/* Title left, description right — fills the grid width below while
+                keeping the paragraph at a readable measure. */}
+            <div className="grid lg:grid-cols-[1.35fr_1fr] gap-6 lg:gap-16 lg:items-end">
+              <h1 className="text-4xl md:text-6xl lg:text-[68px] font-bold text-primary leading-[1.05] tracking-tight">
+                Betel Leaf Products,<br className="hidden sm:block" /> Farm Direct
+              </h1>
+              <p className="text-[15px] md:text-base text-muted-foreground leading-[1.8] lg:pb-2">
+                Every product here begins with GI-certified betel leaves grown on our own farms in
+                Sholavandan, Madurai district. Fresh leaves for ceremony and tradition, and a small
+                range of natural products made from the same harvest.
+              </p>
+            </div>
+
+            <span className="block w-full h-px bg-border mt-10" aria-hidden="true" />
           </div>
         </section>
 

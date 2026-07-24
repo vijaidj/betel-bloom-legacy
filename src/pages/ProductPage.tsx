@@ -377,7 +377,7 @@ const ProductPage = () => {
                   <div key={label} className="flex gap-3 px-4 py-3">
                     <Icon className="h-4 w-4 text-accent shrink-0 mt-0.5" aria-hidden="true" />
                     <dt className="text-xs text-muted-foreground w-32 shrink-0">{label}</dt>
-                    <dd className="text-sm text-primary font-medium">{value}</dd>
+                    <dd className="text-sm text-primary font-medium tabular-nums">{value}</dd>
                   </div>
                 ))}
               </dl>
@@ -558,7 +558,7 @@ const ProductPage = () => {
                   <dt className="text-xs uppercase tracking-wider text-muted-foreground/80 sm:w-52 shrink-0">
                     {label}
                   </dt>
-                  <dd className="text-[15px] text-primary leading-relaxed">{value}</dd>
+                  <dd className="text-[15px] text-primary leading-relaxed tabular-nums">{value}</dd>
                 </div>
               ))}
             </dl>

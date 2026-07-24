@@ -100,7 +100,7 @@ const VariantSelector = ({ label, variants, selectedId, onSelect, onPreload }: P
                 </span>
 
                 <span className="min-w-0">
-                  <span className="block font-heading text-lg leading-tight text-primary">
+                  <span className="block text-[17px] font-semibold tracking-tight leading-tight text-primary tabular-nums">
                     {v.label}
                   </span>
                   <span className="block text-xs text-accent font-medium mt-0.5">{v.sublabel}</span>

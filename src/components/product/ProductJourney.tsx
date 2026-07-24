@@ -111,7 +111,7 @@ export const VariantComparison = ({ variants, rows, selectedId, onSelect }: Comp
                       v.id === selectedId ? "border-accent" : "border-border"
                     }`}
                   >
-                    <span className="block font-heading text-lg text-primary leading-tight">
+                    <span className="block text-[17px] font-semibold tracking-tight text-primary leading-tight tabular-nums">
                       {v.label}
                     </span>
                     <span className="block text-xs text-accent mt-0.5">{v.sublabel}</span>
@@ -129,7 +129,7 @@ export const VariantComparison = ({ variants, rows, selectedId, onSelect }: Comp
                     {row}
                   </th>
                   {variants.map((v) => (
-                    <td key={v.id} className="py-4 px-4 text-sm text-primary align-top">
+                    <td key={v.id} className="py-4 px-4 text-sm text-primary align-top tabular-nums">
                       {v.compare[row] ?? "—"}
                     </td>
                   ))}

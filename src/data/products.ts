@@ -179,7 +179,7 @@ export const products: Product[] = [
       "Keep the jar tightly closed in a cool, dry place away from direct sunlight. Use a dry spoon each time — moisture entering the jar will cause clumping and shorten the shelf life.",
     shelfLife: "12 months from packing date, unopened",
     ingredients: "100% sun-dried Sholavandan betel leaf powder (Piper betle).",
-    netWeight: "100 g",
+    netWeight: "100\u00A0g",
     minimumOrder: "1 jar retail; 50 jars wholesale",
     leadTime: "1–2 working days",
     specs: {
@@ -202,7 +202,7 @@ export const products: Product[] = [
     variants: [
       {
         id: "50g",
-        label: "50 g",
+        label: "50\u00A0g",
         sublabel: "Trial jar",
         note: "Ideal for first-time buyers",
         sku: "VL-POWDER-50",
@@ -214,7 +214,7 @@ export const products: Product[] = [
         price: 300,
         mrp: 350,
         priceUnit: "per pouch",
-        netWeight: "50 g",
+        netWeight: "50\u00A0g",
         minimumOrder: "1 jar retail; 100 jars wholesale",
         whyThis: [
           "Enough for about a month of daily use",
@@ -223,7 +223,7 @@ export const products: Product[] = [
         ],
         compare: {
           Price: "₹300 (MRP ₹350)",
-          "Net weight": "50 g",
+          "Net weight": "50\u00A0g",
           Servings: "~100 at ½ tsp",
           "Best for": "Trying it first",
           Value: "₹6.00 per gram",
@@ -232,7 +232,7 @@ export const products: Product[] = [
       },
       {
         id: "100g",
-        label: "100 g",
+        label: "100\u00A0g",
         sublabel: "Family jar",
         note: "Lasts about twice as long",
         sku: "VL-POWDER-100",
@@ -245,7 +245,7 @@ export const products: Product[] = [
         price: 600,
         mrp: 700,
         priceUnit: "per jar",
-        netWeight: "100 g",
+        netWeight: "100\u00A0g",
         minimumOrder: "1 jar retail; 50 jars wholesale",
         whyThis: [
           "Roughly two months of daily use for one household",
@@ -254,7 +254,7 @@ export const products: Product[] = [
         ],
         compare: {
           Price: "₹600 (MRP ₹700)",
-          "Net weight": "100 g",
+          "Net weight": "100\u00A0g",
           Servings: "~200 at ½ tsp",
           "Best for": "Regular use",
           Value: "₹6.00 per gram",

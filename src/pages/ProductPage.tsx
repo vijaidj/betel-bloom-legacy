@@ -1,0 +1,315 @@
+import { useParams, Link } from "react-router-dom";
+import {
+  MessageCircle, ChevronRight, Leaf, Package, Clock, ShieldCheck,
+  Info, Sparkles, ArrowRight,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+} from "@/components/ui/accordion";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollToTop from "@/components/ScrollToTop";
+import Seo from "@/components/Seo";
+import NotFound from "@/pages/NotFound";
+import { getProduct, products, whatsappLink, SITE_URL, FSSAI_LICENCE } from "@/data/products";
+
+const ProductPage = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const product = slug ? getProduct(slug) : undefined;
+
+  if (!product) return <NotFound />;
+
+  const path = `/products/${product.slug}`;
+  const order = whatsappLink(`Hi, I would like to order ${product.name} from VetriLeaf.`);
+  const related = product.related
+    .map((s) => products.find((p) => p.slug === s))
+    .filter(Boolean) as typeof products;
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `${product.name} — Sholavandan GI Certified`,
+    description: product.summary,
+    image: `${SITE_URL}${product.image}`,
+    sku: `VL-${product.slug.toUpperCase()}`,
+    brand: { "@type": "Brand", name: "VetriLeaf" },
+    manufacturer: { "@id": `${SITE_URL}/#organization` },
+    countryOfOrigin: { "@type": "Country", name: "India" },
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "INR",
+      url: `${SITE_URL}${path}`,
+      seller: { "@id": `${SITE_URL}/#organization` },
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Products", item: `${SITE_URL}/products` },
+      { "@type": "ListItem", position: 3, name: product.name, item: `${SITE_URL}${path}` },
+    ],
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: product.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
+  const specs = [
+    { icon: Package, label: "Net quantity", value: product.netWeight },
+    { icon: Clock, label: "Shelf life", value: product.shelfLife },
+    { icon: Leaf, label: "Ingredients", value: product.ingredients },
+    { icon: ShieldCheck, label: "FSSAI licence", value: FSSAI_LICENCE },
+    { icon: Info, label: "Minimum order", value: product.minimumOrder },
+    { icon: Sparkles, label: "Dispatch", value: product.leadTime },
+  ];
+
+  return (
+    <>
+      <Seo
+        title={product.seo.title}
+        description={product.seo.description}
+        keywords={product.seo.keywords}
+        path={path}
+        image={product.image}
+        schema={[productSchema, breadcrumbSchema, faqSchema]}
+      />
+      <Navbar />
+
+      <main className="pt-28 md:pt-32">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="container mx-auto px-4 mb-6">
+          <ol className="flex items-center gap-1.5 text-xs text-muted-foreground flex-wrap">
+            <li><Link to="/" className="hover:text-accent transition-colors">Home</Link></li>
+            <li aria-hidden="true"><ChevronRight className="h-3 w-3" /></li>
+            <li><Link to="/products" className="hover:text-accent transition-colors">Products</Link></li>
+            <li aria-hidden="true"><ChevronRight className="h-3 w-3" /></li>
+            <li className="text-primary font-medium" aria-current="page">{product.name}</li>
+          </ol>
+        </nav>
+
+        {/* Hero */}
+        <section className="container mx-auto px-4 mb-16">
+          <div className="grid lg:grid-cols-2 gap-10 items-start max-w-6xl mx-auto">
+            <div className="rounded-2xl overflow-hidden border border-border shadow-lg bg-card">
+              <img
+                src={product.image}
+                alt={product.imageAlt}
+                width={800}
+                height={800}
+                loading="eager"
+                {...{ fetchpriority: "high" }}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+
+            <div>
+              <span className="inline-flex items-center gap-1.5 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
+                <Leaf className="h-3 w-3" /> {product.tagline}
+              </span>
+              <h1 className="text-3xl md:text-5xl font-bold text-primary mb-4 leading-tight">
+                {product.name}
+              </h1>
+              <p className="text-muted-foreground leading-relaxed mb-6">{product.summary}</p>
+
+              <div className="flex flex-wrap gap-2 mb-8">
+                {["GI Certified", "Farm Direct", "No Preservatives"].map((b) => (
+                  <span key={b} className="text-xs font-medium bg-primary/5 border border-border rounded-full px-3 py-1.5 text-primary">
+                    {b}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 mb-8">
+                <Button size="lg" className="h-13 bg-accent text-accent-foreground hover:bg-accent/90 gap-2 font-semibold" asChild>
+                  <a href={order} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-5 w-5" /> Order on WhatsApp
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="h-13 border-accent/40 text-primary hover:bg-accent/5 gap-2" asChild>
+                  <a href={whatsappLink(`Hi, I need a bulk quote for ${product.name}.`)} target="_blank" rel="noopener noreferrer">
+                    Bulk enquiry
+                  </a>
+                </Button>
+              </div>
+
+              {/* Spec table */}
+              <dl className="border border-border rounded-xl divide-y divide-border overflow-hidden">
+                {specs.map(({ icon: Icon, label, value }) => (
+                  <div key={label} className="flex gap-3 px-4 py-3">
+                    <Icon className="h-4 w-4 text-accent shrink-0 mt-0.5" aria-hidden="true" />
+                    <dt className="text-xs text-muted-foreground w-32 shrink-0">{label}</dt>
+                    <dd className="text-sm text-primary font-medium">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        {/* Description */}
+        <section className="container mx-auto px-4 mb-16">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-5">About {product.name}</h2>
+            <div className="space-y-4">
+              {product.description.map((p, i) => (
+                <p key={i} className="text-muted-foreground leading-relaxed">{p}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits */}
+        <section className="bg-secondary/30 py-16 mb-16">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">Why it's different</h2>
+            <div className="grid sm:grid-cols-2 gap-5">
+              {product.benefits.map((b) => (
+                <div key={b.title} className="bg-card border border-border rounded-xl p-5">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                      <Leaf className="h-4 w-4 text-accent" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-primary text-sm mb-1">{b.title}</h3>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{b.detail}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How to use + storage */}
+        <section className="container mx-auto px-4 mb-16">
+          <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-primary mb-4">How to use</h2>
+              <ul className="space-y-3">
+                {product.howToUse.map((s, i) => (
+                  <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                    <span className="w-5 h-5 rounded-full bg-accent/10 text-accent text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      {i + 1}
+                    </span>
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-primary mb-4">Storage</h2>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{product.storage}</p>
+              <div className="bg-accent/5 border border-accent/20 rounded-xl p-4">
+                <p className="text-xs text-muted-foreground">
+                  <strong className="text-primary">Shelf life:</strong> {product.shelfLife}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Origin */}
+        <section className="container mx-auto px-4 mb-16">
+          <div className="max-w-4xl mx-auto bg-primary text-primary-foreground rounded-2xl p-8 md:p-10">
+            <div className="flex flex-col md:flex-row gap-6 items-start">
+              <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+                <ShieldCheck className="h-7 w-7 text-accent" aria-hidden="true" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold mb-3">Grown in Sholavandan, GI certified</h2>
+                <p className="text-primary-foreground/80 text-sm leading-relaxed mb-4">
+                  Sholavandan betel leaf holds a Geographical Indication tag from the Government of India.
+                  The name is legally protected and can only be used for leaves grown in this specific
+                  region of Madurai district. Every VetriLeaf product begins with leaves from our own
+                  farms along the Vaigai river basin — no intermediaries, no outside sourcing.
+                </p>
+                <Link to="/#about" className="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all">
+                  Read our story <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="container mx-auto px-4 mb-16">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">Questions about {product.name}</h2>
+            <Accordion type="single" collapsible className="w-full">
+              {product.faqs.map((f, i) => (
+                <AccordionItem key={i} value={`faq-${i}`}>
+                  <AccordionTrigger className="text-left text-sm font-semibold text-primary hover:text-accent">
+                    {f.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
+                    {f.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+
+            <div className="mt-8 text-center bg-secondary/40 rounded-xl p-6">
+              <p className="text-sm text-muted-foreground mb-4">Still have a question? We usually reply within 30 minutes.</p>
+              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2" asChild>
+                <a href={whatsappLink(`Hi, I have a question about ${product.name}.`)} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="h-4 w-4" /> Ask on WhatsApp
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Related */}
+        {related.length > 0 && (
+          <section className="bg-secondary/30 py-16">
+            <div className="container mx-auto px-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">You might also like</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                {related.map((r) => (
+                  <Link
+                    key={r.slug}
+                    to={`/products/${r.slug}`}
+                    className="group bg-card rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-shadow"
+                  >
+                    <div className="aspect-square overflow-hidden">
+                      <img
+                        src={r.image}
+                        alt={r.imageAlt}
+                        width={400}
+                        height={400}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-primary text-sm mb-1">{r.name}</h3>
+                      <p className="text-xs text-muted-foreground line-clamp-2">{r.summary}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+      </main>
+
+      <Footer />
+      <WhatsAppButton />
+      <ScrollToTop />
+    </>
+  );
+};
+
+export default ProductPage;

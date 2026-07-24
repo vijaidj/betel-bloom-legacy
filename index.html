@@ -4,258 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-    <!-- ═══════════════════════════════════════════════
-         THEME & PWA
-    ═══════════════════════════════════════════════ -->
+    <!-- Theme & PWA -->
     <meta name="theme-color" content="#0a2814" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Vetri Leaf" />
+    <meta name="apple-mobile-web-app-title" content="VetriLeaf" />
     <meta name="format-detection" content="telephone=no" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- ═══════════════════════════════════════════════
-         PRIMARY SEO
-    ═══════════════════════════════════════════════ -->
-    <title>Buy Sholavandan GI Betel Leaf Online | Fresh Vetrilai for Weddings & Pooja – Vetri Leaf</title>
-    <meta name="description" content="Order authentic GI-certified Sholavandan betel leaf (Vetrilai) online. Perfect for Tamil weddings, thamboolam, housewarming, puberty ceremony, temple pooja & bulk events. Same-day delivery in Madurai. Pan India shipping." />
-    <meta name="keywords" content="Sholavandan betel leaf, vetrilai online, vethilai, vetthilai, vethalai, betel leaves, paan leaf, GI certified betel leaf, Solavandan vetrilai, Cholavandan vetrilai, Tamil wedding vetrilai, thamboolam vetrilai, buy vetrilai online, betel leaf bulk order, Madurai betel leaf, pooja vetrilai, betel leaf supplier Tamil Nadu, Sholavandan vetrilai, fresh betel leaf delivery, betel leaf benefits, வெற்றிலை, சோளவந்தான் வெற்றிலை" />
+    <!-- Geo -->
     <meta name="author" content="Sri Sholavandan Heritage Vetrilai" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow" />
     <meta name="geo.region" content="IN-TN" />
     <meta name="geo.placename" content="Sholavandan, Madurai, Tamil Nadu" />
     <meta name="geo.position" content="9.93;77.88" />
     <meta name="ICBM" content="9.93, 77.88" />
 
-    <!-- ═══════════════════════════════════════════════
-         CANONICAL
-    ═══════════════════════════════════════════════ -->
-    <link rel="canonical" href="https://www.vetrileaf.com" />
+    <!--
+      Title, description, canonical, OpenGraph, Twitter and JSON-LD are injected
+      per route by src/components/Seo.tsx. Do not add them here or every page
+      will render duplicates.
+    -->
 
-    <!-- ═══════════════════════════════════════════════
-         OPEN GRAPH (Facebook, WhatsApp, LinkedIn)
-    ═══════════════════════════════════════════════ -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Vetri Leaf – Sholavandan GI Betel Leaf" />
-    <meta property="og:title" content="Sholavandan GI Betel Leaf – Fresh Vetrilai for Weddings & Pooja" />
-    <meta property="og:description" content="Authentic GI-certified Sholavandan vetrilai for Tamil weddings, thamboolam, pooja & bulk events. Same-day delivery in Madurai. Pan India shipping." />
-    <meta property="og:url" content="https://www.vetrileaf.com" />
-    <!-- TODO: Add /public/og-image.jpg (1200×630px) with brand logo + product photo -->
-    <meta property="og:image" content="https://www.vetrileaf.com/og-image.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Sholavandan GI Certified Betel Leaf – Vetri Leaf, Tamil Nadu" />
-    <meta property="og:locale" content="en_IN" />
-    <meta property="og:locale:alternate" content="ta_IN" />
-
-    <!-- ═══════════════════════════════════════════════
-         TWITTER / X CARD
-    ═══════════════════════════════════════════════ -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Sholavandan GI Betel Leaf – Fresh Vetrilai for Weddings & Pooja" />
-    <meta name="twitter:description" content="Authentic GI-certified Sholavandan vetrilai for Tamil weddings, thamboolam, pooja & bulk events. Pan India delivery." />
-    <meta name="twitter:image" content="https://www.vetrileaf.com/og-image.jpg" />
-
-    <!-- ═══════════════════════════════════════════════
-         STRUCTURED DATA — Product Schema
-    ═══════════════════════════════════════════════ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "name": "Sholavandan GI Certified Betel Leaf",
-      "alternateName": ["Sholavandan Vetrilai", "சோழவந்தான் வெற்றிலை"],
-      "description": "Authentic GI-tagged Sholavandan Vetrilai from Tamil Nadu. Hand-picked fresh from heritage farms along the Vaigai river basin. Ideal for Tamil weddings, thamboolam, pooja and traditional functions.",
-      "image": "https://www.vetrileaf.com/og-image.jpg",
-      "sku": "SHOLA-VETRILAI-GI",
-      "mpn": "GI-TN-789",
-      "brand": {
-        "@type": "Brand",
-        "name": "Sri Sholavandan Heritage Vetrilai"
-      },
-      "offers": [
-        {
-          "@type": "Offer",
-          "name": "Small Pack – 100 Leaves",
-          "price": "150",
-          "priceCurrency": "INR",
-          "availability": "https://schema.org/InStock",
-          "url": "https://www.vetrileaf.com/#products",
-          "seller": { "@type": "Organization", "name": "Sri Sholavandan Heritage Vetrilai" }
-        },
-        {
-          "@type": "Offer",
-          "name": "Function Pack – 500 Leaves",
-          "price": "650",
-          "priceCurrency": "INR",
-          "availability": "https://schema.org/InStock",
-          "url": "https://www.vetrileaf.com/#products",
-          "seller": { "@type": "Organization", "name": "Sri Sholavandan Heritage Vetrilai" }
-        }
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "5000",
-        "bestRating": "5",
-        "worstRating": "1"
-      }
-    }
-    </script>
-
-    <!-- ═══════════════════════════════════════════════
-         STRUCTURED DATA — Local Business Schema
-    ═══════════════════════════════════════════════ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "@id": "https://www.vetrileaf.com/#business",
-      "name": "Sri Sholavandan Heritage Vetrilai",
-      "alternateName": "Vetri Leaf",
-      "description": "GI Certified Sholavandan betel leaf farm and supplier for weddings, pooja & bulk orders. 3rd generation heritage farmers.",
-      "url": "https://www.vetrileaf.com",
-      "telephone": "+919600441284",
-      "email": "vetrileaf@gmail.com",
-      "openingHours": "Mo-Su 06:00-20:00",
-      "priceRange": "₹150–₹₹₹",
-      "currenciesAccepted": "INR",
-      "paymentAccepted": "Cash, UPI, Bank Transfer",
-      "image": "https://www.vetrileaf.com/og-image.jpg",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Sholavandan",
-        "addressLocality": "Madurai District",
-        "addressRegion": "Tamil Nadu",
-        "postalCode": "625221",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 9.93,
-        "longitude": 77.88
-      },
-      "hasMap": "https://www.google.com/maps?q=Sholavandan,Tamil+Nadu",
-      "areaServed": [
-        { "@type": "State", "name": "Tamil Nadu" },
-        { "@type": "Country", "name": "India" }
-      ],
-      "sameAs": [
-        "https://www.instagram.com/vetrileaf/",
-        "https://facebook.com/SriSholavandanHeritage",
-        "https://youtube.com/@sholavandanvetrilai"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+919600441284",
-        "contactType": "sales",
-        "availableLanguage": ["Tamil", "English"],
-        "contactOption": "TollFree"
-      }
-    }
-    </script>
-
-    <!-- ═══════════════════════════════════════════════
-         STRUCTURED DATA — FAQ Schema
-    ═══════════════════════════════════════════════ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How many betel leaves do I need for 100 wedding guests?",
-          "acceptedAnswer": { "@type": "Answer", "text": "For 100 guests, we recommend at least 300–500 Sholavandan betel leaves to ensure generous thamboolam. We can help calculate the right quantity based on your function type." }
-        },
-        {
-          "@type": "Question",
-          "name": "Is delivery available outside Tamil Nadu?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes! We deliver pan India. Orders within Tamil Nadu are delivered in 1–2 days. For other states, delivery takes 2–4 days via express courier." }
-        },
-        {
-          "@type": "Question",
-          "name": "Are your betel leaves GI certified?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Sholavandan betel leaves carry the Government of India Geographical Indication (GI) tag – guaranteeing authenticity, origin, and premium quality." }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the minimum order quantity?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The minimum order is 100 leaves, starting from ₹150. For wedding and function bulk orders, we supply from 500 to 50,000+ leaves." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I order betel leaves same day in Madurai?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes! For Madurai and nearby areas, same-day delivery is available for orders placed before 10 AM. For bulk or wedding orders, please order at least 48 hours in advance." }
-        },
-        {
-          "@type": "Question",
-          "name": "Why is Sholavandan vetrilai famous?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sholavandan vetrilai (betel leaf) is grown in the fertile alluvial soil of the Vaigai river basin near Madurai, giving it a distinctive aroma and pungency. It carries a Government of India GI tag, making it one of Tamil Nadu's most prized heritage betel leaf varieties." }
-        },
-        {
-          "@type": "Question",
-          "name": "What are the benefits of betel leaf (vetrilai)?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Betel leaf is traditionally valued for aiding digestion, freshening breath, and supporting oral health, and is rich in natural antioxidants. It is also central to Tamil culture in thamboolam, weddings, pooja and daily rituals." }
-        }
-      ]
-    }
-    </script>
-
-    <!-- ═══════════════════════════════════════════════
-         STRUCTURED DATA — BreadcrumbList
-    ═══════════════════════════════════════════════ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vetrileaf.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Packages", "item": "https://www.vetrileaf.com/#products" },
-        { "@type": "ListItem", "position": 3, "name": "Our Products", "item": "https://www.vetrileaf.com/#all-products" },
-        { "@type": "ListItem", "position": 4, "name": "Contact", "item": "https://www.vetrileaf.com/#contact" }
-      ]
-    }
-    </script>
-
-    <!-- Google Analytics GA4 — G-04W3YSGFTP -->
+    <!-- Google Analytics GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-04W3YSGFTP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-04W3YSGFTP', {
-        page_title: 'Vetri Leaf – Sholavandan GI Betel Leaf',
-        page_location: window.location.href,
-        send_page_view: true
-      });
+      gtag('config', 'G-04W3YSGFTP');
 
-      // Track WhatsApp button clicks
-      document.addEventListener('click', function(e) {
-        var el = e.target.closest('a[href*="wa.me"]');
-        if (el) {
-          gtag('event', 'whatsapp_click', {
-            event_category: 'engagement',
-            event_label: el.textContent.trim().substring(0, 50)
-          });
-        }
-      });
-
-      // Track phone call clicks
-      document.addEventListener('click', function(e) {
-        var el = e.target.closest('a[href^="tel:"]');
-        if (el) {
-          gtag('event', 'phone_call_click', {
-            event_category: 'engagement',
-            event_label: el.href
-          });
-        }
+      document.addEventListener('click', function (e) {
+        var w = e.target.closest && e.target.closest('a[href*="wa.me"]');
+        if (w) gtag('event', 'whatsapp_click', {
+          event_category: 'engagement',
+          event_label: (w.textContent || '').trim().substring(0, 50),
+          page_path: window.location.pathname
+        });
+        var t = e.target.closest && e.target.closest('a[href^="tel:"]');
+        if (t) gtag('event', 'phone_call_click', {
+          event_category: 'engagement',
+          page_path: window.location.pathname
+        });
       });
     </script>
-
   </head>
 
   <body>

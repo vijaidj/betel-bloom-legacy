@@ -9,7 +9,7 @@ const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20or
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Packages", href: "#products" },
-  { label: "All Products", href: "#all-products" },
+  { label: "All Products", href: "/products" },
   { label: "Occasions", href: "#occasions" },
   { label: "About", href: "#about" },
   { label: "FAQ", href: "#faq" },

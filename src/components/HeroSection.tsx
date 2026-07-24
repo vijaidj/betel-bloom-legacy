@@ -20,7 +20,7 @@ const HeroSection = () => (
         className="w-full h-full object-cover"
         width={1376} height={768}
         loading="eager"
-        fetchPriority="high"
+        {...{ fetchpriority: "high" }}
       />
       {/* Strong dark overlay so ALL text is legible regardless of image */}
       <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(10,40,20,0.96) 0%, rgba(10,40,20,0.85) 55%, rgba(10,40,20,0.50) 100%)" }} />

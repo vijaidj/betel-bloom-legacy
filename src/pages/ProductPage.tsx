@@ -16,6 +16,7 @@ import Seo from "@/components/Seo";
 import NotFound from "@/pages/NotFound";
 import { getProduct, products, whatsappLink, SITE_URL, FSSAI_LICENCE } from "@/data/products";
 import giBadge from "@/assets/gi-india-badge.webp";
+import ProductGallery, { type GalleryImage } from "@/components/product/ProductGallery";
 import VariantSelector from "@/components/product/VariantSelector";
 import FreshnessIndicator from "@/components/product/FreshnessIndicator";
 import SmartWhatsAppForm from "@/components/product/SmartWhatsAppForm";
@@ -65,6 +66,29 @@ const ProductPage = () => {
     availability: variant?.availability ?? "InStock",
     giCovered: variant ? variant.giCovered : true,
     displayName: variant ? `${product.name} — ${variant.label}` : product.name,
+  };
+
+  // One gallery entry per variant that has a distinct image; otherwise a single
+  // entry for the product. Thumbnails only render when there is a real choice.
+  const galleryImages: GalleryImage[] = variants.some((v) => v.image)
+    ? variants.map((v) => ({
+        src: v.image ?? product.image,
+        zoomSrc: v.zoomImage,
+        alt: v.imageAlt ?? product.imageAlt,
+        caption: v.label,
+        variantId: v.id,
+      }))
+    : [{ src: product.image, alt: product.imageAlt }];
+
+  const galleryIndex = Math.max(
+    0,
+    galleryImages.findIndex((g) => g.variantId === activeId)
+  );
+
+  // Selecting a thumbnail selects that variant, so the two controls stay in sync
+  const onGallerySelect = (i: number) => {
+    const id = galleryImages[i]?.variantId;
+    if (id) selectVariant(i === galleryIndex ? id : id);
   };
 
   const path = `/products/${product.slug}`;
@@ -194,17 +218,11 @@ const ProductPage = () => {
         <section className="container mx-auto px-4 mb-16">
           <div className="grid lg:grid-cols-2 gap-10 items-start max-w-6xl mx-auto">
             <div className="lg:sticky lg:top-28 lg:self-start">
-              <div className="rounded-2xl overflow-hidden border border-border shadow-lg bg-card">
-                <img
-                  src={view.image}
-                  alt={product.imageAlt}
-                  width={800}
-                  height={800}
-                  loading="eager"
-                  {...{ fetchpriority: "high" }}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
+              <ProductGallery
+                images={galleryImages}
+                activeIndex={galleryIndex}
+                onSelect={onGallerySelect}
+              />
 
               {/* Provenance strip */}
               <div className="mt-4 rounded-2xl border border-border bg-secondary/40 px-5 py-4 flex items-center gap-4">

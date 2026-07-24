@@ -85,6 +85,9 @@ export interface Variant {
 
   /** Optional per-variant overrides */
   image?: string;
+  /** Larger file for the lightbox. Falls back to `image`. */
+  zoomImage?: string;
+  imageAlt?: string;
   summary?: string;
   netWeight?: string;
   shelfLife?: string;

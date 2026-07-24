@@ -1,5 +1,7 @@
 import freshLeafImg from "@/assets/product-fresh-leaf.webp";
 import powderImg from "@/assets/product-powder.webp";
+import powder50Img from "@/assets/product-powder-50g.webp";
+import powder50Zoom from "@/assets/product-powder-50g-zoom.webp";
 import teaImg from "@/assets/product-tea.webp";
 import oilImg from "@/assets/product-oil.webp";
 import juiceMixImg from "@/assets/product-juice-mix.webp";
@@ -203,6 +205,9 @@ export const products: Product[] = [
         sku: "VL-POWDER-50",
         availability: "InStock",
         giCovered: true,
+        image: powder50Img,
+        zoomImage: powder50Zoom,
+        imageAlt: "VetriLeaf betel leaf powder, 50 gram resealable pouch",
         netWeight: "50 g",
         minimumOrder: "1 jar retail; 100 jars wholesale",
         whyThis: [
@@ -228,6 +233,8 @@ export const products: Product[] = [
         recommended: true,
         badge: "Best value",
         giCovered: true,
+        image: powderImg,
+        imageAlt: "VetriLeaf betel leaf powder, 100 gram jar",
         netWeight: "100 g",
         minimumOrder: "1 jar retail; 50 jars wholesale",
         whyThis: [

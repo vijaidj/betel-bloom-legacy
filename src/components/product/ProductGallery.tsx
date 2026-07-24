@@ -29,6 +29,7 @@ const ProductGallery = ({ images, activeIndex, onSelect }: Props) => {
   const [zoomOpen, setZoomOpen] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
   const active = images[activeIndex] ?? images[0];
+  const canZoom = Boolean(active.zoomSrc);
 
   // Escape closes; focus moves to the close button on open
   useEffect(() => {
@@ -59,6 +60,7 @@ const ProductGallery = ({ images, activeIndex, onSelect }: Props) => {
           className="w-full h-auto object-cover"
         />
 
+        {canZoom && (
         <button
           type="button"
           onClick={() => setZoomOpen(true)}
@@ -68,6 +70,7 @@ const ProductGallery = ({ images, activeIndex, onSelect }: Props) => {
           <ZoomIn className="h-4 w-4" aria-hidden="true" />
           Zoom
         </button>
+        )}
       </div>
 
       {/* Thumbnail strip — only when there is a genuine choice */}
@@ -104,7 +107,7 @@ const ProductGallery = ({ images, activeIndex, onSelect }: Props) => {
       )}
 
       {/* Lightbox */}
-      {zoomOpen && (
+      {zoomOpen && canZoom && (
         <div
           role="dialog"
           aria-modal="true"
@@ -123,7 +126,7 @@ const ProductGallery = ({ images, activeIndex, onSelect }: Props) => {
           </button>
 
           <img
-            src={active.zoomSrc ?? active.src}
+            src={active.zoomSrc}
             alt={active.alt}
             onClick={(e) => e.stopPropagation()}
             className="max-w-full max-h-full object-contain rounded-lg cursor-default"

@@ -337,7 +337,7 @@ const ProductPage = () => {
         </section>
 
         {/* Description — editorial layout */}
-        <section className="py-20 md:py-24 border-y border-border/60 bg-gradient-to-b from-secondary/20 to-transparent mb-20">
+        <section className="py-20 md:py-24 border-y border-border/60 bg-secondary/35 mb-20">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto grid md:grid-cols-[190px_1fr] gap-10 md:gap-16">
 
@@ -419,7 +419,7 @@ const ProductPage = () => {
         </section>
 
         {/* How to use + storage */}
-        <section className="py-20 md:py-24 bg-secondary/25 border-y border-border/60 mb-20">
+        <section className="py-20 md:py-24 mb-20">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto grid md:grid-cols-[1.15fr_1fr] gap-14 md:gap-20">
 
@@ -461,14 +461,18 @@ const ProductPage = () => {
                     {product.storage}
                   </p>
 
-                  <dl className="border-t border-border pt-5 space-y-3">
-                    <div className="flex justify-between gap-4">
-                      <dt className="text-xs uppercase tracking-wider text-muted-foreground/80">Shelf life</dt>
-                      <dd className="text-sm font-medium text-primary text-right">{product.shelfLife}</dd>
+                  <dl className="border-t border-border pt-6 space-y-5">
+                    <div>
+                      <dt className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground/75 mb-1.5">
+                        Shelf life
+                      </dt>
+                      <dd className="text-sm text-primary leading-relaxed">{view.shelfLife}</dd>
                     </div>
-                    <div className="flex justify-between gap-4">
-                      <dt className="text-xs uppercase tracking-wider text-muted-foreground/80">Ingredients</dt>
-                      <dd className="text-sm font-medium text-primary text-right max-w-[60%]">{product.ingredients}</dd>
+                    <div>
+                      <dt className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground/75 mb-1.5">
+                        Ingredients
+                      </dt>
+                      <dd className="text-sm text-primary leading-relaxed">{product.ingredients}</dd>
                     </div>
                   </dl>
                 </div>
@@ -590,7 +594,7 @@ const ProductPage = () => {
 
         {/* Related */}
         {related.length > 0 && (
-          <section className="bg-secondary/30 py-16">
+          <section className="py-16 border-t border-border/60">
             <div className="container mx-auto px-4">
               <div className="text-center mb-10">
                 <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">

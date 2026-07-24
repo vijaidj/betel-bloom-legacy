@@ -289,10 +289,12 @@ const ProductPage = () => {
               {view.price !== undefined && (
                 <div className="mb-6">
                   <p className="flex items-baseline flex-wrap gap-x-3 gap-y-1">
-                    <span className="font-heading text-4xl text-primary">₹{view.price}</span>
+                    <span className="text-[42px] font-semibold text-primary tabular-nums tracking-tight leading-none">
+                      <span className="text-[0.62em] font-medium align-baseline mr-0.5">₹</span>{view.price}
+                    </span>
                     {view.mrp !== undefined && view.mrp > view.price && (
                       <>
-                        <span className="text-lg text-muted-foreground/70 line-through">
+                        <span className="text-lg text-muted-foreground/70 line-through tabular-nums">
                           ₹{view.mrp}
                         </span>
                         <span className="text-xs font-semibold text-accent-foreground bg-accent px-2 py-1 rounded">
@@ -577,23 +579,75 @@ const ProductPage = () => {
         )}
 
         {/* Origin */}
-        <section className="container mx-auto px-4 mb-16">
-          <div className="max-w-4xl mx-auto bg-primary text-primary-foreground rounded-2xl p-8 md:p-10">
-            <div className="flex flex-col md:flex-row gap-6 items-start">
-              <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                <ShieldCheck className="h-7 w-7 text-accent" aria-hidden="true" />
-              </div>
-              <div>
-                <h2 className="text-xl md:text-2xl font-bold mb-3">Grown in Sholavandan, GI certified</h2>
-                <p className="text-primary-foreground/80 text-sm leading-relaxed mb-4">
-                  Sholavandan betel leaf holds a Geographical Indication tag from the Government of India.
-                  The name is legally protected and can only be used for leaves grown in this specific
-                  region of Madurai district. Every VetriLeaf product begins with leaves from our own
-                  farms along the Vaigai river basin — no intermediaries, no outside sourcing.
-                </p>
-                <Link to="/#about" className="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all">
-                  Read our story <ArrowRight className="h-4 w-4" />
-                </Link>
+        <section className="mb-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto relative overflow-hidden rounded-3xl bg-primary text-primary-foreground">
+
+              {/* Decorative leaf, kept faint so it reads as texture */}
+              <svg
+                className="absolute -right-10 -top-12 w-64 h-64 opacity-[0.07] hidden md:block"
+                viewBox="0 0 120 160" fill="none" aria-hidden="true"
+              >
+                <path d="M60 8 C92 30 114 72 102 104 C90 134 60 152 60 152 C60 152 30 134 18 104 C6 72 28 30 60 8Z" fill="currentColor" />
+                <line x1="60" y1="8" x2="60" y2="152" stroke="hsl(var(--primary))" strokeWidth="2.5" />
+              </svg>
+
+              <div className="relative grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 p-9 md:p-14">
+
+                {/* GI mark */}
+                <div className="flex md:flex-col items-center md:items-start gap-4">
+                  <img
+                    src={giBadge}
+                    alt=""
+                    width={72}
+                    height={72}
+                    loading="lazy"
+                    className="w-16 h-16 md:w-[72px] md:h-[72px] object-contain shrink-0"
+                    aria-hidden="true"
+                  />
+                  <span className="text-[10px] uppercase tracking-[0.24em] text-accent font-semibold md:mt-1">
+                    Protected
+                  </span>
+                </div>
+
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-4">
+                    Provenance
+                  </p>
+                  <h2 className="font-heading text-3xl md:text-[40px] leading-[1.15] mb-6">
+                    Grown in Sholavandan,<br className="hidden sm:block" /> GI certified
+                  </h2>
+
+                  <p className="text-primary-foreground/75 text-[15px] leading-[1.8] max-w-[58ch] mb-8">
+                    Sholavandan betel leaf holds a Geographical Indication tag from the Government of
+                    India. The name is legally protected and can only be used for leaves grown in this
+                    specific region of Madurai district — which is why no other farm can claim it.
+                  </p>
+
+                  {/* Three facts, ruled rather than boxed */}
+                  <dl className="grid sm:grid-cols-3 gap-px bg-primary-foreground/15 rounded-xl overflow-hidden mb-8">
+                    {[
+                      { k: "Region", v: "Vaigai river basin" },
+                      { k: "District", v: "Madurai, Tamil Nadu" },
+                      { k: "Sourcing", v: "Our own farms only" },
+                    ].map(({ k, v }) => (
+                      <div key={k} className="bg-primary px-5 py-4">
+                        <dt className="text-[10px] uppercase tracking-[0.16em] text-primary-foreground/50 mb-1.5">
+                          {k}
+                        </dt>
+                        <dd className="text-sm font-medium">{v}</dd>
+                      </div>
+                    ))}
+                  </dl>
+
+                  <Link
+                    to="/#about"
+                    className="group inline-flex items-center gap-2 text-accent text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded"
+                  >
+                    Read our story
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

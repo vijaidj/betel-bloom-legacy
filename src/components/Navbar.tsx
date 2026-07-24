@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { Menu, X, MessageCircle, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import leafIcon from "@/assets/leaf-icon.webp";
 import giLogo from "@/assets/gi-logo.webp";
 
 const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
 
+// Absolute paths so these resolve from any route, not just the homepage.
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Packages", href: "#products" },
+  { label: "Home", href: "/" },
+  { label: "Packages", href: "/#products" },
   { label: "All Products", href: "/products" },
-  { label: "Occasions", href: "#occasions" },
-  { label: "About", href: "#about" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Occasions", href: "/#occasions" },
+  { label: "About", href: "/#about" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Navbar = () => {
@@ -45,17 +47,17 @@ const Navbar = () => {
       {/* Main nav */}
       <div className="bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
         <div className="container mx-auto flex items-center justify-between py-1 px-3 md:px-4">
-          <a href="#home" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <img src={leafIcon} alt="Vetri Leaf logo" width={48} height={45} className="h-10 md:h-12 w-auto object-contain" />
             <span className="text-xl md:text-2xl font-bold text-primary leading-none font-heading">Vetri Leaf</span>
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-5 lg:gap-6">
             {navLinks.map((l) => (
-              <a key={l.href} href={l.href} className="text-xs lg:text-sm font-medium tracking-wide uppercase text-muted-foreground hover:text-primary transition-colors whitespace-nowrap">
+              <Link key={l.href} to={l.href} className="text-xs lg:text-sm font-medium tracking-wide uppercase text-muted-foreground hover:text-primary transition-colors whitespace-nowrap">
                 {l.label}
-              </a>
+              </Link>
             ))}
             <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-1.5 shrink-0" asChild>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
@@ -83,10 +85,10 @@ const Navbar = () => {
         <div className="md:hidden bg-background border-t border-border shadow-lg">
           <div className="px-4 py-3 space-y-1">
             {navLinks.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)}
+              <Link key={l.href} to={l.href} onClick={() => setOpen(false)}
                 className="flex items-center py-3 text-sm font-medium text-muted-foreground hover:text-primary border-b border-border/40 last:border-0 transition-colors">
                 {l.label}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="px-4 pb-4 pt-2 flex flex-col gap-2">

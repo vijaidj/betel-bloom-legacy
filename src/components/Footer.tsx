@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom";
 import { MessageCircle, Phone, Mail, MapPin, ArrowUp, Instagram, Facebook, Youtube } from "lucide-react";
 import giLogo from "@/assets/gi-logo.webp";
 
 const WHATSAPP_URL = "https://wa.me/919600441284";
 
 const quickLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Packages", href: "#products" },
-  { label: "All Products", href: "#all-products" },
-  { label: "Occasions", href: "#occasions" },
-  { label: "About Us", href: "#about" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Packages", href: "/#products" },
+  { label: "All Products", href: "/products" },
+  { label: "Occasions", href: "/#occasions" },
+  { label: "About Us", href: "/#about" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Footer = () => {

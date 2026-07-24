@@ -109,10 +109,12 @@ const VariantSelector = ({ label, variants, selectedId, onSelect, onPreload }: P
                   </span>
                   {v.price !== undefined && (
                     <span className="flex items-baseline flex-wrap gap-x-2 mt-2.5">
-                      <span className="font-heading text-xl text-primary">₹{v.price}</span>
+                      <span className="text-[22px] font-semibold text-primary tabular-nums tracking-tight leading-none">
+                        <span className="text-[0.65em] font-medium mr-0.5">₹</span>{v.price}
+                      </span>
                       {v.mrp !== undefined && v.mrp > v.price && (
                         <>
-                          <span className="text-sm text-muted-foreground/70 line-through">
+                          <span className="text-sm text-muted-foreground/70 line-through tabular-nums">
                             ₹{v.mrp}
                           </span>
                           <span className="text-[11px] font-semibold text-accent">

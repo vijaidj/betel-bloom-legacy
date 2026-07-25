@@ -1,3 +1,4 @@
+import SectionHeader from "@/components/SectionHeader";
 import { Heart, ShieldCheck, Smile, Brain, Droplets, Flame } from "lucide-react";
 
 const benefits = [
@@ -12,13 +13,12 @@ const benefits = [
 const BenefitsSection = () => (
   <section id="benefits" className="py-20 bg-primary/5 betel-pattern">
     <div className="container mx-auto px-4">
-      <div className="text-center mb-12">
-        <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">Nature's Gift</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-primary">Health Benefits of Sholavandan Vetrilai</h2>
-        <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-          Revered in Ayurveda for centuries, the betel leaf offers a wealth of health benefits backed by tradition and modern research.
-        </p>
-      </div>
+      <SectionHeader
+          eyebrow="Nature's gift"
+          title="Health benefits of Sholavandan vetrilai"
+          description="Revered in Ayurveda for centuries, the betel leaf offers a wealth of benefits backed by tradition and modern research."
+          align="center"
+        />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {benefits.map((b) => (
           <div key={b.title} className="flex gap-4 p-5 rounded-lg border border-border bg-card hover:shadow-sm transition-shadow">

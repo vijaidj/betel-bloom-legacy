@@ -1,3 +1,4 @@
+import SectionHeader from "@/components/SectionHeader";
 import realLeaf1 from "@/assets/real-betel-leaf-1.webp";
 import realPlant from "@/assets/real-betel-plant.webp";
 import betelBundles from "@/assets/betel-bundles-fresh.webp";
@@ -11,11 +12,11 @@ const images = [
 const GallerySection = () => (
   <section id="gallery" className="py-20 bg-primary/5">
     <div className="container mx-auto px-4">
-      <div className="text-center mb-12">
-        <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">Gallery</p>
-        <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">From Our Farm to Your Function</h2>
-        <p className="text-muted-foreground">Fresh from the Vaigai river basin farms of Sholavandan</p>
-      </div>
+      <SectionHeader
+          eyebrow="Gallery"
+          title="From our farm"
+          align="center"
+        />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {images.map((img) => (

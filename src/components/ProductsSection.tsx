@@ -1,3 +1,4 @@
+import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Leaf, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -7,18 +8,12 @@ const ProductsSection = () => (
   <section id="all-products" className="py-24 bg-primary/5">
     <div className="container mx-auto px-4">
 
-      {/* Section Header */}
-      <div className="text-center mb-6">
-        <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-1.5 rounded-full text-sm font-medium tracking-wide uppercase mb-4">
-          <Leaf className="h-4 w-4" />
-          Direct from Our Farms
-        </div>
-        <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Our Products</h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
-          From fresh betel leaves to wellness products — every item is crafted from leaves grown in our own
-          heritage farms in Sholavandan, Tamil Nadu. No middlemen. No compromise.
-        </p>
-      </div>
+      <SectionHeader
+        eyebrow="Our range"
+        title="Betel leaf, and everything from it"
+        description="Every item begins with leaves grown on our own heritage farms in Sholavandan. No middlemen, no compromise."
+        align="center"
+      />
 
       {/* Farmer Direct Banner */}
       <div className="max-w-4xl mx-auto mb-14 bg-primary text-primary-foreground rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">

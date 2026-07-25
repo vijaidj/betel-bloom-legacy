@@ -18,7 +18,6 @@ const AboutSection       = lazy(() => import("@/components/AboutSection"));
 const BenefitsSection    = lazy(() => import("@/components/BenefitsSection"));
 const TamilSection       = lazy(() => import("@/components/TamilSection"));
 const FAQSection         = lazy(() => import("@/components/FAQSection"));
-const SocialSection      = lazy(() => import("@/components/SocialSection"));
 const MapContactSection  = lazy(() => import("@/components/MapContactSection"));
 const ContactSection     = lazy(() => import("@/components/ContactSection"));
 const Footer             = lazy(() => import("@/components/Footer"));
@@ -94,7 +93,6 @@ const Index = () => {
         <BenefitsSection />
         <TamilSection />
         <FAQSection />
-        <SocialSection />
         <MapContactSection />
         <ContactSection />
         <Footer />

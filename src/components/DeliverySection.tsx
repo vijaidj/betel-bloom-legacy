@@ -1,3 +1,4 @@
+import SectionHeader from "@/components/SectionHeader";
 import { MessageCircle, ClipboardList, PackageCheck, Truck, BadgeCheck, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -46,13 +47,12 @@ const DeliverySection = () => (
     <div className="container mx-auto px-4">
 
       {/* Header */}
-      <div className="text-center mb-16">
-        <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">Shipping</p>
-        <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Fast &amp; Fresh Delivery</h2>
-        <p className="text-muted-foreground max-w-md mx-auto text-sm">
-          From our farm to your doorstep — every leaf arrives the same way it left us: fresh.
-        </p>
-      </div>
+      <SectionHeader
+          eyebrow="Shipping"
+          title="Fast and fresh delivery"
+          description="From our farm to your doorstep — every leaf arrives the way it left us: fresh."
+          align="center"
+        />
 
       {/* Timeline */}
       <div className="max-w-5xl mx-auto mb-14 relative">

@@ -56,6 +56,12 @@ const FarmVideo = ({ src, poster, label, alt }: (typeof videos)[number]) => {
           loop
           playsInline
           controls={started}
+          onPlay={(e) => {
+            // One clip at a time, so their sound never overlaps
+            document.querySelectorAll<HTMLVideoElement>("#gallery video").forEach((v) => {
+              if (v !== e.currentTarget) v.pause();
+            });
+          }}
           aria-label={alt}
           className="w-full h-full object-cover"
         />

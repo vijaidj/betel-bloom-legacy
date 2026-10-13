@@ -119,6 +119,8 @@ const ProductPage = () => {
           name: `${product.name} — ${v.label}`,
           description: v.summary ?? product.summary,
           sku: v.sku,
+          // Required by Google for every property named in `variesBy`
+          size: v.label.replace(/ /g, " "),
           image: `${SITE_URL}${v.image ?? product.image}`,
           ...(v.netWeight ? { weight: v.netWeight } : {}),
           ...(v.giCovered

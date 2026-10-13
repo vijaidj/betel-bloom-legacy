@@ -3,7 +3,6 @@ import Seo from "@/components/Seo";
 import { SITE_URL, products } from "@/data/products";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import HighlightsSection from "@/components/HighlightsSection";
 
 // Above the fold — loaded eagerly above.
 // Everything below is deferred so it does not block first paint or LCP.
@@ -83,7 +82,6 @@ const Index = () => {
       <Suspense fallback={<SectionFallback />}>
         <GallerySection />
       </Suspense>
-      <HighlightsSection />
 
       <Suspense fallback={<SectionFallback />}>
         <PackagesSection />

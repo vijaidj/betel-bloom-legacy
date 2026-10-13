@@ -1,12 +1,23 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone, Star, ChevronDown } from "lucide-react";
+import { MessageCircle, Phone, ChevronDown } from "lucide-react";
 import heroBetel from "@/assets/hero-betel.webp";
 import leafIcon from "@/assets/leaf-icon.webp";
 import GIBadge from "@/components/GIBadge";
+import GICertificateModal from "@/components/GICertificateModal";
 
 const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
 
-const HeroSection = () => (
+const stats = [
+  { value: "60+", label: "Years of family farming" },
+  { value: "5000+", label: "Weddings served" },
+  { value: "24hr", label: "Express dispatch, pan India" },
+];
+
+const HeroSection = () => {
+  const [certOpen, setCertOpen] = useState(false);
+
+  return (
   <section
     id="home"
     className="relative flex flex-col justify-center overflow-hidden"
@@ -27,14 +38,14 @@ const HeroSection = () => (
       <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,40,20,0.70) 0%, transparent 60%)" }} />
     </div>
 
-    {/* GI Badge — top right desktop — z-20 */}
-    <div className="hidden md:flex absolute top-28 right-10 z-20 items-center gap-3 rounded-2xl px-4 py-3 border border-white/20 shadow-lg" style={{ background: "rgba(255,255,255,0.10)", backdropFilter: "blur(8px)" }}>
+    {/* GI Badge — top right desktop — z-20; opens the certificate */}
+    <button type="button" onClick={() => setCertOpen(true)} aria-label="View GI certificate" className="hidden md:flex absolute top-28 right-10 z-20 items-center gap-3 rounded-2xl px-4 py-3 border border-white/20 shadow-lg text-left hover:border-white/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c]" style={{ background: "rgba(255,255,255,0.10)", backdropFilter: "blur(8px)" }}>
       <GIBadge size="sm" />
       <div>
         <p className="font-semibold text-sm" style={{ color: "#fff" }}>GI Certified Product</p>
         <p className="text-xs" style={{ color: "rgba(255,255,255,0.65)" }}>Geographical Indication of India</p>
       </div>
-    </div>
+    </button>
 
     {/* Main content — z-10, explicit white text */}
     <div className="container mx-auto px-4 relative pt-28 pb-16 md:pt-32 md:pb-20" style={{ zIndex: 10 }}>
@@ -92,24 +103,38 @@ const HeroSection = () => (
           </a>
         </div>
 
-        {/* Trust signal */}
-        <div className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.55)" }}>
-          <div className="flex gap-0.5">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-3.5 w-3.5" style={{ fill: "#c9a84c", color: "#c9a84c" }} />
-            ))}
+        {/* Key facts — replaces the separate highlights section */}
+        <dl className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-5 max-w-lg">
+          {stats.map((s) => (
+            <div key={s.label}>
+              <dt className="sr-only">{s.label}</dt>
+              <dd>
+                <span className="block text-3xl md:text-4xl font-bold font-heading leading-none" style={{ color: "#c9a84c" }}>
+                  {s.value}
+                </span>
+                <span className="block text-xs mt-1.5 leading-snug" style={{ color: "rgba(255,255,255,0.7)" }}>
+                  {s.label}
+                </span>
+              </dd>
+            </div>
+          ))}
+          {/* Desktop shows the GI badge top right instead */}
+          <div className="md:hidden">
+            <button
+              type="button"
+              onClick={() => setCertOpen(true)}
+              className="group flex items-center gap-2.5 text-left rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c]"
+            >
+              <GIBadge size="sm" />
+              <span>
+                <span className="block text-sm font-semibold leading-tight" style={{ color: "#fff" }}>GI Certified</span>
+                <span className="block text-xs mt-0.5 underline underline-offset-2 group-hover:no-underline" style={{ color: "rgba(201,168,76,0.9)" }}>
+                  View certificate
+                </span>
+              </span>
+            </button>
           </div>
-          <span>Trusted by 5000+ Weddings Every Year Worldwide</span>
-        </div>
-
-        {/* GI Badge — mobile */}
-        <div className="flex md:hidden items-center gap-3 rounded-xl px-4 py-2.5 border border-white/20 w-fit mt-6" style={{ background: "rgba(255,255,255,0.10)", backdropFilter: "blur(8px)" }}>
-          <GIBadge size="sm" />
-          <div>
-            <p className="font-semibold text-sm" style={{ color: "#fff" }}>GI Certified Product</p>
-            <p className="text-xs" style={{ color: "rgba(255,255,255,0.65)" }}>Geographical Indication of India</p>
-          </div>
-        </div>
+        </dl>
 
         {/* Tamil tagline */}
         <div className="mt-8 pt-6" style={{ borderTop: "1px solid rgba(201,168,76,0.25)" }}>
@@ -125,7 +150,10 @@ const HeroSection = () => (
     <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce" style={{ zIndex: 10 }}>
       <ChevronDown className="h-5 w-5" style={{ color: "rgba(201,168,76,0.6)" }} />
     </div>
+
+    <GICertificateModal open={certOpen} onOpenChange={setCertOpen} />
   </section>
-);
+  );
+};
 
 export default HeroSection;

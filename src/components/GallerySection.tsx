@@ -87,9 +87,9 @@ const GallerySection = () => (
   <section id="gallery" className="py-20 bg-primary/5">
     <div className="container mx-auto px-4">
       <SectionHeader
-          eyebrow="Gallery"
-          title="From our farm"
-          description="Unstaged photos and video from our betel gardens in Sholavandan."
+          eyebrow="Our farm"
+          title="Grown by us, not sourced"
+          description="Every leaf comes from our own betel gardens in Sholavandan. This is unstaged footage of how we grow and pick them."
           align="center"
         />
 

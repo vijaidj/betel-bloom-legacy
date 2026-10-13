@@ -79,6 +79,10 @@ const Index = () => {
       />
       <Navbar />
       <HeroSection />
+      {/* Farm footage sits directly under the hero: proof we grow it ourselves */}
+      <Suspense fallback={<SectionFallback />}>
+        <GallerySection />
+      </Suspense>
       <HighlightsSection />
 
       <Suspense fallback={<SectionFallback />}>
@@ -86,7 +90,6 @@ const Index = () => {
         <ProductsSection />
         <WeddingSection />
         <OccasionsSection />
-        <GallerySection />
         <TestimonialsSection />
         <DeliverySection />
         <AboutSection />

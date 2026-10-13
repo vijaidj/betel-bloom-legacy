@@ -95,14 +95,13 @@ const ProductPage = () => {
   };
 
   const path = `/products/${product.slug}/`;
+  const quoteOnly = view.price === undefined;
   const order = whatsappLink(`Hi, I would like to order ${view.displayName} from VetriLeaf.`);
   const related = product.related
     .map((s) => products.find((p) => p.slug === s))
     .filter(Boolean) as typeof products;
 
   // ProductGroup when variants exist so all variants share one canonical URL.
-  // Price is omitted until the pricing decision is made; adding `price` to a
-  // variant automatically populates its offer here.
   const productSchema = variants.length
     ? {
         "@context": "https://schema.org",
@@ -120,7 +119,7 @@ const ProductPage = () => {
           description: v.summary ?? product.summary,
           sku: v.sku,
           // Required by Google for every property named in `variesBy`
-          size: v.label.replace(/ /g, " "),
+          size: v.label.replace(/\s/g, " "),
           image: `${SITE_URL}${v.image ?? product.image}`,
           ...(v.netWeight ? { weight: v.netWeight } : {}),
           ...(v.giCovered
@@ -164,24 +163,9 @@ const ProductPage = () => {
           },
         })),
       }
-    : {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        name: `${product.name} — Sholavandan GI Certified`,
-        description: product.summary,
-        image: `${SITE_URL}${product.image}`,
-        sku: view.sku,
-        brand: { "@type": "Brand", name: "VetriLeaf" },
-        manufacturer: { "@id": `${SITE_URL}/#organization` },
-        countryOfOrigin: { "@type": "Country", name: "India" },
-        offers: {
-          "@type": "Offer",
-          availability: "https://schema.org/InStock",
-          priceCurrency: "INR",
-          url: `${SITE_URL}${path}`,
-          seller: { "@id": `${SITE_URL}/#organization` },
-        },
-      };
+    : // Quote-only products have no fixed price. Google rejects Product markup
+      // without an offer price, so these pages rely on Breadcrumb + FAQ schema.
+      null;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -231,7 +215,7 @@ const ProductPage = () => {
         keywords={product.seo.keywords}
         path={path}
         image={product.image}
-        schema={[productSchema, breadcrumbSchema, faqSchema]}
+        schema={[...(productSchema ? [productSchema] : []), breadcrumbSchema, faqSchema]}
       />
       <Navbar />
 
@@ -310,6 +294,14 @@ const ProductPage = () => {
                   </p>
                 </div>
               )}
+              {quoteOnly && (
+                <div className="mb-6">
+                  <p className="text-2xl font-semibold text-primary leading-tight">Price on request</p>
+                  <p className="text-xs text-muted-foreground mt-1.5">
+                    Quoted by quantity · minimum {view.minimumOrder}
+                  </p>
+                </div>
+              )}
 
               <div className="flex flex-wrap gap-2 mb-8">
                 {product.trustBadges
@@ -344,7 +336,7 @@ const ProductPage = () => {
                   className="group flex items-center justify-center gap-3 w-full h-[58px] rounded-xl bg-accent text-accent-foreground font-semibold tracking-wide shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] hover:shadow-[0_12px_32px_-8px_hsl(var(--accent)/0.85)] hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                 >
                   <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                  Order on WhatsApp
+                  {quoteOnly ? "Get a quote on WhatsApp" : "Order on WhatsApp"}
                   <ArrowRight className="h-4 w-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" aria-hidden="true" />
                 </button>
                 <p className="text-center text-xs text-muted-foreground mt-2.5">
@@ -748,6 +740,7 @@ const ProductPage = () => {
         onOpenChange={setFormOpen}
         product={product}
         variant={variant}
+        quoteOnly={quoteOnly}
       />
 
       <Footer />

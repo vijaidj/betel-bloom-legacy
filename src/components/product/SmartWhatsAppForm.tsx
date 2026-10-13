@@ -11,6 +11,8 @@ interface Props {
   onOpenChange: (open: boolean) => void;
   product: Product;
   variant?: Variant;
+  /** No fixed price — the enquiry asks for a quote instead of placing an order */
+  quoteOnly?: boolean;
 }
 
 const PURPOSES = ["Wedding", "Temple", "Home use", "Retail resale", "Wholesale", "Export"] as const;
@@ -28,7 +30,7 @@ const quantitiesFor = (slug: string) =>
  * The generated message carries the product, variant and source path, which
  * is what makes WhatsApp enquiries attributable back to a page.
  */
-const SmartWhatsAppForm = ({ open, onOpenChange, product, variant }: Props) => {
+const SmartWhatsAppForm = ({ open, onOpenChange, product, variant, quoteOnly = false }: Props) => {
   const [qty, setQty] = useState("");
   const [purpose, setPurpose] = useState("");
   const [date, setDate] = useState("");
@@ -40,7 +42,7 @@ const SmartWhatsAppForm = ({ open, onOpenChange, product, variant }: Props) => {
   const message = [
     "Hi VetriLeaf,",
     "",
-    `I would like to order: ${label}`,
+    `${quoteOnly ? "I would like a quote for" : "I would like to order"}: ${label}`,
     qty && `Quantity: ${qty}`,
     purpose && `Purpose: ${purpose}`,
     date && `Needed by: ${date}`,
@@ -78,7 +80,7 @@ const SmartWhatsAppForm = ({ open, onOpenChange, product, variant }: Props) => {
       <DialogContent className="max-w-lg p-0 gap-0 overflow-hidden rounded-2xl">
         <DialogHeader className="px-6 pt-6 pb-4 text-left">
           <DialogTitle className="font-heading text-2xl text-primary leading-tight">
-            Order {label}
+            {quoteOnly ? "Get a quote for" : "Order"} {label}
           </DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground mt-1.5">
             A few details so we can quote accurately in one reply. All optional —

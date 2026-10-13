@@ -9,6 +9,8 @@ import vineRows from "@/assets/farm/farm-vine-rows.webp";
 import peacock from "@/assets/farm/farm-peacock.webp";
 import harvestVideo from "@/assets/farm/farm-harvest.mp4";
 import harvestPoster from "@/assets/farm/farm-harvest-poster.webp";
+import pickingVideo from "@/assets/farm/farm-hand-picking.mp4";
+import pickingPoster from "@/assets/farm/farm-hand-picking-poster.webp";
 import leafVideo from "@/assets/farm/farm-leaf-in-hand.mp4";
 import leafPoster from "@/assets/farm/farm-leaf-in-hand-poster.webp";
 import walkVideo from "@/assets/farm/farm-vine-walk.mp4";
@@ -16,7 +18,8 @@ import walkPoster from "@/assets/farm/farm-vine-walk-poster.webp";
 
 const videos = [
   { src: harvestVideo, poster: harvestPoster, label: "Harvested by hand", alt: "Farmer hand-picking betel leaves from the vine" },
-  { src: leafVideo, poster: leafPoster, label: "A leaf, just picked", alt: "Freshly picked betel leaf held up in the garden" },
+  { src: pickingVideo, poster: pickingPoster, label: "Picked leaf by leaf", alt: "Farmer reaching into the vine to pick betel leaves one at a time" },
+  { src: leafVideo, poster: leafPoster, label: "A leaf, just picked", alt: "A betel leaf plucked from the vine and held up in the garden" },
   { src: walkVideo, poster: walkPoster, label: "Inside the vine garden", alt: "Walking between rows of betel vines" },
 ];
 
@@ -29,7 +32,10 @@ const images = [
   { src: betelBundles, alt: "Fresh betel leaf bundles ready for delivery", label: "Farm fresh bundles" },
 ];
 
-/** Poster first; the clip is only fetched once the visitor presses play. */
+/**
+ * Poster first; the clip is only fetched once the visitor presses play.
+ * Clips carry a quiet ambient garden track, so they are never autoplayed.
+ */
 const FarmVideo = ({ src, poster, label, alt }: (typeof videos)[number]) => {
   const ref = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
@@ -47,7 +53,6 @@ const FarmVideo = ({ src, poster, label, alt }: (typeof videos)[number]) => {
           src={src}
           poster={poster}
           preload="none"
-          muted
           loop
           playsInline
           controls={started}
@@ -82,7 +87,7 @@ const GallerySection = () => (
           align="center"
         />
 
-      <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-2 sm:mx-auto sm:px-0 sm:pb-0 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible max-w-3xl mb-12">
+      <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-2 sm:mx-auto sm:px-0 sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 sm:overflow-visible max-w-xl lg:max-w-5xl mb-12">
         {videos.map((v) => (
           <FarmVideo key={v.label} {...v} />
         ))}

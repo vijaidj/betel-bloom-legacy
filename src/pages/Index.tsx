@@ -61,7 +61,7 @@ const itemListSchema = {
     "@type": "ListItem",
     position: i + 1,
     name: p.name,
-    url: `${SITE_URL}/products/${p.slug}`,
+    url: `${SITE_URL}/products/${p.slug}/`,
   })),
 };
 

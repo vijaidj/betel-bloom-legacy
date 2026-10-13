@@ -1,3 +1,4 @@
+/// <reference types="vite-react-ssg" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -6,6 +7,9 @@ import path from "path";
 // that resolve incorrectly in production and render a blank page.
 export default defineConfig({
   base: '/',
+  // Nested output (products/slug/index.html) so clean URLs resolve on any
+  // static server without rewrite rules — the nginx host ignores .htaccess.
+  ssgOptions: { dirStyle: 'nested' },
   server: {
     host: "::",
     port: 8080,

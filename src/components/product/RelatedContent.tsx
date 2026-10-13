@@ -46,7 +46,7 @@ export const FrequentlyBoughtTogether = ({ product }: { product: Product }) => {
                     {p.slug === product.slug ? (
                       p.name
                     ) : (
-                      <Link to={`/products/${p.slug}`} className="hover:text-accent transition-colors">
+                      <Link to={`/products/${p.slug}/`} className="hover:text-accent transition-colors">
                         {p.name}
                       </Link>
                     )}

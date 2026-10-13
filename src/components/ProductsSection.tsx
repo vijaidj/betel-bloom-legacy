@@ -37,7 +37,7 @@ const ProductsSection = () => (
             key={p.slug}
             className="group bg-card rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300"
           >
-            <Link to={`/products/${p.slug}`} className="aspect-square overflow-hidden relative block">
+            <Link to={`/products/${p.slug}/`} className="aspect-square overflow-hidden relative block">
               <img
                 src={p.image}
                 alt={p.imageAlt}
@@ -52,7 +52,7 @@ const ProductsSection = () => (
             </Link>
             <div className="p-6">
               <h3 className="text-xl font-semibold text-primary mb-2">
-                <Link to={`/products/${p.slug}`} className="hover:text-accent transition-colors">{p.name}</Link>
+                <Link to={`/products/${p.slug}/`} className="hover:text-accent transition-colors">{p.name}</Link>
               </h3>
               <p className="text-sm text-muted-foreground mb-5 leading-relaxed line-clamp-3">{p.cardDescription}</p>
               <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 gap-2 group/btn" asChild>
@@ -73,7 +73,7 @@ const ProductsSection = () => (
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 gap-2" asChild>
-            <Link to="/products">
+            <Link to="/products/">
               View all products <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>

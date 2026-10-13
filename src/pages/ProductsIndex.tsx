@@ -17,7 +17,7 @@ const ProductsIndex = () => {
       "@type": "ListItem",
       position: i + 1,
       name: p.name,
-      url: `${SITE_URL}/products/${p.slug}`,
+      url: `${SITE_URL}/products/${p.slug}/`,
     })),
   };
 
@@ -26,7 +26,7 @@ const ProductsIndex = () => {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Products", item: `${SITE_URL}/products` },
+      { "@type": "ListItem", position: 2, name: "Products", item: `${SITE_URL}/products/` },
     ],
   };
 
@@ -36,7 +36,7 @@ const ProductsIndex = () => {
         title="Betel Leaf Products | VetriLeaf"
         description="GI-certified Sholavandan betel leaf products: fresh leaves, powder, tea bags, oil, juice mix and infused water. Farm direct."
         keywords="betel leaf products, sholavandan vetrilai products, betel leaf powder, betel leaf tea, betel leaf oil, betel juice, betel leaf water"
-        path="/products"
+        path="/products/"
         schema={[itemListSchema, breadcrumbSchema]}
       />
       <Navbar />
@@ -77,7 +77,7 @@ const ProductsIndex = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 max-w-6xl mx-auto">
             {products.map((p) => (
               <article key={p.slug} className="group bg-card rounded-2xl overflow-hidden border border-border hover:shadow-xl transition-shadow flex flex-col">
-                <Link to={`/products/${p.slug}`} className="aspect-square overflow-hidden block">
+                <Link to={`/products/${p.slug}/`} className="aspect-square overflow-hidden block">
                   <img
                     src={p.image}
                     alt={p.imageAlt}
@@ -90,12 +90,12 @@ const ProductsIndex = () => {
                 <div className="p-6 flex flex-col flex-1">
                   <span className="text-xs font-semibold text-accent uppercase tracking-wider mb-2">{p.tagline}</span>
                   <h2 className="text-lg font-semibold text-primary mb-2">
-                    <Link to={`/products/${p.slug}`} className="hover:text-accent transition-colors">{p.name}</Link>
+                    <Link to={`/products/${p.slug}/`} className="hover:text-accent transition-colors">{p.name}</Link>
                   </h2>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">{p.cardDescription}</p>
                   <div className="flex gap-2">
                     <Button size="sm" variant="outline" className="flex-1 border-border gap-1.5 text-xs" asChild>
-                      <Link to={`/products/${p.slug}`}>
+                      <Link to={`/products/${p.slug}/`}>
                         Details <ArrowRight className="h-3 w-3" />
                       </Link>
                     </Button>

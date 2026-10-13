@@ -15,8 +15,8 @@ if (slugs.length === 0) {
 
 const urls = [
   { loc: "/", priority: "1.0", freq: "weekly" },
-  { loc: "/products", priority: "0.9", freq: "weekly" },
-  ...slugs.map((s) => ({ loc: `/products/${s}`, priority: "0.8", freq: "monthly" })),
+  { loc: "/products/", priority: "0.9", freq: "weekly" },
+  ...slugs.map((s) => ({ loc: `/products/${s}/`, priority: "0.8", freq: "monthly" })),
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>

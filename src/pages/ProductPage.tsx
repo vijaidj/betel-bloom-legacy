@@ -94,7 +94,7 @@ const ProductPage = () => {
     if (id) selectVariant(i === galleryIndex ? id : id);
   };
 
-  const path = `/products/${product.slug}`;
+  const path = `/products/${product.slug}/`;
   const order = whatsappLink(`Hi, I would like to order ${view.displayName} from VetriLeaf.`);
   const related = product.related
     .map((s) => products.find((p) => p.slug === s))
@@ -188,7 +188,7 @@ const ProductPage = () => {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Products", item: `${SITE_URL}/products` },
+      { "@type": "ListItem", position: 2, name: "Products", item: `${SITE_URL}/products/` },
       { "@type": "ListItem", position: 3, name: product.name, item: `${SITE_URL}${path}` },
     ],
   };
@@ -241,7 +241,7 @@ const ProductPage = () => {
           <ol className="flex items-center gap-1.5 text-xs text-muted-foreground flex-wrap">
             <li><Link to="/" className="hover:text-accent transition-colors">Home</Link></li>
             <li aria-hidden="true"><ChevronRight className="h-3 w-3" /></li>
-            <li><Link to="/products" className="hover:text-accent transition-colors">Products</Link></li>
+            <li><Link to="/products/" className="hover:text-accent transition-colors">Products</Link></li>
             <li aria-hidden="true"><ChevronRight className="h-3 w-3" /></li>
             <li className="text-primary font-medium" aria-current="page">{product.name}</li>
           </ol>
@@ -716,7 +716,7 @@ const ProductPage = () => {
                 {related.map((r) => (
                   <Link
                     key={r.slug}
-                    to={`/products/${r.slug}`}
+                    to={`/products/${r.slug}/`}
                     className="group bg-card rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-shadow"
                   >
                     <div className="aspect-square overflow-hidden">

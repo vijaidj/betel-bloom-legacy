@@ -1,6 +1,6 @@
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
-import { Leaf, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { products, whatsappLink } from "@/data/products";
 
@@ -9,26 +9,10 @@ const ProductsSection = () => (
     <div className="container mx-auto px-4">
 
       <SectionHeader
-        eyebrow="Our range"
-        title="Betel leaf, and everything from it"
-        description="Every item begins with leaves grown on our own heritage farms in Sholavandan. No middlemen, no compromise."
+        eyebrow="Shop"
+        title="Our products"
         align="center"
       />
-
-      {/* Farmer Direct Banner */}
-      <div className="max-w-4xl mx-auto mb-14 bg-primary text-primary-foreground rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
-        <div className="flex-shrink-0 w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center">
-          <Leaf className="h-8 w-8 text-accent" />
-        </div>
-        <div className="text-center md:text-left">
-          <h3 className="text-xl font-bold mb-1 font-heading">We Grow. We Harvest. We Deliver.</h3>
-          <p className="text-primary-foreground/80 text-sm leading-relaxed">
-            As 3rd-generation native farmers of Sholavandan, we cultivate every betel leaf ourselves using centuries-old
-            methods along the fertile Vaigai river basin. When you buy from us, you get the freshest produce —
-            harvested that morning and shipped the same day. No warehouses, no chemicals, no artificial preservatives.
-          </p>
-        </div>
-      </div>
 
       {/* Product Grid — 6 products in 3-col grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">

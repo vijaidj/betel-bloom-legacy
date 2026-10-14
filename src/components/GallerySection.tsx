@@ -6,8 +6,8 @@ import betelBundles from "@/assets/betel-bundles-fresh.webp";
 import leavesCloseup from "@/assets/farm/farm-leaves-closeup.webp";
 import gardenPath from "@/assets/farm/farm-garden-path.webp";
 import farmerWalking from "@/assets/farm/farm-farmer-walking.webp";
-import vineRows from "@/assets/farm/farm-vine-rows.webp";
-import peacock from "@/assets/farm/farm-peacock.webp";
+import newField from "@/assets/farm/farm-new-field.webp";
+import newFieldClose from "@/assets/farm/farm-new-field-close.webp";
 import newPlantingVideo from "@/assets/farm/farm-new-planting.mp4";
 import newPlantingPoster from "@/assets/farm/farm-new-planting-poster.webp";
 import harvestVideo from "@/assets/farm/farm-harvest-picking.mp4";
@@ -26,12 +26,13 @@ const reels = [
   { src: walkVideo, poster: walkPoster, label: "Inside the vine garden", alt: "Walking between rows of betel vines" },
 ];
 
+// In growing order: a new garden first, through to bundles ready to send
 const images = [
+  { src: newField, alt: "A newly planted garden at our farm, with coconut palms behind" },
+  { src: newFieldClose, alt: "Young plants in a new garden, with betel vine leaves at the base" },
+  { src: gardenPath, alt: "Path between mature betel vine rows with a drip irrigation line" },
   { src: leavesCloseup, alt: "Betel leaves growing on the vine at our Sholavandan farm" },
-  { src: gardenPath, alt: "Path between betel vine rows with a drip irrigation line" },
   { src: farmerWalking, alt: "Farmer walking between rows of betel vines" },
-  { src: vineRows, alt: "Rows of betel vines climbing their supports" },
-  { src: peacock, alt: "Peacock perched on a wall at the farm" },
   { src: betelBundles, alt: "Fresh betel leaf bundles ready for delivery" },
 ];
 

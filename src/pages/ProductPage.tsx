@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { useParams, Link, useSearchParams } from "react-router-dom";
 import {
   MessageCircle, ChevronRight, Leaf, Package, Clock, ShieldCheck,
@@ -20,6 +20,7 @@ import ProductGallery, { type GalleryImage } from "@/components/product/ProductG
 import VariantSelector from "@/components/product/VariantSelector";
 import FreshnessIndicator from "@/components/product/FreshnessIndicator";
 import SmartWhatsAppForm from "@/components/product/SmartWhatsAppForm";
+import StickyOrderBar from "@/components/product/StickyOrderBar";
 import { ProductJourney, WhyThisVariant, VariantComparison } from "@/components/product/ProductJourney";
 import { FrequentlyBoughtTogether, PeopleAlsoSearched } from "@/components/product/RelatedContent";
 
@@ -28,6 +29,7 @@ const ProductPage = () => {
   const product = slug ? getProduct(slug) : undefined;
   const [searchParams, setSearchParams] = useSearchParams();
   const [formOpen, setFormOpen] = useState(false);
+  const orderButtonRef = useRef<HTMLButtonElement>(null);
 
   const variants = product?.variants ?? [];
   const defaultId =
@@ -219,13 +221,13 @@ const ProductPage = () => {
       />
       <Navbar />
 
-      <main className="pt-28 md:pt-32">
+      <main className="pt-24 md:pt-28">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="container mx-auto px-4 mb-6">
           <ol className="flex items-center gap-1.5 text-xs text-muted-foreground flex-wrap">
-            <li><Link to="/" className="hover:text-accent transition-colors">Home</Link></li>
+            <li><Link to="/" className="hover:text-gold-ink transition-colors">Home</Link></li>
             <li aria-hidden="true"><ChevronRight className="h-3 w-3" /></li>
-            <li><Link to="/products/" className="hover:text-accent transition-colors">Products</Link></li>
+            <li><Link to="/products/" className="hover:text-gold-ink transition-colors">Products</Link></li>
             <li aria-hidden="true"><ChevronRight className="h-3 w-3" /></li>
             <li className="text-primary font-medium" aria-current="page">{product.name}</li>
           </ol>
@@ -264,7 +266,7 @@ const ProductPage = () => {
             </div>
 
             <div>
-              <span className="inline-flex items-center gap-1.5 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-accent/15 text-gold-ink px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
                 <Leaf className="h-3 w-3" /> {product.tagline}
               </span>
               <h1 className="text-3xl md:text-5xl font-bold text-primary mb-4 leading-tight">
@@ -331,6 +333,7 @@ const ProductPage = () => {
               <div className="mb-9">
                 {/* Primary action */}
                 <button
+                  ref={orderButtonRef}
                   type="button"
                   onClick={() => setFormOpen(true)}
                   className="group flex items-center justify-center gap-3 w-full h-[58px] rounded-xl bg-accent text-accent-foreground font-semibold tracking-wide shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] hover:shadow-[0_12px_32px_-8px_hsl(var(--accent)/0.85)] hover:-translate-y-0.5 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
@@ -391,7 +394,7 @@ const ProductPage = () => {
 
               {/* Sticky label column */}
               <div className="md:sticky md:top-32 md:self-start">
-                <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+                <p className="eyebrow mb-3">
                   The Product
                 </p>
                 <h2 className="font-heading text-2xl md:text-[28px] leading-[1.15] text-primary">
@@ -434,7 +437,7 @@ const ProductPage = () => {
         <section className="mb-20">
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="text-center mb-12 md:mb-14">
-              <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+              <p className="eyebrow mb-3">
                 What sets it apart
               </p>
               <h2 className="font-heading text-3xl md:text-[42px] leading-tight text-primary">
@@ -473,7 +476,7 @@ const ProductPage = () => {
 
               {/* Steps */}
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+                <p className="eyebrow mb-3">
                   Preparation
                 </p>
                 <h2 className="font-heading text-3xl md:text-[38px] leading-tight text-primary mb-9">
@@ -484,7 +487,7 @@ const ProductPage = () => {
                   {product.howToUse.map((s, i) => (
                     <li key={i} className="flex gap-5">
                       <span
-                        className="font-heading text-2xl leading-none text-accent/45 shrink-0 w-8 pt-0.5 tabular-nums"
+                        className="font-heading text-2xl leading-none text-gold-ink/50 shrink-0 w-8 pt-0.5 tabular-nums"
                         aria-hidden="true"
                       >
                         {String(i + 1).padStart(2, "0")}
@@ -534,7 +537,7 @@ const ProductPage = () => {
         <section className="mb-20">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="mb-10">
-              <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+              <p className="eyebrow mb-3">
                 Full detail
               </p>
               <h2 className="font-heading text-3xl md:text-[38px] leading-tight text-primary">
@@ -605,7 +608,7 @@ const ProductPage = () => {
                 </div>
 
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-4">
+                  <p className="eyebrow-on-dark mb-4">
                     Provenance
                   </p>
                   <h2 className="font-heading text-3xl md:text-[40px] leading-[1.15] mb-6">
@@ -651,7 +654,7 @@ const ProductPage = () => {
         <section className="container mx-auto px-4 mb-16">
           <div className="max-w-3xl mx-auto">
             <div className="mb-10">
-              <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+              <p className="eyebrow mb-3">
                 Common questions
               </p>
               <h2 className="font-heading text-3xl md:text-[38px] leading-tight text-primary">
@@ -663,7 +666,7 @@ const ProductPage = () => {
             <Accordion type="single" collapsible className="w-full border-t border-border">
               {product.faqs.map((f, i) => (
                 <AccordionItem key={i} value={`faq-${i}`} className="border-b border-border">
-                  <AccordionTrigger className="text-left py-6 gap-6 font-heading text-lg md:text-xl leading-snug text-primary hover:text-accent hover:no-underline [&[data-state=open]]:text-accent">
+                  <AccordionTrigger className="text-left py-6 gap-6 font-heading text-lg md:text-xl leading-snug text-primary hover:text-gold-ink hover:no-underline [&[data-state=open]]:text-accent">
                     {f.q}
                   </AccordionTrigger>
                   <AccordionContent className="pb-7 pr-8 text-[15px] md:text-base leading-[1.8] text-muted-foreground">
@@ -697,7 +700,7 @@ const ProductPage = () => {
           <section className="py-16 border-t border-border/60">
             <div className="container mx-auto px-4">
               <div className="text-center mb-10">
-                <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+                <p className="eyebrow mb-3">
                   From the same harvest
                 </p>
                 <h2 className="font-heading text-3xl md:text-[38px] leading-tight text-primary">
@@ -744,6 +747,16 @@ const ProductPage = () => {
       />
 
       <Footer />
+      {/* Room for the phone order bar, so it never covers the end of the footer */}
+      <div className="h-[72px] bg-forest-deep md:hidden" aria-hidden="true" />
+      <StickyOrderBar
+        targetRef={orderButtonRef}
+        title={view.displayName}
+        priceText={quoteOnly ? "Price on request" : `₹${view.price} ${view.priceUnit ?? ""}`.trim()}
+        ctaLabel={quoteOnly ? "Get a quote" : "Order"}
+        onOrder={() => setFormOpen(true)}
+        hidden={formOpen}
+      />
       <WhatsAppButton />
       <ScrollToTop />
     </>

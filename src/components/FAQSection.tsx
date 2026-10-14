@@ -27,28 +27,41 @@ const faqs = [
   },
 ];
 
-const FAQSection = () => (
-  <section id="faq" className="py-20">
-    <div className="container mx-auto px-4 max-w-3xl">
-      <div className="text-center mb-12">
-        <p className="text-accent font-medium tracking-widest uppercase text-sm mb-3">FAQ</p>
-        <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Frequently Asked Questions</h2>
+interface FAQSectionProps {
+  /** Render without its own section wrapper, inside another section's layout */
+  embedded?: boolean;
+}
+
+const FAQSection = ({ embedded = false }: FAQSectionProps) => {
+  const content = (
+    <div id="faq" className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-14">
+      <div className="lg:col-span-4">
+        <p className="eyebrow mb-3">FAQ</p>
+        <h2 className="font-heading text-3xl md:text-[42px] leading-[1.12] text-primary">Frequently Asked Questions</h2>
       </div>
 
-      <Accordion type="single" collapsible className="space-y-3">
+      <Accordion type="single" collapsible className="lg:col-span-8 border-t border-border">
         {faqs.map((faq, i) => (
-          <AccordionItem key={i} value={`faq-${i}`} className="border border-border rounded-xl px-5 bg-card data-[state=open]:shadow-md transition-shadow">
-            <AccordionTrigger className="text-left font-semibold text-primary text-sm md:text-base hover:no-underline py-4">
+          <AccordionItem key={i} value={`faq-${i}`} className="border-b border-border">
+            <AccordionTrigger className="text-left font-semibold text-primary text-base hover:no-underline py-5 gap-4">
               {faq.q}
             </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground text-sm leading-relaxed pb-4">
+            <AccordionContent className="text-muted-foreground text-[15px] leading-relaxed pb-5 pr-8">
               {faq.a}
             </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
     </div>
-  </section>
-);
+  );
+
+  if (embedded) return content;
+
+  return (
+    <section className="section">
+      <div className="container max-w-3xl">{content}</div>
+    </section>
+  );
+};
 
 export default FAQSection;

@@ -6,18 +6,15 @@ import HeroSection from "@/components/HeroSection";
 
 // Above the fold — loaded eagerly above.
 // Everything below is deferred so it does not block first paint or LCP.
-const PackagesSection    = lazy(() => import("@/components/PackagesSection"));
+// Nine sections: Packages now lives inside Products, Occasions inside
+// Weddings, the Tamil band and traditional uses inside About, FAQ beside the
+// testimonials, and the map beside the contact form.
 const ProductsSection    = lazy(() => import("@/components/ProductsSection"));
 const WeddingSection     = lazy(() => import("@/components/WeddingSection"));
-const OccasionsSection   = lazy(() => import("@/components/OccasionsSection"));
 const GallerySection     = lazy(() => import("@/components/GallerySection"));
 const TestimonialsSection= lazy(() => import("@/components/TestimonialsSection"));
 const DeliverySection    = lazy(() => import("@/components/DeliverySection"));
 const AboutSection       = lazy(() => import("@/components/AboutSection"));
-const BenefitsSection    = lazy(() => import("@/components/BenefitsSection"));
-const TamilSection       = lazy(() => import("@/components/TamilSection"));
-const FAQSection         = lazy(() => import("@/components/FAQSection"));
-const MapContactSection  = lazy(() => import("@/components/MapContactSection"));
 const ContactSection     = lazy(() => import("@/components/ContactSection"));
 const Footer             = lazy(() => import("@/components/Footer"));
 const WhatsAppButton     = lazy(() => import("@/components/WhatsAppButton"));
@@ -84,17 +81,11 @@ const Index = () => {
       </Suspense>
 
       <Suspense fallback={<SectionFallback />}>
-        <PackagesSection />
         <ProductsSection />
         <WeddingSection />
-        <OccasionsSection />
-        <TestimonialsSection />
-        <DeliverySection />
         <AboutSection />
-        <BenefitsSection />
-        <TamilSection />
-        <FAQSection />
-        <MapContactSection />
+        <DeliverySection />
+        <TestimonialsSection />
         <ContactSection />
         <Footer />
         <WhatsAppButton />

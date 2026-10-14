@@ -21,7 +21,7 @@ export const FrequentlyBoughtTogether = ({ product }: { product: Product }) => {
     <section className="py-20 md:py-24 bg-secondary/25 border-y border-border/60">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="mb-10">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+          <p className="eyebrow mb-3">
             Ordered together
           </p>
           <h2 className="font-heading text-3xl md:text-[38px] leading-tight text-primary">
@@ -46,7 +46,7 @@ export const FrequentlyBoughtTogether = ({ product }: { product: Product }) => {
                     {p.slug === product.slug ? (
                       p.name
                     ) : (
-                      <Link to={`/products/${p.slug}/`} className="hover:text-accent transition-colors">
+                      <Link to={`/products/${p.slug}/`} className="hover:text-gold-ink transition-colors">
                         {p.name}
                       </Link>
                     )}

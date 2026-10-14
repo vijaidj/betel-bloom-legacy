@@ -31,11 +31,9 @@ const SectionHeader = ({
     <div
       className={`${centered ? "text-center mx-auto" : "text-left"} ${
         centered ? "max-w-2xl" : ""
-      } mb-12 md:mb-14 ${className}`}
+      } mb-10 md:mb-12 ${className}`}
     >
-      <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
-        {eyebrow}
-      </p>
+      <p className={`${onDark ? "eyebrow-on-dark" : "eyebrow"} mb-3`}>{eyebrow}</p>
       <h2
         className={`font-heading text-3xl md:text-[42px] leading-[1.12] ${
           onDark ? "text-primary-foreground" : "text-primary"

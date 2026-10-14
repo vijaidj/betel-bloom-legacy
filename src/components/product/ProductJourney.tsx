@@ -9,7 +9,7 @@ export const ProductJourney = ({ steps }: { steps: JourneyStep[] }) => (
   <section className="py-20 md:py-24 bg-secondary/25 border-y border-border/60">
     <div className="container mx-auto px-4 max-w-5xl">
       <div className="text-center mb-14">
-        <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+        <p className="eyebrow mb-3">
           Farm to your door
         </p>
         <h2 className="font-heading text-3xl md:text-[38px] leading-tight text-primary">
@@ -37,7 +37,7 @@ export const ProductJourney = ({ steps }: { steps: JourneyStep[] }) => (
                   <Icon className="h-6 w-6 text-accent" />
                 </span>
                 <div className="min-w-0">
-                  <p className="text-[11px] tracking-widest text-accent/60 font-semibold mb-1">
+                  <p className="text-[11px] tracking-widest text-gold-ink/80 font-semibold mb-1">
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <h3 className="font-heading text-lg text-primary leading-snug mb-1.5">{s.title}</h3>
@@ -86,7 +86,7 @@ export const VariantComparison = ({ variants, rows, selectedId, onSelect }: Comp
     <section className="py-20 md:py-24">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-12">
-          <p className="text-[11px] uppercase tracking-[0.28em] text-accent font-semibold mb-3">
+          <p className="eyebrow mb-3">
             Side by side
           </p>
           <h2 className="font-heading text-3xl md:text-[38px] leading-tight text-primary">
@@ -114,7 +114,7 @@ export const VariantComparison = ({ variants, rows, selectedId, onSelect }: Comp
                     <span className="block text-[17px] font-semibold tracking-tight text-primary leading-tight tabular-nums">
                       {v.label}
                     </span>
-                    <span className="block text-xs text-accent mt-0.5">{v.sublabel}</span>
+                    <span className="block text-xs text-gold-ink mt-0.5">{v.sublabel}</span>
                   </th>
                 ))}
               </tr>

@@ -149,7 +149,7 @@ const Reel = ({ src, poster, label, alt }: (typeof reels)[number]) => {
 };
 
 const GallerySection = () => (
-  <section id="gallery" className="py-20 bg-primary/5">
+  <section id="gallery" className="section bg-parchment">
     <div className="container mx-auto px-4">
       <SectionHeader
           eyebrow="Our farm"

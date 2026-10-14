@@ -103,7 +103,7 @@ const VariantSelector = ({ label, variants, selectedId, onSelect, onPreload }: P
                   <span className="block text-[17px] font-semibold tracking-tight leading-tight text-primary tabular-nums">
                     {v.label}
                   </span>
-                  <span className="block text-xs text-accent font-medium mt-0.5">{v.sublabel}</span>
+                  <span className="block text-xs text-gold-ink font-medium mt-0.5">{v.sublabel}</span>
                   <span className="block text-xs text-muted-foreground mt-1.5 leading-relaxed">
                     {v.note}
                   </span>
@@ -117,7 +117,7 @@ const VariantSelector = ({ label, variants, selectedId, onSelect, onPreload }: P
                           <span className="text-sm text-muted-foreground/70 line-through tabular-nums">
                             ₹{v.mrp}
                           </span>
-                          <span className="text-[11px] font-semibold text-accent">
+                          <span className="text-[11px] font-semibold text-gold-ink">
                             {Math.round((1 - v.price / v.mrp) * 100)}% off
                           </span>
                         </>

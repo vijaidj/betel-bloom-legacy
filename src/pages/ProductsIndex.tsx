@@ -41,10 +41,10 @@ const ProductsIndex = () => {
       />
       <Navbar />
 
-      <main className="pt-28 md:pt-32">
+      <main className="pt-24 md:pt-28">
         <nav aria-label="Breadcrumb" className="container mx-auto px-4 mb-6">
           <ol className="flex items-center gap-1.5 text-xs text-muted-foreground">
-            <li><Link to="/" className="hover:text-accent transition-colors">Home</Link></li>
+            <li><Link to="/" className="hover:text-gold-ink transition-colors">Home</Link></li>
             <li aria-hidden="true"><ChevronRight className="h-3 w-3" /></li>
             <li className="text-primary font-medium" aria-current="page">Products</li>
           </ol>
@@ -52,7 +52,7 @@ const ProductsIndex = () => {
 
         <section className="container mx-auto px-4 mb-16">
           <div className="max-w-6xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-5">
+            <span className="inline-flex items-center gap-1.5 bg-accent/15 text-gold-ink px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-5">
               <Leaf className="h-3 w-3" aria-hidden="true" /> Our Range
             </span>
 
@@ -88,9 +88,9 @@ const ProductsIndex = () => {
                   />
                 </Link>
                 <div className="p-6 flex flex-col flex-1">
-                  <span className="text-xs font-semibold text-accent uppercase tracking-wider mb-2">{p.tagline}</span>
+                  <span className="text-xs font-semibold text-gold-ink uppercase tracking-wider mb-2">{p.tagline}</span>
                   <h2 className="text-lg font-semibold text-primary mb-2">
-                    <Link to={`/products/${p.slug}/`} className="hover:text-accent transition-colors">{p.name}</Link>
+                    <Link to={`/products/${p.slug}/`} className="hover:text-gold-ink transition-colors">{p.name}</Link>
                   </h2>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">{p.cardDescription}</p>
                   <div className="flex gap-2">

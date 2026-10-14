@@ -6,10 +6,10 @@ const WHATSAPP_URL = "https://wa.me/919600441284";
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "Packages", href: "/#products" },
-  { label: "All Products", href: "/products" },
-  { label: "Occasions", href: "/#occasions" },
-  { label: "About Us", href: "/#about" },
+  { label: "Products", href: "/#products" },
+  { label: "All Products", href: "/products/" },
+  { label: "Weddings & Bulk", href: "/#wedding" },
+  { label: "Our Farm", href: "/#about" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -18,17 +18,17 @@ const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="relative overflow-hidden bg-[#0a1f17] text-white">
+    <footer className="relative overflow-hidden bg-forest-deep text-white">
       <div className="h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 md:gap-4">
+        <div className="py-12 grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-6">
           {/* Brand */}
-          <div className="md:col-span-4 space-y-3">
+          <div className="col-span-2 md:col-span-4 space-y-3">
             <h3 className="font-serif text-xl font-bold">
               Sri Sholavandan <span className="text-accent">Heritage Vetrilai</span>
             </h3>
-            <p className="text-sm text-white/50 leading-relaxed max-w-xs">
+            <p className="text-sm text-white/70 leading-relaxed max-w-xs">
               Three generations of farming heritage, delivering GI-certified betel leaves with unmatched freshness.
             </p>
             <div className="flex items-center gap-2">
@@ -40,9 +40,9 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="md:col-span-3">
             <h4 className="text-[11px] uppercase tracking-[0.25em] mb-4 font-semibold text-accent">Quick Links</h4>
-            <div className="space-y-2">
+            <div className="space-y-2.5">
               {quickLinks.map((link) => (
-                <a key={link.href} href={link.href} className="block text-sm text-white/45 hover:text-accent transition-colors">
+                <a key={link.href} href={link.href} className="block text-sm text-white/70 hover:text-accent transition-colors">
                   {link.label}
                 </a>
               ))}
@@ -50,20 +50,20 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div className="md:col-span-3">
+          <div className="col-span-2 sm:col-span-1 md:col-span-3">
             <h4 className="text-[11px] uppercase tracking-[0.25em] mb-4 font-semibold text-accent">Contact</h4>
             <div className="space-y-3">
-              <a href="tel:+919600441284" className="flex items-center gap-2 text-sm text-white/45 hover:text-accent transition-colors">
+              <a href="tel:+919600441284" className="flex items-center gap-2 text-sm text-white/70 hover:text-accent transition-colors">
                 <Phone className="h-4 w-4" /> +91 96004 41284
               </a>
-              <a href="mailto:vetrileaf@gmail.com" className="flex items-center gap-2 text-sm text-white/45 hover:text-accent transition-colors">
+              <a href="mailto:vetrileaf@gmail.com" className="flex items-center gap-2 text-sm text-white/70 hover:text-accent transition-colors">
                 {/* TODO: Replace with your real business email */}
                 <Mail className="h-4 w-4" /> vetrileaf@gmail.com
               </a>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-white/45 hover:text-accent transition-colors">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-white/70 hover:text-accent transition-colors">
                 <MessageCircle className="h-4 w-4" /> WhatsApp Order
               </a>
-              <p className="flex items-start gap-2 text-sm text-white/40">
+              <p className="flex items-start gap-2 text-sm text-white/70">
                 <MapPin className="h-4 w-4 shrink-0 mt-0.5" /> Sholavandan, Madurai District, Tamil Nadu
               </p>
             </div>
@@ -72,7 +72,7 @@ const Footer = () => {
           {/* Social */}
           <div className="md:col-span-2">
             <h4 className="text-[11px] uppercase tracking-[0.25em] mb-4 font-semibold text-accent">Social</h4>
-            <div className="space-y-2 text-sm text-white/45">
+            <div className="space-y-2 text-sm text-white/70">
               {/* TODO: Replace # with your real Instagram URL e.g. https://www.instagram.com/vetrileaf/ */}
               <a href="https://www.instagram.com/vetrileaf/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors"><Instagram className="h-4 w-4" /> Instagram</a>
               {/* TODO: Replace # with your real Facebook URL e.g. https://facebook.com/SriSholavandanHeritage */}
@@ -93,10 +93,10 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="py-3 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-white/5">
-          <p className="text-[11px] text-white/30">
+          <p className="text-xs text-white/60">
             © {new Date().getFullYear()} Sri Sholavandan Heritage Vetrilai. All Rights Reserved.
           </p>
-          <button onClick={scrollToTop} className="flex items-center gap-2 text-[11px] text-accent/60 hover:text-accent transition-colors">
+          <button onClick={scrollToTop} className="flex items-center gap-2 text-[11px] text-accent hover:text-white transition-colors">
             Back to top <ArrowUp className="h-3 w-3" />
           </button>
         </div>

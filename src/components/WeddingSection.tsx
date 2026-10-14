@@ -21,7 +21,7 @@ const WeddingSection = () => (
     <div className="container">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         <div className="lg:col-span-5">
-          <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-xl shadow-primary/10">
+          <div className="rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-[4/5] shadow-xl shadow-primary/10">
             <img
               src={weddingImg}
               alt="Tamil wedding with Sholavandan betel leaf thamboolam"

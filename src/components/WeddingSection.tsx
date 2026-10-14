@@ -1,5 +1,5 @@
 import { MessageCircle, ArrowRight, Heart, Flower2, Home, Sparkles, HandHeart, Gift } from "lucide-react";
-import weddingImg from "@/assets/highlight-wedding.webp";
+import weddingImg from "@/assets/wedding-thamboolam.webp";
 
 const WEDDING_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20book%20betel%20leaves%20for%20my%20wedding%20or%20function";
 const FUNCTION_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20book%20betel%20leaves%20for%20my%20function";
@@ -21,7 +21,7 @@ const WeddingSection = () => (
     <div className="container">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         <div className="lg:col-span-5">
-          <div className="rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-[4/5] shadow-xl shadow-primary/10">
+          <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-xl shadow-primary/10">
             <img
               src={weddingImg}
               alt="Tamil wedding with Sholavandan betel leaf thamboolam"

@@ -1,13 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import { Play, Volume2, VolumeX } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Volume2, VolumeX } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import leafIcon from "@/assets/leaf-icon.webp";
 import betelBundles from "@/assets/betel-bundles-fresh.webp";
 import leavesCloseup from "@/assets/farm/farm-leaves-closeup.webp";
 import gardenPath from "@/assets/farm/farm-garden-path.webp";
 import farmerWalking from "@/assets/farm/farm-farmer-walking.webp";
-import vineRows from "@/assets/farm/farm-vine-rows.webp";
-import peacock from "@/assets/farm/farm-peacock.webp";
+import newField from "@/assets/farm/farm-new-field.webp";
+import newFieldClose from "@/assets/farm/farm-new-field-close.webp";
+import newGardenVideo from "@/assets/farm/farm-new-garden.mp4";
+import newGardenPoster from "@/assets/farm/farm-new-garden-poster.webp";
+import youngVinesVideo from "@/assets/farm/farm-young-vines.mp4";
+import youngVinesPoster from "@/assets/farm/farm-young-vines-poster.webp";
+import newRowsVideo from "@/assets/farm/farm-new-rows.mp4";
+import newRowsPoster from "@/assets/farm/farm-new-rows-poster.webp";
 import harvestVideo from "@/assets/farm/farm-harvest.mp4";
 import harvestPoster from "@/assets/farm/farm-harvest-poster.webp";
 import pickingVideo from "@/assets/farm/farm-hand-picking.mp4";
@@ -19,19 +25,23 @@ import walkPoster from "@/assets/farm/farm-vine-walk-poster.webp";
 
 const INSTAGRAM_URL = "https://www.instagram.com/vetrileaf/";
 
+// In growing order: a new garden first, then the mature vines and the harvest
 const reels = [
-  { src: harvestVideo, poster: harvestPoster, label: "Harvested by hand", alt: "Farmer hand-picking betel leaves from the vine" },
-  { src: pickingVideo, poster: pickingPoster, label: "Picked leaf by leaf", alt: "Farmer reaching into the vine to pick betel leaves one at a time" },
-  { src: leafVideo, poster: leafPoster, label: "A leaf, just picked", alt: "A betel leaf plucked from the vine and held up in the garden" },
-  { src: walkVideo, poster: walkPoster, label: "Inside the vine garden", alt: "Walking between rows of betel vines" },
+  { src: newGardenVideo, poster: newGardenPoster, stage: "New planting", label: "A new garden taking shape", alt: "A newly planted betel garden with young plants in rows" },
+  { src: youngVinesVideo, poster: youngVinesPoster, stage: "New planting", label: "Young vines at the base", alt: "Young betel vines starting to climb at the base of their supports" },
+  { src: newRowsVideo, poster: newRowsPoster, stage: "New planting", label: "Rows of the new planting", alt: "Rows of the new planting beside the garden fence" },
+  { src: walkVideo, poster: walkPoster, stage: "Mature garden", label: "Inside the vine garden", alt: "Walking between rows of betel vines" },
+  { src: harvestVideo, poster: harvestPoster, stage: "Harvest", label: "Harvested by hand", alt: "Farmer hand-picking betel leaves from the vine" },
+  { src: pickingVideo, poster: pickingPoster, stage: "Harvest", label: "Picked leaf by leaf", alt: "Farmer reaching into the vine to pick betel leaves one at a time" },
+  { src: leafVideo, poster: leafPoster, stage: "Harvest", label: "A leaf, just picked", alt: "A betel leaf plucked from the vine and held up in the garden" },
 ];
 
 const images = [
+  { src: newField, alt: "A newly planted garden at our farm, with coconut palms behind" },
+  { src: newFieldClose, alt: "Young plants in a new garden, with betel vine leaves at the base" },
+  { src: gardenPath, alt: "Path between mature betel vine rows with a drip irrigation line" },
   { src: leavesCloseup, alt: "Betel leaves growing on the vine at our Sholavandan farm" },
-  { src: gardenPath, alt: "Path between betel vine rows with a drip irrigation line" },
   { src: farmerWalking, alt: "Farmer walking between rows of betel vines" },
-  { src: vineRows, alt: "Rows of betel vines climbing their supports" },
-  { src: peacock, alt: "Peacock perched on a wall at the farm" },
   { src: betelBundles, alt: "Fresh betel leaf bundles ready for delivery" },
 ];
 
@@ -40,7 +50,7 @@ const images = [
  * Tap the clip to pause or resume; the speaker button turns the ambient garden
  * sound on for that reel only.
  */
-const Reel = ({ src, poster, label, alt }: (typeof reels)[number]) => {
+const Reel = ({ src, poster, stage, label, alt }: (typeof reels)[number]) => {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
@@ -86,7 +96,7 @@ const Reel = ({ src, poster, label, alt }: (typeof reels)[number]) => {
   };
 
   return (
-    <figure className="relative shrink-0 w-[62vw] max-w-[280px] sm:w-auto sm:max-w-none snap-start aspect-[9/16] rounded-2xl overflow-hidden bg-primary shadow-lg">
+    <figure className="relative shrink-0 w-[62vw] max-w-[280px] sm:w-[240px] snap-start aspect-[9/16] rounded-2xl overflow-hidden bg-primary shadow-lg">
       <video
         ref={ref}
         src={src}
@@ -125,6 +135,10 @@ const Reel = ({ src, poster, label, alt }: (typeof reels)[number]) => {
         <div className="h-full bg-white rounded-full" style={{ width: `${progress * 100}%` }} />
       </div>
 
+      <span className="absolute top-5 left-3 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-sm text-white text-[11px] font-medium pointer-events-none">
+        {stage}
+      </span>
+
       <button
         type="button"
         onClick={toggleSound}
@@ -147,20 +161,41 @@ const Reel = ({ src, poster, label, alt }: (typeof reels)[number]) => {
   );
 };
 
-const GallerySection = () => (
+const GallerySection = () => {
+  const shelf = useRef<HTMLDivElement>(null);
+  const scrollShelf = (dir: 1 | -1) =>
+    shelf.current?.scrollBy({ left: dir * shelf.current.clientWidth * 0.8, behavior: "smooth" });
+
+  return (
   <section id="gallery" className="py-20 bg-primary/5">
     <div className="container mx-auto px-4">
       <SectionHeader
           eyebrow="Our farm"
           title="Grown by us, not sourced"
-          description="Every leaf comes from our own betel gardens in Sholavandan. This is unstaged footage of how we grow and pick them."
+          description="Every leaf comes from our own betel gardens in Sholavandan. Follow a garden from the first planting to the harvest, in unstaged footage."
           align="center"
         />
 
-      {/* Reels — swipe sideways on phones, four across on desktop */}
-      <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-px-4 -mx-4 px-4 pb-2 sm:mx-auto sm:px-0 sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-4 sm:overflow-visible max-w-xl lg:max-w-5xl [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {reels.map((r) => (
-          <Reel key={r.label} {...r} />
+      {/* Reels shelf — swipe on phones, arrows on desktop */}
+      <div className="relative max-w-5xl mx-auto">
+        <div
+          ref={shelf}
+          className="flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory scroll-px-4 -mx-4 px-4 pb-2 lg:mx-0 lg:px-0 lg:scroll-px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {reels.map((r) => (
+            <Reel key={r.label} {...r} />
+          ))}
+        </div>
+        {([-1, 1] as const).map((dir) => (
+          <button
+            key={dir}
+            type="button"
+            onClick={() => scrollShelf(dir)}
+            aria-label={dir < 0 ? "Previous reels" : "More reels"}
+            className={`hidden lg:flex absolute top-1/2 -translate-y-1/2 ${dir < 0 ? "-left-5" : "-right-5"} w-11 h-11 rounded-full bg-background border border-border shadow-md items-center justify-center text-primary hover:border-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent`}
+          >
+            {dir < 0 ? <ChevronLeft className="h-5 w-5" aria-hidden="true" /> : <ChevronRight className="h-5 w-5" aria-hidden="true" />}
+          </button>
         ))}
       </div>
 
@@ -191,6 +226,7 @@ const GallerySection = () => (
       </p>
     </div>
   </section>
-);
+  );
+};
 
 export default GallerySection;

@@ -8,10 +8,10 @@ import gardenPath from "@/assets/farm/farm-garden-path.webp";
 import farmerWalking from "@/assets/farm/farm-farmer-walking.webp";
 import vineRows from "@/assets/farm/farm-vine-rows.webp";
 import peacock from "@/assets/farm/farm-peacock.webp";
-import harvestVideo from "@/assets/farm/farm-harvest.mp4";
-import harvestPoster from "@/assets/farm/farm-harvest-poster.webp";
-import pickingVideo from "@/assets/farm/farm-hand-picking.mp4";
-import pickingPoster from "@/assets/farm/farm-hand-picking-poster.webp";
+import newPlantingVideo from "@/assets/farm/farm-new-planting.mp4";
+import newPlantingPoster from "@/assets/farm/farm-new-planting-poster.webp";
+import harvestVideo from "@/assets/farm/farm-harvest-picking.mp4";
+import harvestPoster from "@/assets/farm/farm-harvest-picking-poster.webp";
 import leafVideo from "@/assets/farm/farm-leaf-in-hand.mp4";
 import leafPoster from "@/assets/farm/farm-leaf-in-hand-poster.webp";
 import walkVideo from "@/assets/farm/farm-vine-walk.mp4";
@@ -20,8 +20,8 @@ import walkPoster from "@/assets/farm/farm-vine-walk-poster.webp";
 const INSTAGRAM_URL = "https://www.instagram.com/vetrileaf/";
 
 const reels = [
-  { src: harvestVideo, poster: harvestPoster, label: "Harvested by hand", alt: "Farmer hand-picking betel leaves from the vine" },
-  { src: pickingVideo, poster: pickingPoster, label: "Picked leaf by leaf", alt: "Farmer reaching into the vine to pick betel leaves one at a time" },
+  { src: newPlantingVideo, poster: newPlantingPoster, label: "A new garden, from scratch", alt: "A newly planted betel garden, then young vines at the base of their supports" },
+  { src: harvestVideo, poster: harvestPoster, label: "Harvested by hand, leaf by leaf", alt: "Farmer hand-picking betel leaves from the vine one at a time" },
   { src: leafVideo, poster: leafPoster, label: "A leaf, just picked", alt: "A betel leaf plucked from the vine and held up in the garden" },
   { src: walkVideo, poster: walkPoster, label: "Inside the vine garden", alt: "Walking between rows of betel vines" },
 ];

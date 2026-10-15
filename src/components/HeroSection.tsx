@@ -5,28 +5,9 @@ import farmerWalking from "@/assets/farm/farm-farmer-walking.webp";
 import leafIcon from "@/assets/leaf-icon.webp";
 import GIBadge from "@/components/GIBadge";
 import GICertificateModal from "@/components/GICertificateModal";
-import { LeafPaths } from "@/components/BrandStatementSection";
+import { VineBorder } from "@/components/BrandStatementSection";
 
 const WHATSAPP_URL = "https://wa.me/919600441284?text=Hi%2C%20I%20want%20to%20order%20Sholavandan%20Betel%20Leaf";
-
-/** A small hand-drawn sprig of three betel leaves, matching the brand statement art. */
-const Sprig = ({ className = "" }: { className?: string }) => (
-  <svg
-    viewBox="0 0 200 200"
-    className={className}
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.6}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M20 190 C60 150 90 120 120 70 C135 45 150 30 175 15" strokeWidth={2} />
-    <g transform="translate(70 140) rotate(-120) scale(0.62)"><LeafPaths /></g>
-    <g transform="translate(108 92) rotate(55) scale(0.72)"><LeafPaths /></g>
-    <g transform="translate(150 40) rotate(-105) scale(0.55)"><LeafPaths /></g>
-  </svg>
-);
 
 /**
  * Hand-drawn heritage hero: ivory ground, brand and offer on the left, our
@@ -39,11 +20,11 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative overflow-hidden bg-[#FBF8F1]">
-      {/* Corner sprigs */}
-      <Sprig className="absolute -left-10 -bottom-10 w-36 md:w-48 text-[#8FA88F]/50 pointer-events-none" />
-      <Sprig className="hidden md:block absolute -right-8 top-16 w-48 lg:w-60 text-[#8FA88F]/50 rotate-180 pointer-events-none" />
+      {/* Side borders — the same hand-drawn betel vines as the brand statement */}
+      <VineBorder className="hidden sm:block absolute left-0 top-0 h-full w-16 md:w-24 xl:w-28 text-[#8FA88F]/70 pointer-events-none" />
+      <VineBorder className="hidden sm:block absolute right-0 top-0 h-full w-16 md:w-24 xl:w-28 text-[#8FA88F]/70 pointer-events-none" flip />
 
-      <div className="container relative pt-24 pb-14 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24">
+      <div className="container relative sm:px-16 md:px-24 xl:px-32 pt-24 pb-14 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Copy */}
           <div className="lg:col-span-7">
@@ -58,7 +39,7 @@ const HeroSection = () => {
               </h1>
             </div>
 
-            <p className="font-script text-[28px] sm:text-4xl md:text-[44px] leading-[1.3] text-gold-ink mb-6">
+            <p className="font-script text-[28px] sm:text-4xl md:text-[40px] lg:text-[36px] xl:text-[40px] leading-[1.3] text-gold-ink mb-6 text-balance">
               Sholavandan GI Certified Betel Leaf
             </p>
 
@@ -69,18 +50,18 @@ const HeroSection = () => {
               Harvested fresh every morning from our heritage farms along the Vaigai river basin. No middlemen. No cold storage. Pure farm-direct freshness.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-8">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 h-14 px-8 rounded-full bg-primary text-primary-foreground text-base font-semibold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center justify-center gap-2.5 h-14 px-8 whitespace-nowrap rounded-full bg-primary text-primary-foreground text-base font-semibold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-colors"
               >
                 <MessageCircle className="h-5 w-5" aria-hidden="true" /> Order on WhatsApp
               </a>
               <a
                 href="tel:+919600441284"
-                className="inline-flex items-center justify-center gap-2.5 h-14 px-7 rounded-full border-2 border-primary/30 text-primary text-base font-semibold hover:bg-primary/5 transition-colors"
+                className="inline-flex items-center justify-center gap-2.5 h-14 px-7 whitespace-nowrap rounded-full border-2 border-primary/30 text-primary text-base font-semibold hover:bg-primary/5 transition-colors"
               >
                 <Phone className="h-5 w-5" aria-hidden="true" /> Call +91 96004 41284
               </a>

@@ -27,7 +27,7 @@ const Leaf = ({ x, y, r, s = 1 }: { x: number; y: number; r: number; s?: number 
 );
 
 /** A climbing vine of betel leaves for the side borders. */
-const VineBorder = ({ className = "", flip = false }: { className?: string; flip?: boolean }) => (
+export const VineBorder = ({ className = "", flip = false }: { className?: string; flip?: boolean }) => (
   <svg
     viewBox="0 0 220 900"
     className={className}

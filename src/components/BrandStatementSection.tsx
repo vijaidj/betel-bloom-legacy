@@ -27,102 +27,109 @@ const Leaf = ({ x, y, r, s = 1 }: { x: number; y: number; r: number; s?: number 
 );
 
 /**
- * Betel leaf in line art: heart-shaped base with two rounded lobes, a gently
- * curved drip tip, and the arched veins that run from the base to the tip.
- * Outline only, like a pen drawing. Base at (0,0), leaf along +y.
+ * Abstract betel leaf: the heart shape reduced to an outline and a centre
+ * line. "f" leaves are softly tinted.
+ * Base at (0,0), leaf along +y.
  */
-const LineLeaf = () => (
-  <>
-    <path d="M0 0 C-7 -11 -29 -14 -40 2 C-51 20 -44 50 -27 74 C-15 91 -4 104 7 120 C5 104 11 90 23 74 C41 50 49 21 39 3 C29 -13 8 -11 0 0 Z" />
-    <path d="M0 0 C2 40 4 80 7 118" />
-    <path d="M0 2 C-13 20 -22 50 -16 88" />
-    <path d="M0 2 C13 20 23 50 19 86" />
-    <path d="M0 2 C-23 12 -35 32 -33 56" />
-    <path d="M0 2 C23 12 36 31 35 54" />
-    <path d="M-16 38 C-23 44 -28 50 -31 58" strokeWidth={0.8} />
-    <path d="M17 38 C24 44 29 50 32 57" strokeWidth={0.8} />
-    <path d="M-12 62 C-16 68 -19 74 -21 80" strokeWidth={0.8} />
-    <path d="M14 62 C18 68 21 74 23 79" strokeWidth={0.8} />
-    <path d="M-36 20 C-30 22 -24 26 -20 30" strokeWidth={0.7} />
-    <path d="M37 19 C31 21 25 25 21 29" strokeWidth={0.7} />
-    {/* Stalk */}
-    <path d="M0 0 C0 -8 4 -16 11 -22" />
-  </>
-);
+const AbstractLeaf = ({ k }: { k: string }) => (
+    <>
+      <path
+        d="M0 0 C-7 -11 -29 -14 -40 2 C-51 20 -44 50 -27 74 C-15 91 -4 104 7 120 C5 104 11 90 23 74 C41 50 49 21 39 3 C29 -13 8 -11 0 0 Z"
+        fill={k === "f" ? "currentColor" : "none"}
+        fillOpacity={k === "f" ? 0.14 : 0}
+      />
+      <path d="M0 4 C2 40 4 80 7 112" />
+    </>
+  );
 
-type L = { x: number; y: number; r: number; s: number };
-const Leaves = ({ items }: { items: L[] }) => (
-  <>
-    {items.map((l, i) => (
-      <g key={i} transform={`translate(${l.x} ${l.y}) rotate(${l.r}) scale(${l.s})`}>
-        <LineLeaf />
-      </g>
-    ))}
-  </>
-);
-
-// Front vine: full-strength lines. Heaviest at the corners, as in a hand-drawn border.
-const frontLeaves: L[] = [
-  // bottom cluster
-  { x: 30, y: 860, r: 128, s: 1.25 },
-  { x: 70, y: 845, r: 210, s: 1.05 },
-  { x: 120, y: 880, r: 245, s: 1.2 },
-  { x: 8, y: 770, r: 70, s: 1.1 },
-  { x: 92, y: 760, r: -58, s: 1.0 },
-  // along the stem
-  { x: 66, y: 650, r: 64, s: 1.05 },
-  { x: 98, y: 560, r: -66, s: 1.1 },
-  { x: 58, y: 470, r: 58, s: 0.95 },
-  { x: 104, y: 400, r: -72, s: 1.0 },
-  { x: 70, y: 310, r: 66, s: 1.05 },
-  // top cluster
-  { x: 112, y: 210, r: -60, s: 1.0 },
-  { x: 60, y: 140, r: 74, s: 1.15 },
-  { x: 118, y: 90, r: -40, s: 1.05 },
-  { x: 40, y: 30, r: 150, s: 1.1 },
-  { x: 120, y: 10, r: 200, s: 0.95 },
+// Small leaves along three loose, flowing lines (generated once, kept fixed)
+const abstractLeaves = [
+  { x: 55.7, y: 870.0, r: -31, s: 0.39, k: "o" },
+  { x: 62.0, y: 810.0, r: 403, s: 0.38, k: "o" },
+  { x: 50.0, y: 750.0, r: 302, s: 0.38, k: "o" },
+  { x: 38.0, y: 690.0, r: 411, s: 0.32, k: "o" },
+  { x: 44.3, y: 630.0, r: -21, s: 0.43, k: "o" },
+  { x: 75.4, y: 570.0, r: 58, s: 0.46, k: "o" },
+  { x: 79.5, y: 510.0, r: 298, s: 0.4, k: "f" },
+  { x: 63.8, y: 450.0, r: 382, s: 0.38, k: "f" },
+  { x: 46.8, y: 390.0, r: 306, s: 0.34, k: "f" },
+  { x: 47.3, y: 330.0, r: 65, s: 0.37, k: "o" },
+  { x: 73.0, y: 270.0, r: -36, s: 0.4, k: "o" },
+  { x: 75.1, y: 210.0, r: 404, s: 0.37, k: "f" },
+  { x: 60.0, y: 150.0, r: 283, s: 0.46, k: "o" },
+  { x: 44.9, y: 90.0, r: 406, s: 0.35, k: "f" },
+  { x: 47.0, y: 30.0, r: -29, s: 0.31, k: "o" },
+  { x: 101.9, y: 870.0, r: 294, s: 0.32, k: "f" },
+  { x: 93.6, y: 810.0, r: 62, s: 0.33, k: "o" },
+  { x: 106.2, y: 750.0, r: -34, s: 0.33, k: "o" },
+  { x: 120.1, y: 690.0, r: 49, s: 0.4, k: "f" },
+  { x: 115.4, y: 630.0, r: 291, s: 0.33, k: "f" },
+  { x: 84.9, y: 570.0, r: 403, s: 0.43, k: "o" },
+  { x: 82.6, y: 510.0, r: -46, s: 0.33, k: "o" },
+  { x: 101.2, y: 450.0, r: 78, s: 0.4, k: "f" },
+  { x: 121.1, y: 390.0, r: -48, s: 0.33, k: "f" },
+  { x: 122.4, y: 330.0, r: 400, s: 0.35, k: "f" },
+  { x: 94.3, y: 270.0, r: 300, s: 0.31, k: "o" },
+  { x: 88.6, y: 210.0, r: 52, s: 0.4, k: "o" },
+  { x: 102.5, y: 150.0, r: -32, s: 0.45, k: "o" },
+  { x: 118.8, y: 90.0, r: 62, s: 0.44, k: "f" },
+  { x: 120.3, y: 30.0, r: 304, s: 0.45, k: "o" },
+  { x: 191.6, y: 855.0, r: 318, s: 0.24, k: "o" },
+  { x: 178.9, y: 765.0, r: 405, s: 0.28, k: "f" },
+  { x: 166.0, y: 675.0, r: -57, s: 0.24, k: "f" },
+  { x: 189.4, y: 585.0, r: 58, s: 0.26, k: "f" },
+  { x: 190.0, y: 495.0, r: 307, s: 0.26, k: "o" },
+  { x: 174.8, y: 405.0, r: 397, s: 0.26, k: "o" },
+  { x: 183.4, y: 315.0, r: -38, s: 0.29, k: "o" },
+  { x: 197.0, y: 225.0, r: 407, s: 0.23, k: "f" },
+  { x: 182.9, y: 135.0, r: 310, s: 0.31, k: "o" },
+  { x: 175.6, y: 45.0, r: 65, s: 0.22, k: "o" }
+];
+const abstractDots: [number, number, number][] = [
+  [96.4, 537.8, 2.7],
+  [34.3, 132.8, 2.7],
+  [93.3, 475.4, 1.7],
+  [58.7, 329.8, 1.7],
+  [80.0, 604.8, 1.7],
+  [107.7, 679.3, 2.7],
+  [133.3, 729.2, 2.3],
+  [63.5, 513.3, 2.8],
+  [129.6, 681.5, 2.6],
+  [116.0, 358.0, 2.5],
+  [195.0, 463.1, 2.8],
+  [192.7, 836.1, 2.7],
+  [206.5, 241.3, 2.7],
+  [198.0, 589.8, 2.6],
+  [206.3, 530.4, 2.3]
 ];
 
-// Back vine: lighter and thinner, fills the gaps so the border looks lush.
-const backLeaves: L[] = [
-  { x: 150, y: 820, r: -30, s: 0.8 },
-  { x: 20, y: 690, r: 100, s: 0.85 },
-  { x: 140, y: 620, r: -95, s: 0.75 },
-  { x: 14, y: 520, r: 96, s: 0.9 },
-  { x: 140, y: 470, r: -100, s: 0.7 },
-  { x: 20, y: 380, r: 110, s: 0.85 },
-  { x: 150, y: 300, r: -88, s: 0.75 },
-  { x: 10, y: 230, r: 90, s: 0.9 },
-  { x: 160, y: 160, r: -70, s: 0.7 },
-];
-
-/** A hand-drawn betel vine for the side borders. */
+/** Abstract border of small betel leaves on flowing lines. */
 const VineBorder = ({ className = "", flip = false }: { className?: string; flip?: boolean }) => (
   <svg
     viewBox="0 0 220 900"
     className={className}
     fill="none"
     stroke="currentColor"
-    strokeWidth={1.5}
+    strokeWidth={3.2}
     strokeLinecap="round"
     strokeLinejoin="round"
     preserveAspectRatio="xMinYMid slice"
     style={flip ? { transform: "scaleX(-1)" } : undefined}
     aria-hidden="true"
   >
-    {/* Back layer */}
-    <g opacity={0.45} strokeWidth={1.1}>
-      <path d="M30 900 C10 780 60 700 30 600 C0 500 50 420 24 320 C0 220 40 140 30 0" />
-      <Leaves items={backLeaves} />
+    <g strokeWidth={1}>
+      <path d="M40 900 C110 800 -10 700 60 600 C130 500 0 400 60 300 C120 200 0 100 60 0" strokeWidth={1.3} opacity={0.9} />
+      <path d="M120 900 C40 800 170 700 100 600 C30 500 170 400 110 300 C40 200 160 100 110 0" strokeWidth={1.3} opacity={0.9} />
+      <path d="M185 900 C215 800 130 700 185 600 C220 500 140 400 190 300 C220 200 150 100 185 0" strokeWidth={0.9} opacity={0.55} />
     </g>
-    {/* Front layer */}
-    <path d="M70 900 C40 800 120 740 80 640 C40 540 130 480 90 380 C50 280 140 220 100 120 C80 70 90 30 110 0" strokeWidth={2} />
-    {/* Tendrils */}
-    <path d="M86 610 C110 600 126 584 120 566 C116 554 102 556 104 568" />
-    <path d="M96 350 C70 336 58 316 66 300 C72 290 86 294 82 306" />
-    <path d="M104 150 C130 142 146 124 138 108 C132 98 118 102 122 114" />
-    <path d="M78 720 C58 712 48 696 54 684 C58 676 68 680 64 688" />
-    <Leaves items={frontLeaves} />
+    {abstractLeaves.map((l, i) => (
+      <g key={i} transform={`translate(${l.x} ${l.y}) rotate(${l.r}) scale(${l.s})`}>
+        <AbstractLeaf k={l.k} />
+      </g>
+    ))}
+    {abstractDots.map(([x, y, r], i) => (
+      <circle key={i} cx={x} cy={y} r={r} fill="currentColor" stroke="none" opacity={0.5} />
+    ))}
   </svg>
 );
 

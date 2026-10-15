@@ -21,8 +21,18 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative overflow-hidden bg-[#FBF8F1]">
       {/* Side borders — the same hand-drawn betel vines as the brand statement */}
-      <VineBorder className="hidden sm:block absolute left-0 top-0 h-full w-16 md:w-24 xl:w-28 text-[#8FA88F]/70 pointer-events-none" />
-      <VineBorder className="hidden sm:block absolute right-0 top-0 h-full w-16 md:w-24 xl:w-28 text-[#8FA88F]/70 pointer-events-none" flip />
+      {/* Whole leaves, never cropped: the vine is scaled to the strip width and repeated down the side */}
+      {(["left-0", "right-0"] as const).map((side) => (
+        <div
+          key={side}
+          className={`hidden sm:flex absolute ${side} top-0 h-full w-16 md:w-24 xl:w-40 flex-col overflow-hidden pointer-events-none text-[#8FA88F]/75`}
+          aria-hidden="true"
+        >
+          {[0, 1, 2, 3].map((i) => (
+            <VineBorder key={i} fit flip={side === "right-0"} className="w-full h-auto shrink-0" />
+          ))}
+        </div>
+      ))}
 
       <div className="container relative sm:px-16 md:px-24 xl:px-32 pt-24 pb-14 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">

@@ -27,16 +27,25 @@ const Leaf = ({ x, y, r, s = 1 }: { x: number; y: number; r: number; s?: number 
 );
 
 /** A climbing vine of betel leaves for the side borders. */
-export const VineBorder = ({ className = "", flip = false }: { className?: string; flip?: boolean }) => (
+export const VineBorder = ({
+  className = "",
+  flip = false,
+  fit = false,
+}: {
+  className?: string;
+  flip?: boolean;
+  /** Show every leaf whole (scales to the width) instead of cropping to fill the box */
+  fit?: boolean;
+}) => (
   <svg
-    viewBox="0 0 220 900"
+    viewBox={fit ? "-64 0 284 900" : "0 0 220 900"}
     className={className}
     fill="none"
     stroke="currentColor"
     strokeWidth={1.6}
     strokeLinecap="round"
     strokeLinejoin="round"
-    preserveAspectRatio="xMidYMid slice"
+    preserveAspectRatio={fit ? "xMidYMin meet" : "xMidYMid slice"}
     style={flip ? { transform: "scaleX(-1)" } : undefined}
     aria-hidden="true"
   >

@@ -11,6 +11,7 @@ import HeroSection from "@/components/HeroSection";
 // testimonials, and the map beside the contact form.
 const ProductsSection    = lazy(() => import("@/components/ProductsSection"));
 const WeddingSection     = lazy(() => import("@/components/WeddingSection"));
+const BrandStatementSection = lazy(() => import("@/components/BrandStatementSection"));
 const GallerySection     = lazy(() => import("@/components/GallerySection"));
 const TestimonialsSection= lazy(() => import("@/components/TestimonialsSection"));
 const DeliverySection    = lazy(() => import("@/components/DeliverySection"));
@@ -77,6 +78,7 @@ const Index = () => {
       <HeroSection />
       {/* Farm footage sits directly under the hero: proof we grow it ourselves */}
       <Suspense fallback={<SectionFallback />}>
+        <BrandStatementSection />
         <GallerySection />
       </Suspense>
 

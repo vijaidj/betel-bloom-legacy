@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Pacifico&family=Alegreya:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -113,6 +113,14 @@
 
 .tamil-text {
   font-family: 'Noto Sans Tamil', sans-serif;
+}
+
+/* Brand statement: script heading and book serif body */
+.font-script {
+  font-family: 'Pacifico', cursive;
+}
+.font-book {
+  font-family: 'Alegreya', Georgia, serif;
 }
 
 /* Explicit display face. Headings get this automatically, but the class

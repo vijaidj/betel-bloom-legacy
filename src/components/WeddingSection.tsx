@@ -24,9 +24,9 @@ const WeddingSection = () => (
           <div className="rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-[4/5] shadow-xl shadow-primary/10">
             <img
               src={weddingImg}
-              alt="Tamil wedding with Sholavandan betel leaf thamboolam"
-              width={700}
-              height={400}
+              alt="Freshly picked Sholavandan betel leaves ready for a wedding order"
+              width={892}
+              height={904}
               loading="lazy"
               className="w-full h-full object-cover"
             />

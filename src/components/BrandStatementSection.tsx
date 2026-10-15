@@ -5,7 +5,7 @@
  */
 
 /** One heart-shaped betel leaf with midrib and curved veins; base at (0,0), tip pointing down. */
-const LeafPaths = () => (
+export const LeafPaths = () => (
   <>
     <path d="M0 6 C-16 -8 -44 0 -42 28 C-40 54 -16 74 0 98 C16 74 40 54 42 28 C44 0 16 -8 0 6 Z" />
     <path d="M0 6 L0 94" />
@@ -61,7 +61,7 @@ const VineBorder = ({ className = "", flip = false }: { className?: string; flip
 );
 
 /** Ornamental divider: a rule with diamond ends, flourishes and a betel leaf at the centre. */
-const LeafDivider = ({ className = "" }: { className?: string }) => (
+export const LeafDivider = ({ className = "" }: { className?: string }) => (
   <svg
     viewBox="0 0 640 120"
     className={className}

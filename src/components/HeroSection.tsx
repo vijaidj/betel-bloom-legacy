@@ -46,8 +46,11 @@ const HeroSection = () => {
             <p className="text-lg md:text-xl font-semibold text-primary leading-snug mb-3 max-w-xl">
               Premium Bulk Supply for Weddings, Thamboolam &amp; Puja
             </p>
-            <p className="font-book text-lg md:text-xl leading-relaxed text-foreground/80 mb-8 max-w-xl">
-              Harvested fresh every morning from our heritage farms along the Vaigai river basin. No middlemen. No cold storage. Pure farm-direct freshness.
+            <p className="font-book text-lg md:text-xl leading-relaxed text-foreground/80 mb-3 max-w-xl">
+              Hand-picked every morning from our 3rd-generation farms along the Vaigai river basin. No middlemen. No cold storage. Pure farm-direct freshness.
+            </p>
+            <p className="font-book italic text-base md:text-lg text-gold-ink mb-8">
+              Love Tradition · Love Freshness · Love Vetrilai
             </p>
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-8">
